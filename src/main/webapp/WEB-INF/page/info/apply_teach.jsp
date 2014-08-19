@@ -7,31 +7,6 @@
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentStartClass/style.css?v=v1.01" />
-<style>
-#teacherSetSchool #sName{font-weight: bold;}
-#teacherSetSchool ul.schooLocation,
-#teacherSetSchool .schoolInfo .school,
-#teacherSetSchool .seacherResult{border: 1px solid #e7e7e7;padding:10px 8px;background: #f7f7f7;margin-bottom: 10px;width:798px;}
-#teacherSetSchool ul.schooLocation li{float: left;padding: 0px 7px;line-height: 20px;cursor: pointer;white-space:nowrap;margin:0px!important;}
-#teacherSetSchool ul li.default{ cursor: default; color: #bdbdbd}
-#teacherSetSchool ul li.active{background: #f14211;color: #fff;}
-#teacherSetSchool .schoolInfo .hd{padding-bottom:10px;}
-#teacherSetSchool .schoolInfo .cInput{height:27px;line-height: 27px;border:1px solid #ccc;}
-#teacherSetSchool .schoolInfo .hd .cBtnSilver{height:27px;line-height: 27px;margin-left:10px;background:#f14211;border-radius: 5px;color: #fff;cursor: pointer;border:0px; padding:0px 20px;}
-#teacherSetSchool .schoolInfo .hd .cBtnSilver:hover{opacity: 0.9;filter: alpha(opacity=90);}
-#teacherSetSchool .schoolInfo .noMySchollBtn,
-#teacherSetSchool .schoolInfo .returnSetSchool{color:#F14211;margin-left:10px;}
-#teacherSetSchool .schoolInfo .noMySchollBtn:hover,
-#teacherSetSchool .schoolInfo .returnSetSchool:hover{color:#333;}
-#teacherSetSchool .schoolInfo .school,
-#teacherSetSchool .schoolInfo .seacherResult{height:90px;overflow-y: scroll;}
-#teacherSetSchool .schoolInfo .school dt{width:20px;text-align: center;font-size:14px;}
-#teacherSetSchool .schoolInfo .school dd{width: 760px;}
-#teacherSetSchool .schoolInfo .school dt{font-weight:bold;}
-#teacherSetSchool .schoolInfo span.reset{position: absolute;top: 8px;right:8px;background:url(http://static.nahao.com/online/images/common/close.gif) no-repeat;);width:11px;height:11px;text-indent: -999em; overflow: hidden;cursor: pointer;}
-#teacherSetSchool .schoolInfo .school dd li{width:25%;padding:0px;display:block;float: left;height:24px;overflow: hidden; cursor: pointer; text-indent: 10px;}
-#teacherSetSchool .seacherResult li{width:25%;padding:0px;display:block;float: left;height:24px;overflow: hidden; cursor: pointer; text-indent: 10px;}
-</style>
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body>
@@ -41,13 +16,13 @@
 	<div class="writeInfo">
 		<div class="box layout">
 			<h2>请填写试讲信息<span>(以下信息会严格保密，请您放心填写）</span></h2>
-			<s:form action="save_apply_teach" namespace="/member" method="post">
+			<s:form action="save_apply_teach" namespace="/member" method="get">
 				<s:hidden name="userId" value="%{userId}"/>
 				<ul class="Oul">
 					<li class="cf">
 						<p class="fl">真实姓名</p>
 						<div class="cf">
-							<s:textfield name="realName" cssClass="wUname fl textInput" validName="text" value="%{realName}" />
+							<input type="text" name="realName" class="wUname fl textInput" validName="text" />
 							<div class="Validform_tip_info fl undis">请输入真实姓名</div>
                           	<div class="Validform_checktip fl"></div>
 						</div>
@@ -57,7 +32,7 @@
 						<p class="fl">所在地区与学校</p>
 						<div class="cf">
 							<div class="cf schoolPar">
-								<s:textfield cssClass="schoolFullName cInput yh" validName="text" value="%{schoolName}" name="schoolName" />
+								<input type="text" class="schoolFullName cInput yh" validName="text" name="schoolName" />
 								<!-- <a href="javascript:void(0);" class="resetSchool optional" set="1" province="2" city="" county="500">选择学校</a> -->
 								<!-- 
 								<div class="Validform_tip_info undis">请选择就读学校</div>
@@ -85,7 +60,7 @@
 					<li class="cf">
 						<p class="fl">年龄</p>
 						<div class="cf">
-							<s:textfield name="age" cssClass="wage fl textInput" validName="text"/>
+							<input type="text" name="age" class="wage fl textInput" validName="text"/>
 							<div class="Validform_tip_info fl undis">请输入年龄</div>
                       		<div class="Validform_checktip fl"></div>
 						</div>
@@ -190,7 +165,7 @@
 					<li class="cf">
 						<p class="fl">手机号码</p>						
 						<div class="cf">
-							<input type="text" name="phone" class="wphone textInput fl" validName="text" value="" />
+							<input type="text" name="phone" class="wphone textInput fl" validName="text"/>
 							<div class="Validform_tip_info fl undis">请输入手机号码</div>
                       		<div class="Validform_checktip fl"></div>
 						</div>
@@ -199,7 +174,7 @@
 					<li class="cf">
 						<p class="fl">常用邮箱</p>
 						<div class="cf">
-							<input type="text" name="email" class="wEmail textInput fl" validName="text" value="" />
+							<input type="text" name="email" class="wEmail textInput fl" validName="text" />
 							<div class="Validform_tip_info fl undis">请输入常用邮箱</div>
                       		<div class="Validform_checktip fl"></div>
 						</div>
@@ -207,7 +182,7 @@
 					<li class="cf">
 						<p class="fl">QQ号</p>		
 						<div class="cf">
-							<input type="text" name="qq" class="wQQ textInput fl" validName="text" value="" />
+							<input type="text" name="qq" class="wQQ textInput fl" validName="text" />
 							<div class="Validform_tip_info fl undis">请输入QQ号</div>
                       		<div class="Validform_checktip fl"></div>
 						</div>
@@ -320,6 +295,7 @@
                       		<div class="Validform_checktip fl"></div>
 						</div>
 					</li>
+					<!--
 					<li>
 						<p>课程介绍</p>
 						<textarea name="courseBrief" id="postEditor" style="visibility: hidden;"></textarea>		
@@ -331,6 +307,7 @@
 					<li class="cf">
 						<input id="apply_teach_submit" type="submit" value="提交申请" class="noShowBtn redBtn submit fl" />
 					</li>
+					  -->
 				</ul>
 			</s:form>
 		</div>
@@ -339,63 +316,6 @@
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
  <jsp:include page="/login_pop.jsp" />
-<!--选择学校-->
-<div id="resetSchoolPop" class="pop_box undis">
-    <div id="teacherSetSchool">
-        <div class="pop_main resetSchoolPopCon_beta">
-            <!-- 选择省份开始 -->
-            <ul class="schooLocation schoolProvice cf province undis"></ul>
-            <!-- 选择省份结束 -->
-            <!-- 选择城市开始 -->
-            <ul class="schooLocation schoolCity cf city undis"></ul>
-            <!-- 选择城市结束 -->
-            <!-- 选择区县开始 -->
-            <ul class="schooLocation schoolCounty cf county"></ul>
-            <!-- 选择区县结束 -->
-            <!-- 选择学校性质开始 -->
-            <ul class="schooLocation schoolGrade cf sctype undis"></ul>
-            <!-- 选择学校性质结束 -->
-            <!-- 选择学校开始 -->
-            <div class="schoolInfo undis">
-                <div class="hd">
-                    <form class="seacherSchoolForm" method="post">
-                        <span class="fl">按选中的条件搜索：</span>
-                        <div class="posr fl">
-                            <input type="text" name="" class="cInput schoolNames" />
-                            <div class="ValidformInfo">
-                              <span class="Validform_checktip"></span>
-                              <span class="dec">
-                                <s class="dec1">&#9670;</s>
-                                <s class="dec2">&#9670;</s>
-                              </span>
-                            </div>
-                            <span class="reset undis" title="重置">X</span>
-                        </div>
-                        <input type="submit" value="搜索" class="cBtnSilver fl yh" />
-                        <a href="javascript:void(0)" class="noMySchollBtn fl">没有我的学校？</a>
-                    </form>
-                </div>
-                <div class="schooLocation schoolName school undis">
-                </div>
-                <!-- 搜索结果开始 -->
-                <div class="seacherResult undis cf">
-                    <ul></ul>
-                </div>
-                <!-- 搜索结果结束 -->
-                <!-- 没有我的学校开始 -->
-                <div class="bd undis">
-                    <span class="fl">
-                        请输入您的学校名称：
-                    </span>
-                    <input type="text" class="cInput fl writeSchoolName" />
-                    <a href="javascript:void(0)" class="returnSetSchool fl">返回选择学校</a>
-                </div>
-                <!-- 没有我的学校结束 -->
-            </div>
-            <!-- 选择学校结束 -->
-        </div>
-    </div>
-</div>
 <script src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
 <script src="<%=basePath %>online/lib/kindeditor/4.1.10/kindeditor.js"></script>
 <script type="text/javascript">

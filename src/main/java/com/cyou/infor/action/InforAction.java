@@ -1,5 +1,6 @@
 package com.cyou.infor.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -100,7 +101,6 @@ public class InforAction extends BaseAction{
 			@Result(name = INPUT, type="redirect",location = "/index")
 			})
 	public String saveApplyTeach(){
-		System.out.println("teach title:" + teacherTitle);
 		try {
 			Account account = (Account) getFromSession("account");
 			if(account != null){
@@ -126,7 +126,7 @@ public class InforAction extends BaseAction{
 				at.setQq(qq);
 				at.setRealName(realName);
 				at.setResume(resume);
-				at.setSchoolId(0);
+				at.setSchoolId(0);	
 				at.setSchoolName(schoolName);
 				switch (stage) {
 				case 1:
