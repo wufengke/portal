@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>那好在线课程登录界面-那好网</title>
+<meta name="description" content="那好在线课程登录界面" />
+<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/login/style.css?v=v1.01" />
+<%@ include file="/common/JsCss.jsp" %>
+</head>
+<body class="loginPage">
+<jsp:include page="/head.jsp" />
+<!-- 主要内容开始 -->
+<div class="wrap layout login" id="nahaoModule" module="login" data_page="studentPage">
+	<div class="loginWrap cf">
+		<div class="fl loginBgIco"></div>
+		<div class="loginBox fr">
+			<s:form action="login/submit" cssClass="loginForm" method="post" onsubmit="">
+				<p id="msgInfo" class="msgInfo"></p>
+				<ul>
+					<li class="posr">
+						<s:textfield name="username" value="" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
+						<div class="unBg loginInputBg"></div>
+					</li>
+					<li class="posr">
+						<input type="hidden" name="password" class="epass"/>
+						<s:password name="password" value="" autocomplete="off" cssClass="pwd yh" placeholder="密码"/>
+						<div class="pwdBg loginInputBg"></div>
+					</li>
+                    <input type="hidden" name="redirect_url" value="<%=basePath%>register" />
+					<li class="cf autoLi posr">
+						<input type="checkbox" checked name="rembme" id="autoLogin" class="fl autoLogin"/>
+						<label for="autoLogin" class="fl">自动登录</label>
+						<a href="<%=basePath%>login/find_pwd" class="fr">忘记密码？</a>
+					</li>
+					<li>
+						<input type="submit" class="redBtn yh btn redBtn submit" value="登录"/>
+					</li>
+					<li>
+						<a href="<%=basePath%>register" class=" btn blueBtn">免费注册</a>
+					</li>
+				</ul>
+			</s:form>
+		</div>
+	</div>
+</div>
+<!-- 主要内容结束 -->
+ <jsp:include page="/foot.jsp" />
+ <jsp:include page="/login_pop.jsp" />
+</body>
+</html>
