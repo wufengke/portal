@@ -5,7 +5,7 @@
 <head>
 <title>我要开课</title>
 <meta name="description" content="" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentStartClass/style.css?v=v1.01" />
 <style>
 #teacherSetSchool #sName{font-weight: bold;}
@@ -41,7 +41,7 @@
 	<div class="writeInfo">
 		<div class="box layout">
 			<h2>请填写试讲信息<span>(以下信息会严格保密，请您放心填写）</span></h2>
-			<s:form action="save_apply_teach" method="post" namespace="member">
+			<s:form action="save_apply_teach" namespace="/member" method="post">
 				<s:hidden name="userId" value="%{userId}"/>
 				<ul class="Oul">
 					<li class="cf">
