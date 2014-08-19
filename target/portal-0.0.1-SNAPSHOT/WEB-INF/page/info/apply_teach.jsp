@@ -114,12 +114,12 @@
 							<div>
 								<select name="teacherTitle" id="" validName="select" class="teaTitle" >
 									<option value="">请选择职称</option>
-									<option value="1">无职称</option>
-									<option value="2">正高级教师</option>
-									<option value="3">高级教师</option>
-									<option value="4">一级教师</option>
-									<option value="5">二级教师</option>
-									<option value="6">三级教师</option>
+									<option value="无职称">无职称</option>
+									<option value="正高级教师">正高级教师</option>
+									<option value="高级教师">高级教师</option>
+									<option value="一级教师">一级教师</option>
+									<option value="二级教师">二级教师</option>
+									<option value="三级教师">三级教师</option>
 								</select>
 							</div>
 						</div>
@@ -396,8 +396,8 @@
         </div>
     </div>
 </div>
-<script src="http://static.nahao.com/online/lib/jquery/1.8.2/jquery.js"></script>
-<script src="http://static.nahao.com/online/lib/kindeditor/4.1.10/kindeditor.js"></script>
+<script src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
+<script src="<%=basePath %>online/lib/kindeditor/4.1.10/kindeditor.js"></script>
 <script type="text/javascript">
 	KindEditor.ready(function(K){
        K.create("#postEditor",{

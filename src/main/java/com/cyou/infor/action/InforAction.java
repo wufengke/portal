@@ -100,6 +100,7 @@ public class InforAction extends BaseAction{
 			@Result(name = INPUT, type="redirect",location = "/index")
 			})
 	public String saveApplyTeach(){
+		System.out.println("teach title:" + teacherTitle);
 		try {
 			Account account = (Account) getFromSession("account");
 			if(account != null){
