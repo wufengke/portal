@@ -21,6 +21,8 @@ public class UserOrderModel implements Serializable {
 	private String courseTitle;
 	
 	private String smallImageUrl;
+	
+	private Double originalPrice;
 
 	public String getOrderId() {
 		return orderId;
@@ -68,5 +70,10 @@ public class UserOrderModel implements Serializable {
 	public void setSmallImageUrl(String smallImageUrl) {
 		this.smallImageUrl = smallImageUrl;
 	}
-
+	public Double getOriginalPrice() {
+		return originalPrice;
+	}
+	public void setOriginalPrice(Double originalPrice) {
+		this.originalPrice = originalPrice;
+	}
 }

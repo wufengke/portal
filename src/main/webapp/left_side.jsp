@@ -6,11 +6,11 @@
 	<div class="slideBox posr">
 		<div class="memberInfo">
 			<p class="memberImg">
-				<s:if test="#session.user.imageUrl == null">
-					<img src="<%=basePath%>online/images/login/default_avatar.png?v=v1.01" />
+				<s:if test="#session.user.imageUrl != null">
+					<img src="${sessionScope.user.imageUrl }" alt="" class="head"/>
                	</s:if>
                	<s:else>
-               		<img src="${sessionScope.user.imageUrl }" alt="" class="head"/>
+               		<img src="<%=basePath%>online/images/login/default_avatar.png?v=v1.01" />
                	</s:else>
 				
 			</p>

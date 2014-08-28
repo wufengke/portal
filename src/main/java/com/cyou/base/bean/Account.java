@@ -1,6 +1,7 @@
 package com.cyou.base.bean;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -66,6 +67,12 @@ public class Account implements UserDetails {
 	
 	@Column(name="APPLY_STATUS")
 	private String applyStatus;
+	
+	@Column(name="CREATE_TIME")
+	private Date createTime;
+	
+	@Column(name="IS_ACTIVATE")
+	private String isActivate;
 	
 	//用户所拥有的角色列表 对应Role类的Set集合
 	@ManyToMany(targetEntity = Role.class, fetch = FetchType.EAGER)
@@ -215,5 +222,17 @@ public class Account implements UserDetails {
 	}
 	public void setApplyStatus(String applyStatus) {
 		this.applyStatus = applyStatus;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public String getIsActivate() {
+		return isActivate;
+	}
+	public void setIsActivate(String isActivate) {
+		this.isActivate = isActivate;
 	}
 }

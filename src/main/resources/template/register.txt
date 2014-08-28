@@ -1,0 +1,7 @@
+尊敬的XX网用户，你好!<br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您注册XX网 。 点击以下链接激活您的账号：<br/><br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="activate_url">activate_url</a><br/><br/>
+
+本邮件由系统自动发出，请勿直接回复！

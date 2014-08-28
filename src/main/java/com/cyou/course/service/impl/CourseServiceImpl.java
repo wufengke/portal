@@ -82,4 +82,31 @@ public class CourseServiceImpl  implements CourseService{
 			return new ArrayList<Course>();
 		}
 	}
+
+	@Override
+	public List<Course> getNewOnlineCourseList() {
+		try {
+			return courseDao.getNewOnlineCourseList();
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return new ArrayList<Course>();
+		}
+	}
+
+	@Override
+	public int getUserCourseByCourseIdAndRank(String userId, String courseId,
+			int lessonRank) {
+		try {
+			Long l = courseDao.getUserCourseByCourseIdAndRank(userId,courseId,lessonRank);
+			if(l == null){
+				return 0;
+			}else{
+				return l.intValue();
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return 0;
+		}
+	}
+
 }

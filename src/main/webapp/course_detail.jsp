@@ -31,8 +31,9 @@
                         <span class="fr">1次／${requestScope.cd.lessionTimes}课时</span>
                     </div>
                 	<input type="hidden"  id="sell_endtime" value="2014-08-09 14:00:00" />
+                	<s:hidden id="rank" value="0"/>
+                	<s:hidden id="detailId" value="%{detailId}"/>
                     <ul class="cf">
-                    	<s:hidden id="rank" value="0"/>
                     	<s:iterator value="#request.lessionSchedule" var="ls" status="s">
                     		<s:if test="#s.index == 0">
 	                    		<li class="fl ctime ctimeOn">
@@ -63,10 +64,26 @@
                     <p class="fromf cf">
                         <span class="fl oldPrice">原价<span>￥0</span></span>
                        	<input type="hidden" id="product_id" value=""/>
-						<a href="<%=basePath %>pay/prepare?courseId=${requestScope.c.courseId}&rank=${requestScope.rank}" class="fr btn btn3" id="soon_buy">
-                            <span class="fl">立即报名</span>
-                            <span class="fr"></span>
-                        </a>
+                       	<s:if test="#request.buyStatus == 1">
+	                       	<a href="javascript:buy();" class="fr btn btn3" id="soon_buy">
+	                            <span class="fl">立即报名</span>
+	                            <span class="fr"></span>
+	                        </a>
+							 <a href="javascript:void(0);" class="fr btn btn3" id="have_buy" style="display:none;" >
+		                         <span class="fl">已购买</span>
+		                         <span class="fr"></span>
+		                    </a>
+                       	</s:if>
+						<s:else>
+							<a href="javascript:buy();" class="fr btn btn3" id="soon_buy" style="display:none;">
+	                            <span class="fl">立即报名</span>
+	                            <span class="fr"></span>
+	                        </a>
+							 <a href="javascript:void(0);" class="fr btn btn3" id="have_buy">
+		                         <span class="fl">已购买</span>
+		                         <span class="fr"></span>
+		                    </a>
+						</s:else>
                         <strong class="fr">¥
                             <span class="redText">0</span>
                         </strong>
@@ -187,8 +204,26 @@
  <jsp:include page="/right_side.jsp" />
  <script type="text/javascript">
  function getRank(index){
-	 console.log(index);
 	 $("#rank").val(index);
+	 var detailId = $("#detailId").val();
+	 $("ul[class='cf'] li").removeClass("ctimeOn");
+	 $("ul[class='cf'] li:eq("+(index)+")").addClass("ctimeOn");
+	 $.post("/checkBuyStatus",
+			 {"detailId":detailId,"rank":index},
+			 function(data){
+				 if(data.status == 0){
+					 $("#soon_buy").css("display","none");
+					 $("#have_buy").css("display","block");
+				 }else{
+					 $("#soon_buy").css("display","block");
+					 $("#have_buy").css("display","none");
+				 }
+		 },"json");
+ }
+ function buy(){
+	 var rank = $("#rank").val();
+	 var buy_url = '<%=basePath %>pay/prepare?courseId=${requestScope.c.courseId}&rank=' + rank;	
+	 window.location.href=buy_url;
  }
  </script>
 </body>

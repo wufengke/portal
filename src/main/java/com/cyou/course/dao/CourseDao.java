@@ -21,4 +21,9 @@ public interface CourseDao extends BaseDao{
 
 	List<Course> getRollCourseList();
 
+	List<Course> getNewOnlineCourseList();
+
+	Long getUserCourseByCourseIdAndRank(String userId, String courseId,
+			int lessonRank);
+
 }

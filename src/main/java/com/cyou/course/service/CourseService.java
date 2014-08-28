@@ -22,4 +22,17 @@ public interface CourseService{
 
 	List<Course> getRollCourseList();
 	
+	/**
+	 * 我的课程下面推荐的最新课程
+	 * @return
+	 */
+	List<Course> getNewOnlineCourseList();
+	/**
+	 * 
+	 * @param courseId
+	 * @param string 
+	 * @param i
+	 */
+	int getUserCourseByCourseIdAndRank(String userId, String courseId, int lessonRank);
+	
 }

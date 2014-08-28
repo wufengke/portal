@@ -41,6 +41,15 @@ public class PayServicempl  implements PayService{
 		}
 	}
 	@Override
+	public List<UserOrderModel> getOrderByUserIdAndStatus(String userId,int status) {
+		try {
+			return payDao.getOrderByUserIdAndStatus(userId,status);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return new ArrayList<UserOrderModel>();
+		}
+	}
+	@Override
 	public Long getCanceledOrderCountByUserId(String userId) {
 		try {
 			return payDao.getCanceledOrderCountByUserId(userId);
@@ -74,6 +83,41 @@ public class PayServicempl  implements PayService{
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			return 0l;
+		}
+	}
+	@Override
+	public long getAllOrderCountByUserId(String userId) {
+		try {
+			return payDao.getAllOrderCountByUserId(userId);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return 0l;
+		}
+	}
+	@Override
+	public UserOrderModel getUserOrderModelByOrderId(String orderId) {
+		try {
+			return payDao.getUserOrderModelByOrderId(orderId);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return new UserOrderModel();
+		}
+	}
+	@Override
+	public UserOrder getOrderbyOrderId(String orderId) {
+		try {
+			return payDao.getOrderbyOrderId(orderId);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+	@Override
+	public void updateUserOrder(UserOrder order) {
+		try {
+			payDao.update(order);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
 		}
 	}
 

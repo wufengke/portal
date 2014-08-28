@@ -1,1 +1,0 @@
-define("module/common/method/popUp",["lib/artDialog/4.1.7/artDialog"],function(require,exports){require("lib/artDialog/4.1.7/artDialog"),exports.popUp=function(obj){$.tiziDialog({title:!1,close:null,ok:!1,icon:null,padding:0,content:$(obj).html()})}});

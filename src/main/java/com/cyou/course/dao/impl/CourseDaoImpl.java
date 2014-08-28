@@ -60,9 +60,9 @@ public class CourseDaoImpl extends BaseCyouPayDaoImpl implements CourseDao{
 			@Override
 			public Object doInHibernate(Session session) throws HibernateException,
 					SQLException {
-				return session.createSQLQuery("select c.COURSE_TITLE as courseTitle,c.MEDIUM_IMAGE_URL as mediumImageUrl," +
+				return session.createSQLQuery("select c.COURSE_ID as courseId,c.COURSE_TITLE as courseTitle,c.MEDIUM_IMAGE_URL as mediumImageUrl," +
 						"o.LESSION_SCHEDULE as lessionSchedule,o.LESSION_RANK as lessionRank " +
-						"from COURSE_BRIEF c,USER_ORDER o where c.COURSE_ID = o.COURSE_ID and o.USER_ID='" + userId + "' order by o.CREATE_TIME desc" ).setResultTransformer(Transformers.aliasToBean(UserCourseModel.class)).list();
+						"from COURSE_BRIEF c,USER_ORDER o where c.COURSE_ID = o.COURSE_ID and o.USER_ID='" + userId + "' and o.status=1 order by o.CREATE_TIME desc" ).setResultTransformer(Transformers.aliasToBean(UserCourseModel.class)).list();
 			}
 		});
 	}
@@ -85,6 +85,29 @@ public class CourseDaoImpl extends BaseCyouPayDaoImpl implements CourseDao{
 			public Object doInHibernate(Session session) throws HibernateException,
 					SQLException {
 				return session.createQuery("from Course c where c.status = 1 and c.isRoll='1'").list();
+			}
+		});
+	}
+
+	@Override
+	public List<Course> getNewOnlineCourseList() {
+		return getHibernateTemplate().executeFind(new HibernateCallback() {
+			@Override
+			public Object doInHibernate(Session session) throws HibernateException,
+					SQLException {
+				return session.createQuery("from Course c where c.status = 1 order by c.courseTime desc limit 3").list();
+			}
+		});
+	}
+
+	@Override
+	public Long getUserCourseByCourseIdAndRank(final String userId, final String courseId,final int lessonRank) {
+		return (Long) getHibernateTemplate().execute(new HibernateCallback() {
+			
+			@Override
+			public Object doInHibernate(Session session) throws HibernateException,
+					SQLException {
+				return session.createQuery("select count(uo) from UserOrder uo where uo.userId='" + userId + "' and uo.courseId='" + courseId + "' and uo.lessionRank=" + lessonRank).uniqueResult();
 			}
 		});
 	}

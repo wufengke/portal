@@ -1,5 +1,9 @@
 package com.cyou.register.service.impl;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -8,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cyou.base.bean.Account;
 import com.cyou.base.bean.Users;
+import com.cyou.login.bean.PasswordResetRecord;
 import com.cyou.register.dao.UsersDao;
 import com.cyou.register.service.UsersService;
 @Service
@@ -97,6 +102,90 @@ public class UsersServiceImpl  implements UsersService{
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
 			return false;
+		}
+	}
+
+	@Override
+	public boolean updateUsers(Users user) {
+		try {
+			usersDao.update(user);
+			return true;
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return false;
+		}
+	}
+
+	@Override
+	public Account getAccountByAccountName(String email) {
+		try {
+			return usersDao.getAccountByAccountName(email);
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return null;
+		}
+	}
+
+	@Override
+	public List<Account> getRecentRegistedAccountList() {
+		try {
+			return usersDao.getRecentRegistedAccountList();
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return new ArrayList<Account>();
+		}
+	}
+
+	@Override
+	public PasswordResetRecord getRecentPasswordResetRecordByEmail(String email) {
+		try {
+			return usersDao.getRecentPasswordResetRecordByEmail(email);
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return null;
+		}
+	}
+
+	@Override
+	public void savePasswordResetRecord(PasswordResetRecord passwordResetRecord) {
+		try {
+			usersDao.save(passwordResetRecord);
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+		}
+	}
+
+	@Override
+	public PasswordResetRecord getPasswordResetRecord(String email, String key) {
+		try {
+			return usersDao.getPasswordResetRecord(email,key);
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return null;
+		}
+	}
+
+	@Override
+	public void updateAccountAndResetRecord(Account account, String email, String key) {
+		try {
+			usersDao.update(account);
+			PasswordResetRecord passwordResetRecord = getPasswordResetRecord(email, key);
+			if(passwordResetRecord != null){
+				passwordResetRecord.setUpdateTime(new Date());
+				passwordResetRecord.setStatus("1");
+				usersDao.update(passwordResetRecord);
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+		}
+	}
+
+	@Override
+	public void updatePasswordResetRecord(PasswordResetRecord record) {
+		try {
+			usersDao.update(record);
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
 		}
 	}
 }

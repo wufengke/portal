@@ -17,23 +17,53 @@
 			<h2>快速注册<span>一分钟改变你的学习方式</span></h2>
 			<div class="regTab">
 				<div class="tabBox cf">
-					<a href="javascript:void(0)"  class="fl active">手机注册</a>
-					<a href="javascript:void(0)"  class="fl">邮箱注册</a>
+					<a href="javascript:void(0)"  class="fl active">邮箱注册</a>
+					<!-- <a href="javascript:void(0)"  class="fl" >手机注册</a> -->
 				</div>
 				<div class="contentBox">
-					<div class="box phoneBox">
+					<div class="box emailBox">
+						<s:form action="register/submit" cssClass="regEmailBox" method="post" onsubmit="return formCheck(this);" >
+							<ul>
+								<li>
+									<p>邮箱</p>
+									<s:textfield id="email" name="email" value="" cssClass="email regInput yh" placeholder="邮箱地址" onblur="check(this);" maxlength="63"/>
+									<div id="emailCheck1" class="Validform_tip_info undis">请输入邮箱地址</div>
+                          			<div class="Validform_checktip"></div>
+								</li>
+								<li>
+									<p>密码</p>
+									<s:password id="password" name="password" cssClass="pwd regInput yh" placeholder="6-63位字符"  onblur="check(this);" maxlength="63"/>
+									<div id="passwordCheck1" class="Validform_tip_info undis">请输入密码</div>
+                          			<div class="Validform_checktip"></div>
+								</li>
+								<li>
+									<p>手机号（选填）</p>
+									<s:textfield name="ephone" cssClass="ephone regInput yh" placeholder="填写手机号码，第一时间获知名师公开课"/>
+								</li>
+								
+								<li class="agreementLi">
+									<input type="checkbox" checked id="agreementEmail"/>
+									<label for="agreementEmail">我已阅读并同意</label>
+									<a href="<%=basePath%>about/service" target="_blank">那好网服务使用协议</a>
+								</li>
+								<li>
+									<input type="submit" class="btn redBtn regInput submit yh" value="免费注册 " />
+								</li>
+							</ul>
+						</s:form>
+					</div>
+					<div class="box phoneBox undis" >
 						<s:form action="register/submit" cssClass="regPhoneBox" method="post" onsubmit="return false">
 							<ul>
 								<li>
 									<p>手机号</p>
 									<s:textfield value="" name="phone" cssClass="phoneNum regInput yh" placeholder="使用手机注册，第一时间获知名师公开课" />
-									<div class="Validform_tip_info undis">请输入手机号</div>
+									<div id="" class="Validform_tip_info undis">请输入手机号</div>
                           			<div class="Validform_checktip"></div>
 								</li>
 								<li>
 									<p>密码</p>
-									<input type="hidden" name="password" class="epass"/>
-									<s:password  name="password" cssClass="pwd regInput yh" placeholder="6-20位字符，区分大小写" />
+									<s:password  name="password" cssClass="pwd regInput yh" placeholder="6-63位字符，区分大小写" />
 									<div class="Validform_tip_info undis">请输入密码</div>
                           			<div class="Validform_checktip"></div>
 								</li>
@@ -56,38 +86,6 @@
 							</ul>
 						</s:form>
 					</div>
-					<div class="box emailBox undis">
-						<s:form action="register/submit" cssClass="regEmailBox" method="post" >
-							<ul>
-								<li>
-									<p>邮箱</p>
-									<s:textfield name="email" cssClass="email regInput yh" placeholder="邮箱地址" />
-									<div class="Validform_tip_info undis">请输入邮箱地址</div>
-                          			<div class="Validform_checktip"></div>
-								</li>
-								<li>
-									<p>密码</p>
-									<input type="hidden" name="password" class="epass"/>
-									<s:password name="password" cssClass="pwd regInput yh" placeholder="6-20 位字符" />
-									<div class="Validform_tip_info undis">请输入密码</div>
-                          			<div class="Validform_checktip"></div>
-								</li>
-								<li>
-									<p>手机号（选填）</p>
-									<s:textfield name="ephone" cssClass="ephone regInput yh" placeholder="填写手机号码，第一时间获知名师公开课"/>
-								</li>
-								
-								<li class="agreementLi">
-									<input type="checkbox" checked id="agreementEmail"/>
-									<label for="agreementEmail">我已阅读并同意</label>
-									<a href="<%=basePath%>about/service" target="_blank">那好网服务使用协议</a>
-								</li>
-								<li>
-									<input type="submit" class="btn redBtn regInput submit yh" value="免费注册 " />
-								</li>
-							</ul>
-						</s:form>
-					</div>
 				</div>
 			</div>			
 		</div>
@@ -96,10 +94,6 @@
 			<div class="rollPar posr">
 				<div class="rollBox">
 					<ul class="rollUpDown">
-						<li>
-							<span class="usename">w****8@163.com</span>
-							<span>刚加入了那好课堂</span>
-						</li>
 					</ul>
 					<ul class="rollUpDownCopy">
 					</ul>
@@ -111,5 +105,62 @@
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
  <jsp:include page="/login_pop.jsp" />
+  	<script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
+ 	<script type="text/javascript">
+	 	$(function(){
+	 		var url = window.location.href;
+	 		if(url.indexOf("error") != -1){
+	 			$("#emailCheck1").html("该账号已经被注册，请使用其他邮箱注册！");
+	 			$("#emailCheck1").removeClass("undis");
+	 			$("#emailCheck1").addClass("Validform_wrong");
+	 		}else{
+	 			$("#emailCheck1").html("");
+	 			$("#emailCheck1").addClass("undis");
+	 			$("#emailCheck1").removeClass("Validform_wrong");
+	 	 	}
+
+	 		setInterval(timer,10000);
+	 	});
+		function check(element){
+			var v = $(element).val();
+			if(typeof(v) == 'undefined' || v == null || v == ''){
+				$(element).next().removeClass("undis");
+				$(element).next().addClass("Validform_wrong");
+			}else if($(element).val().length < 6 || $(element).val().length > 63){
+				$(element).next().removeClass("undis");
+				$(element).next().addClass("Validform_wrong");
+				$(element).next().html("用户名和密码长度为6-63之间");
+			}else{
+				$(element).next().addClass("undis");
+				$(element).next().removeClass("Validform_wrong");
+			}
+		}
+	 	function formCheck(form){
+		 	var email = $(form).find("#email").val();
+		 	var password = $(form).find("#password").val();
+		 	if(email == ''){
+			 	$("#emailCheck1").removeClass("undis");
+			 	$("#emailCheck1").addClass("Validform_wrong");
+				return false;
+			 }
+		 	if(password == ''){
+			 	$("#passwordCheck1").removeClass("undis");
+			 	$("#passwordCheck1").addClass("Validform_wrong");
+				return false;
+			 }
+		 	return true;
+		}
+		function timer(){
+			$.post("/register/timer",function(data){
+				if(data != null){
+					$.each(data,function(index){
+						$(".rollUpDown").append("<li><span class=\"usename\">"+data[index].username+"</span><span>刚加入了那好课堂</span></li>");
+						$(".rollUpDownCopy").append("<li><span class=\"usename\">"+data[index].username+"</span><span>刚加入了那好课堂</span></li>");
+					});
+				}
+
+			},"json");
+		}
+ 	</script>
 </body>
 </html>

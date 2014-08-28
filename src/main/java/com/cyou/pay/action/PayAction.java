@@ -131,7 +131,7 @@ public class PayAction extends BaseAction{
 						order.setUserId(account.getUserId());
 						order.setRealName(realName);
 						order.setPhone(phone);
-						order.setLessionRank(rank);
+						order.setLessionRank(rank==null ? 0:rank);
 						order.setLessionSchedule(cd.getLessionSchedule());
 						boolean b = payService.saveOrder(order);
 						

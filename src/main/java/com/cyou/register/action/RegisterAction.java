@@ -1,7 +1,12 @@
 package com.cyou.register.action;
 
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,6 +17,8 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
 import com.cyou.base.bean.Account;
+import com.cyou.base.util.EmailUtil;
+import com.cyou.common.util.JsonUtil;
 import com.cyou.common.util.UUIDUtil;
 import com.cyou.core.action.BaseAction;
 import com.cyou.core.util.StrMD5;
@@ -34,6 +41,8 @@ public class RegisterAction extends BaseAction{
 	
 	private InputStream inputStream;
 	
+	private String userId;
+	
 	public InputStream getInputStream() {
 		return inputStream;
 	}
@@ -43,9 +52,34 @@ public class RegisterAction extends BaseAction{
 	@Resource
 	private UsersService usersService;
 	
-	@Action(value = "/register", results = { @Result(name = SUCCESS, location = "/WEB-INF/page/register/register.jsp"),
+	@Action(value = "/register", results = { 
+			@Result(name = SUCCESS, location = "/WEB-INF/page/register/register.jsp"),
 			@Result(name = INPUT, type="redirect",location = "/register")})
 	public String register(){
+		return SUCCESS;
+	}
+	@Action(value = "/register/activate", results = { 
+			@Result(name = SUCCESS, location = "/WEB-INF/page/register/activate.jsp")})
+	public String activate(){
+		if(StringUtils.isNotBlank(userId)){
+			Account account = usersService.getAccountByUserId(userId);
+			
+			if(account != null){
+				account.setIsActivate("1");
+				usersService.updateAccount(account);
+				removeFromSession("account");
+			}
+		}
+		return SUCCESS;
+	}
+	@Action(value = "/register/timer", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String timer(){
+		List<Account> accountList = usersService.getRecentRegistedAccountList();
+		try {
+			inputStream = new ByteArrayInputStream(JsonUtil.list2json(accountList).getBytes());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 	/**
@@ -53,16 +87,24 @@ public class RegisterAction extends BaseAction{
 	 * @return
 	 */
 	@Action(value = "/register/submit", results = { @Result(name = SUCCESS, type="redirect",location = "/login/fulfill"), 
-											  @Result(name = INPUT, type="redirect",location = "/register")})
+											  @Result(name = INPUT, type="redirect",location = "/register?error=1")})
 	public String submit(){
 		try {
-			Account account = new Account();
+			if(StringUtils.isBlank(email) || StringUtils.isBlank(password)){
+				return INPUT;
+			}
+			Account account = usersService.getAccountByAccountName(email);
+			if (account != null) {
+				return INPUT;
+			}
+			account = new Account();
 			String uniqueId = UUIDUtil.getUUID();
 			account.setAccountId(uniqueId);
 			account.setDisabled(false);
 			account.setPassword(new StrMD5(password).getResult());
 			account.setAccountType("0");
 			account.setApplyStatus("0");
+			account.setIsActivate("0");
 			if(StringUtils.isNotBlank(this.getPhone())){
 				account.setPhone(phone);
 			}else {
@@ -71,8 +113,25 @@ public class RegisterAction extends BaseAction{
 			account.setType("0");
 			account.setUsername(email);
 			account.setUserId(uniqueId);
+			account.setCreateTime(new Date());
 			usersService.saveAccount(account);
+			
 			setIntoSession(account);
+			InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("template/register.txt");
+			BufferedReader inReader = new BufferedReader(new InputStreamReader(in,"utf-8"));
+			StringBuilder sb = new StringBuilder();
+			String str = inReader.readLine();
+			while (str != null) {
+				sb.append(str);
+				str = inReader.readLine();
+			}
+			if(StringUtils.isNotBlank(sb.toString())){
+				StringBuilder activate_url = new StringBuilder();
+				String basePath = httpServletRequest.getScheme()+"://"+httpServletRequest.getServerName();
+				activate_url.append(basePath).append("/register/activate?userId=").append(uniqueId);
+				String content = sb.toString().replace("activate_url", activate_url);
+				EmailUtil.sendEmail(content, "来自xx网的欢迎邮件", email);
+			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			return INPUT;
@@ -103,6 +162,12 @@ public class RegisterAction extends BaseAction{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

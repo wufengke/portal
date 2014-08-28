@@ -55,6 +55,7 @@
           				<div class="Validform_checktip fl"></div>
 					</div>
 				</li>
+				<!-- 
 				<li class="cf areaSelect">
 					<p class="fl"><span>*</span>地区</p>
 					<div class="cf" style="float:left">
@@ -122,26 +123,27 @@
 						<span class="Validform_checktip fl"></span>
 					</div>
 				</li>
+				-->
 				<li class="cf">
 					<p class="fl"><span>*</span>年级</p>
 					<div class="cf">
 						<div class="fl">
 							<div>
-                            <select name="grade" id="grade" validName="select" class="subjectInput beauty_select">
+                            <select name="grade" id="grade" validName="select" class="subjectInput beauty_select" style="height:30px;">
                                 <option value="">选择年级</option>
-                                                                <option value="1">一年级</option>
-                                                                <option value="2">二年级</option>
-                                                                <option value="3">三年级</option>
-                                                                <option value="4">四年级</option>
-                                                                <option value="5">五年级</option>
-                                                                <option value="6">六年级</option>
-                                                                <option value="7">初一</option>
-                                                                <option value="8">初二</option>
-                                                                <option value="9">初三</option>
-                                                                <option value="10">高一</option>
-                                                                <option value="11">高二</option>
-                                                                <option value="12">高三</option>
-                                                                <option value="99">其他</option>
+                                                                <option value="一年级">一年级</option>
+                                                                <option value="二年级">二年级</option>
+                                                                <option value="三年级">三年级</option>
+                                                                <option value="四年级">四年级</option>
+                                                                <option value="五年级">五年级</option>
+                                                                <option value="六年级">六年级</option>
+                                                                <option value="初一">初一</option>
+                                                                <option value="初二">初二</option>
+                                                                <option value="初三">初三</option>
+                                                                <option value="高一">高一</option>
+                                                                <option value="高二">高二</option>
+                                                                <option value="高三">高三</option>
+                                                                <option value="其他">其他</option>
                                                             </select>
 							</div>
 						</div>
@@ -166,6 +168,7 @@
 						<span class="Validform_checktip fl"></span>
 					</div>
 				</li>
+				<!-- 
 				<li class="attent">
 					<p class="optional">关注学科</p>
                     					<input type="button" name="focus_subjects" subject_id="1" value="家庭教育" class="btn "/>
@@ -187,6 +190,7 @@
 						<span class="Validform_checktip fl"></span>
 					</div>
 				</li>
+				 -->
 				<li class="cf">
 					<p class="schooptional">所属学校</p>
 					<div class="cf schoolPar">

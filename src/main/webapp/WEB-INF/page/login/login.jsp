@@ -15,16 +15,16 @@
 	<div class="loginWrap cf">
 		<div class="fl loginBgIco"></div>
 		<div class="loginBox fr">
-			<s:form action="login/submit" cssClass="loginForm" method="post" onsubmit="">
-				<p id="msgInfo" class="msgInfo"></p>
+			<s:form action="login/submit" cssClass="loginForm" method="post" onsubmit="return check(this);">
+				<br/>
+				<p id="msgInfo" class="msgInfo" style="color:red;"></p>
 				<ul>
 					<li class="posr">
-						<s:textfield name="username" value="" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
+						<s:textfield id="username" name="username" value="" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
 						<div class="unBg loginInputBg"></div>
 					</li>
 					<li class="posr">
-						<input type="hidden" name="password" class="epass"/>
-						<s:password name="password" value="" autocomplete="off" cssClass="pwd yh" placeholder="密码"/>
+						<s:password id="password" name="password" value="" autocomplete="off" cssClass="pwd yh" placeholder="密码"/>
 						<div class="pwdBg loginInputBg"></div>
 					</li>
                     <input type="hidden" name="redirect_url" value="<%=basePath%>register" />
@@ -47,5 +47,34 @@
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
  <jsp:include page="/login_pop.jsp" />
+  	<script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
+ 	<script type="text/javascript">
+	 	$(function(){
+	 		var url = window.location.href;
+	 		if(url.indexOf("error") != -1){
+	 			$("#msgInfo").html("用户名或者密码错误！");
+	 		}else{
+	 			$("#msgInfo").html("");
+	 	 	}
+
+	 	 	
+	 	});
+		function check(form){
+			var username = $("#username").val();
+			var password = $("#password").val();
+			if(username == null || username == ''){
+				$("#msgInfo").html("请输入用户名！");
+				return false;
+			}else if(password == null || password == ''){
+				$("#msgInfo").html("请输入密码！");
+				return false;
+			}else{
+				$("#msgInfo").html("");
+			}
+			return true;
+		}
+	 	
+ 	</script>
+ 	
 </body>
 </html>

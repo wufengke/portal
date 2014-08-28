@@ -37,17 +37,17 @@
 	                                </div>
 									<div class="cf fitGrade">
 										<span class="fl"><s:property value="%{#course.courseDesc}"/></span>
-										<span class="fr"><s:property value="%{#course.lesson_times}"/>课次</span>
+										<span class="fr"><s:property value="%{#course.lessonTimes}"/>课次</span>
 									</div>
 								</div>
 							</div>
 							<div class="clBoxShaow rotateBox posr" data-action="<%=basePath%>detail?detailId=${course.courseDetailId}" title="${course.courseTitle}">
 								<div class="teaInfor cf">
 									<s:if test="#course.userImageUrl == null">
-										<img src="<%=basePath %>online/images/login/default_avatar.png?v=v1.01" alt="头像" class="fl">
+										<img src="<%=basePath %>online/images/login/default_avatar.png?v=v1.01" alt="头像" class="fl"/>
 									</s:if>
 									<s:else>
-										<img src="${course.userImageUrl}" alt="头像" class="fl">
+										<img src="${course.userImageUrl}" alt="头像" class="fl"/>
 									</s:else>
 									<div class="fl teaInforR">
 										<h3 class="cf">

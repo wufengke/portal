@@ -33,8 +33,13 @@
 				</div>
 				<div class="courseInfor">
 					<div class="lessons">
-						${c.courseTitle }
+						<span class="redText">已上${c.haveLerned}节</span>/ 共1节
 					</div>
+					<s:if test="#c.isOver == 1">
+						<div class="over">
+							已结课
+						</div>
+					</s:if>
 					<s:else>
 						<div class="classTime">
 							<p>下节课</p>
@@ -44,52 +49,59 @@
 						</div>
 					</s:else>
 				</div>
-				<a href="#" class="btn blueBtn">进入课程</a>			
+				<a href="http://online.demo.com/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
 			</li>
 		</s:iterator>
 	</ul>
 </div>
 <div class="courseConList newList">
-	<%-- 
+	<%-- --%>
 	<h3 class="pageName">最新课程</h3>
 	<ul class="cf">
 		<!--  xuanzhuan-->
-		<li class="fl">
-			<div class="clBoxShaow iniBox">
-				<div class="courseFree"></div>
-				<img src="http://img1.nahao.com/course_20140704113626_iQT8Wyx.png?imageView/2/w/230/h/172" alt="">
-				<div class="iniInfor">
-					<p class="courseTitle">谁不忆故人——唐诗中思念故人的诗歌鉴赏（寄全椒山中道士）</p>
-					<div class="cf">
-						<span class="fl courseTime">8月9日-8月9日</span>
-						<span class="fr"><em class="redText">27</em>人</span>
-					</div>
-					<div class="cf fitGrade">
-						<span class="fl">适合4-10年级</span>
-						<span class="fr">1课次</span>
-					</div>
-				</div>
-			</div>
-			<div class="clBoxShaow rotateBox posr" data-action="<%=basePath%>ke_131.html" title="谁不忆故人——唐诗中思念故人的诗歌鉴赏（寄全椒山中道士）">
-				<div class="teaInfor cf">
-					<img src="http://img1.nahao.com/user_avartar_2520140704172829_ifC8u9I" alt="头像" class="fl" />
-					<div class="fl teaInforR">
-						<!--工作证，称职证，教师证（1-5）-->
-						<h3 class="cf">
-							<em class="fl">王勇</em>
-							<span class=" fl"></span>
-							<span class=" fl"></span>
-							<span class=" fl"></span>
-						</h3>
-						<p class="detailInfor"></p>
+		<s:iterator value="#request.newCourseList" var="course" status="s">
+			<li class="fl">
+				<div class="clBoxShaow iniBox">
+					<div class="courseFree"></div>
+					<img src="${course.mediumImageUrl}" alt=""/>
+					<div class="iniInfor">
+						<p class="courseTitle"><s:property value="%{#course.courseTitle}"/></p>
+						<div class="cf">
+							<span class="fl courseTime"><s:property value="%{#course.courseTimeDesc}"/>-<s:property value="%{#course.courseTimeDesc}"/></span>
+							<span class="fr"><em class="redText"><s:property value="%{#course.totalCount}"/></em>人</span>
+						</div>
+						<div class="cf fitGrade">
+							<span class="fl"><s:property value="%{#course.courseDesc}"/></span>
+							<span class="fr"><s:property value="%{#course.lessonTimes}"/>课次</span>
+						</div>
 					</div>
 				</div>
-				<p class="brief">本课程拟围绕“忆故人”这一主题，带领学生领略唐诗之美，了解传统文化中的隽永意蕴和人文精神。</p>
-				<p class="courseTitle" title="谁不忆故人——唐诗中思念故人的诗歌鉴赏（寄全椒山中道士）">谁不忆故人——唐诗中思念故人的诗歌鉴赏（寄全椒山中道士）</p>
-			</div>
-		</li>
+				<div class="clBoxShaow rotateBox posr" data-action="<%=basePath%>detail?detailId=${course.courseDetailId}" title="${course.courseTitle}">
+					<div class="teaInfor cf">
+						<s:if test="#course.userImageUrl == null">
+							<img src="<%=basePath %>online/images/login/default_avatar.png?v=v1.01" alt="头像" class="fl"/>
+						</s:if>
+						<s:else>
+							<img src="${course.userImageUrl}" alt="头像" class="fl"/>
+						</s:else>
+						<div class="fl teaInforR">
+							<!--工作证，称职证，教师证（1-5）-->
+							<h3 class="cf">
+								<em class="fl"><s:property value="%{#course.userRealName}"/></em>
+								<span class=" fl"></span>
+								<span class=" fl"></span>
+								<span class=" fl"></span>
+							</h3>
+							<p class="detailInfor"></p>
+						</div>
+					</div>
+					<p class="brief"><s:property value="%{#course.courseBrief}"/></p>
+					<p class="courseTitle" title="${course.courseTitle}">${course.courseTitle}</p>
+				</div>
+			</li>
+		</s:iterator>
 	</ul>
-	--%>
+	
 </div>
 </div> 
 <!-- 右侧框架结束 -->

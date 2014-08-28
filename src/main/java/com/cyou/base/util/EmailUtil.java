@@ -1,7 +1,9 @@
 package com.cyou.base.util;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
+
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -15,29 +17,23 @@ public class EmailUtil {
 
 	static String emailServerIp = "";
 	static String emailFrom = "";
-	static String emailTo = "";
 	static String emailUserName = "";
 	static String emailPassword = "";
 
 	static {
 		emailServerIp = PropertyUtil.getProperty("email_server_ip");
 		emailFrom = PropertyUtil.getProperty("email_from");
-		emailTo = PropertyUtil.getProperty("email_to");
 		emailUserName = PropertyUtil.getProperty("email_name");
 		emailPassword = PropertyUtil.getProperty("email_password");
 	}
 
 	// 发送邮件
-	public static void sendEmail(String content, String subject) {
+	public static void sendEmail(String content, String subject,String emailTo) {
 		MyAuthenticator authenticator = null;
 		try {
 			authenticator = new MyAuthenticator(emailUserName, emailPassword);
 			boolean sessionDebug = false;
 			String[] emailTos = emailTo.split(";");
-			// String emailServerIp="192.168.95.47";
-			// String emailServerIp="smtp.cyou-inc.com";
-			// 固定不变
-			// String from="newsletter.cyou@sohu.com";
 			Properties props = System.getProperties();
 			props.put("mail.smtp.localhost", "127.0.0.1");
 			props.put("mail.smtp.auth", "true");
@@ -45,6 +41,7 @@ public class EmailUtil {
 			props.put("mail.smtp.class", "com.sun.mail.smtp.SMTPTransport");
 			props.put("mail.smtp.host", emailServerIp);
 			props.put("mail.mime.charset", "utf-8");
+			
 			Session session = Session.getDefaultInstance(props, authenticator);
 			session.setDebug(sessionDebug);
 
@@ -55,12 +52,17 @@ public class EmailUtil {
 			for (int i = 0; i < emailTos.length; i++) {
 				address[i] = new InternetAddress(emailTos[i]);
 			}
-
+			String nick="";  
+	        try {  
+	            nick=MimeUtility.encodeText(PropertyUtil.getProperty("email_from_name"),"UTF-8", "B");  
+	        } catch (UnsupportedEncodingException e) {  
+	            e.printStackTrace();  
+	        }   
+	        msg.setFrom(new InternetAddress(nick+" <"+emailFrom+">")); 
 			msg.setRecipients(Message.RecipientType.TO, address);
 			msg.setSentDate(new Date());
 			msg.setSubject(MimeUtility.encodeText(subject, "UTF-8", "B"));
-			msg.setContent(new String(content.getBytes("utf-8"), "iso-8859-1"),
-					"text/html");
+			msg.setContent(new String(content.getBytes("utf-8"), "iso-8859-1"),"text/html");
 			msg.addHeader("Content-Transfer-Encoding", "base64");
 			msg.addHeader("Content-Type", "text/html;charset=utf-8");
 			msg.saveChanges();
@@ -71,7 +73,7 @@ public class EmailUtil {
 	}
 
 	public static void main(String[] args) {
-		EmailUtil.sendEmail("wufengke", "wufengke");
+		EmailUtil.sendEmail("wufengke", "wufengke","wufengke@cyou-inc.com");
 	}
 }
 

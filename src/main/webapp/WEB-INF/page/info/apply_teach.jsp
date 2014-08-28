@@ -193,9 +193,9 @@
 							<div>
 								<select name="teachType" id="" validName="select" class="lecture">
 									<option value="">请选择讲课方式</option>
-									<option value="1">一对一</option>
-									<option value="2">小班教育(15人以内)</option>
-									<option value="3">大班教育不限人数</option>
+									<option value="一对一">一对一</option>
+									<option value="小班教育(15人以内)">小班教育(15人以内)</option>
+									<option value="大班教育不限人数">大班教育不限人数</option>
 								</select>
 							</div>
 						</div>
@@ -207,19 +207,19 @@
 							<div>
 								<select name="subject" id="" validName="select" class="lectureSub">
 									<option value="">请选择试讲科目</option>
-									<option value="1">家庭教育</option>
-									<option value="2">数学</option>
-									<option value="3">语文</option>
-									<option value="4">英语</option>
-									<option value="5">物理</option>
-									<option value="7">心理学</option>
-									<option value="8">素质教育</option>
-									<option value="9">化学</option>
-									<option value="10">生物</option>
-									<option value="11">历史</option>
-									<option value="12">地理</option>
-									<option value="13">政治</option>
-									<option value="14">其他</option>
+									<option value="家庭教育">家庭教育</option>
+									<option value="数学">数学</option>
+									<option value="语文">语文</option>
+									<option value="英语">英语</option>
+									<option value="物理">物理</option>
+									<option value="心理学">心理学</option>
+									<option value="素质教育">素质教育</option>
+									<option value="化学">化学</option>
+									<option value="生物">生物</option>
+									<option value="历史">历史</option>
+									<option value="地理">地理</option>
+									<option value="政治">政治</option>
+									<option value="其他">其他</option>
 								</select>
 							</div>
 						</div>
@@ -295,7 +295,7 @@
                       		<div class="Validform_checktip fl"></div>
 						</div>
 					</li>
-					<!--
+					<!---->
 					<li>
 						<p>课程介绍</p>
 						<textarea name="courseBrief" id="postEditor" style="visibility: hidden;"></textarea>		
@@ -307,7 +307,7 @@
 					<li class="cf">
 						<input id="apply_teach_submit" type="submit" value="提交申请" class="noShowBtn redBtn submit fl" />
 					</li>
-					  -->
+					  
 				</ul>
 			</s:form>
 		</div>

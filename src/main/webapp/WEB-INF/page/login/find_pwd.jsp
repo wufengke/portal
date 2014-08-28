@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>首页</title>
+<title>密码重置</title>
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>online/css/login/style.css?v=v1.01" />
 <%@ include file="/common/JsCss.jsp" %>
@@ -17,8 +17,9 @@
 			<div class=" box forgetBox">
 				<h2>忘记密码</h2>
 				<div class="cBox">
-					<p>只有<a href="javascript:void(0)">绑定手机</a>的用户才可使用</p>
+					<!-- <p>只有<a href="javascript:void(0)">绑定手机</a>的用户才可使用</p>
 					<a href="/login/find_pwd_way2_step1" class="btn redBtn phone">手机找回 </a>
+					 -->
 					<a href="/login/find_pwd_way2_step1" class="btn redBtn email">邮箱找回 </a>
 				</div>
 			</div>

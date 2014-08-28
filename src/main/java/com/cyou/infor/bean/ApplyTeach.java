@@ -1,6 +1,7 @@
 package com.cyou.infor.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,6 +62,18 @@ public class ApplyTeach implements Serializable {
 	private String courseBrief;
 	@Column(name="RESUME")
 	private String resume;
+	
+	
+	@Column(name="STATUS")
+	private Integer status;
+	@Column(name="CREATE_TIME")
+	private Date createTime;
+	@Column(name="UPDATE_TIME")
+	private Date updateTime;
+	
+	@Column(name="COMMENTS")
+	private String comments;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -186,6 +199,30 @@ public class ApplyTeach implements Serializable {
 	}
 	public void setResume(String resume) {
 		this.resume = resume;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 	
 	

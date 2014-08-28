@@ -48,7 +48,10 @@ public class CourseAction extends BaseAction{
 				
 				doAssemblyModel(courseList);
 				
+				List<Course> newCourseList = courseService.getNewOnlineCourseList();
+				
 				httpServletRequest.setAttribute("courseList", courseList);
+				httpServletRequest.setAttribute("newCourseList", newCourseList);
 			}else{
 				return INPUT;
 			}

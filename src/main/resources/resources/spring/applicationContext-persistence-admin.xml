@@ -73,6 +73,7 @@
 				<value>com.cyou.course.bean.CourseDetail</value>
 				<value>com.cyou.infor.bean.ApplyTeach</value>
 				<value>com.cyou.pay.bean.UserOrder</value>
+				<value>com.cyou.login.bean.PasswordResetRecord</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

@@ -9,6 +9,8 @@ public class UserCourseModel implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String courseId;
 
 	private Date createTime;
 	
@@ -96,5 +98,12 @@ public class UserCourseModel implements Serializable {
 	}
 	public void setNextLession(String nextLession) {
 		this.nextLession = nextLession;
+	}
+	
+	public String getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 }

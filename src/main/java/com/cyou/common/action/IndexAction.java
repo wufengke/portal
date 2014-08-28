@@ -1,16 +1,20 @@
 package com.cyou.common.action;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
+import com.cyou.base.bean.Account;
 import com.cyou.base.bean.Users;
 import com.cyou.core.action.BaseAction;
 import com.cyou.course.bean.Course;
@@ -27,6 +31,8 @@ public class IndexAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(IndexAction.class);
 	private String detailId;
+	private Integer rank;
+	private InputStream inputStream;;
 	private List<Users> usersList = null;
 	@Resource
 	private CourseService courseService;
@@ -66,6 +72,20 @@ public class IndexAction extends BaseAction{
 					Users u = usersService.getUsersByUserId(temps[i]);
 					usersList.add(u);
 				}
+				Account account = (Account) getFromSession("account");
+				//已登录
+				if(account != null){
+					int b = courseService.getUserCourseByCourseIdAndRank(account.getUserId(),c.getCourseId(),0);
+					if(b <= 0){
+						httpServletRequest.setAttribute("buyStatus", 1);
+					}else{
+						//已购买
+						httpServletRequest.setAttribute("buyStatus", 0);
+					}
+				}else{
+					//可以购买
+					httpServletRequest.setAttribute("buyStatus", 1);
+				}
 				httpServletRequest.setAttribute("cd", cd);
 				httpServletRequest.setAttribute("c", c);
 				httpServletRequest.setAttribute("usersList", usersList);
@@ -81,10 +101,46 @@ public class IndexAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	@Action(value = "/checkBuyStatus", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String checkBuyStatus(){
+		try {
+			String json = "{\"status\":1}";
+			if(StringUtils.isBlank(detailId) || rank == null){
+				inputStream = new ByteArrayInputStream(json.getBytes());
+				return SUCCESS;
+			}
+			
+			Account account = (Account) getFromSession("account");
+			if(account != null){
+				int b = courseService.getUserCourseByCourseIdAndRank(account.getUserId(),detailId,rank);
+				if(b > 0){
+					json = json.replace("1", "0");
+				}
+			}
+			inputStream = new ByteArrayInputStream(json.getBytes());
+
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	public Integer getRank() {
+		return rank;
+	}
+	public void setRank(Integer rank) {
+		this.rank = rank;
+	}
 	public String getDetailId() {
 		return detailId;
 	}
 	public void setDetailId(String detailId) {
 		this.detailId = detailId;
+	}
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
 	}
 }

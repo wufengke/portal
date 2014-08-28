@@ -21,5 +21,15 @@ public interface PayService{
 	Long getCanceledOrderCountByUserId(String userId);
 
 	Long getRefundOrderCountByUserId(String userId);
-	
+
+	List<UserOrderModel> getOrderByUserIdAndStatus(String userId,int status);
+
+	long getAllOrderCountByUserId(String userId);
+
+	UserOrderModel getUserOrderModelByOrderId(String orderId);
+
+	UserOrder getOrderbyOrderId(String orderId);
+
+	void updateUserOrder(UserOrder order);
+
 }
