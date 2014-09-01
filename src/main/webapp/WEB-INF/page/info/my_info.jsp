@@ -41,12 +41,25 @@
 <div class="inforTab">
 	<s:hidden name="tab" value="%{#session.tab}"></s:hidden>
 	<ul class="tabh cf">
-		<li class="inforOn">个人资料</li>
-		<li>修改密码</li>
-		<!-- <li>修改头像</li> -->
+		<s:if test="#request.tab == 'tab2'">
+			<li >个人资料</li>
+			<li class="inforOn">修改密码</li>
+			<!-- <li>修改头像</li> -->
+		</s:if>
+		<s:else>
+			<li class="inforOn">个人资料</li>
+			<li>修改密码</li>
+			<!-- <li>修改头像</li> -->
+		</s:else>
+		
 	</ul>
-	<div class="inforTabBox">
-        		<!--邮箱版-->
+	 <s:if test="#request.tab == 'tab2'">
+    	<div class="inforTabBox undis">
+    </s:if>
+    <s:else>
+    	<div class="inforTabBox">
+    </s:else>
+        <!--邮箱版-->
 		<s:form action="/member/save_infor" method="post"  cssClass="emailForm" onsubmit="">
 			<p class="formName">邮箱
 				<span class="verWay"><s:property value="%{#session.account.username}"/></span>
@@ -63,7 +76,9 @@
 					<p class="formName"><span>*</span>昵称</p>
 					<div class="cf">
                         <s:textfield  name="nickName" cssClass="pname fl cInput yh" validName="text" value="%{nickName}" />
-						<div class="Validform_tip_info fl undis">请输入昵称</div>
+						<div class="Validform_tip_info fl Validform_wrong">
+							<s:fielderror fieldName="nickName_error1"></s:fielderror>
+						</div>
                         <div class="Validform_checktip fl"></div>
 					</div>
 				</li>
@@ -155,25 +170,15 @@
 					<div class="cf">
 						<div class="fl">
 							<div>
-								<select name="grade" id="" validName="select" class="subjectInput select_beauty" style="height:30px;">
-									<option value="">选择年级</option>
-   									<option value="一年级" selected>一年级</option>
-   									<option value="二年级" >二年级</option>
-   									<option value="三年级" >三年级</option>
-   									<option value="四年级" >四年级</option>
-   									<option value="五年级" >五年级</option>
-   									<option value="六年级" >六年级</option>
-   									<option value="初一" >初一</option>
-   									<option value="初二" >初二</option>
-   									<option value="初三" >初三</option>
-   									<option value="高一" >高一</option>
-   									<option value="高二" >高二</option>
-   									<option value="高三" >高三</option>
-   									<option value="其他" >其他</option>
-   								</select>
+   								<s:select list="#{'一年级':'一年级','二年级':'二年级','三年级':'三年级','四年级':'四年级','五年级':'五年级',
+   								'六年级':'六年级','初一':'初一','初二':'初二','初三':'初三','高一':'高一','高二':'高二','高三':'高三',
+   								'其他':'其他'}" listKey="key" listValue="value" headerKey=" " headerValue="选择年级"
+   								name="grade" id="grade" validName="select" cssClass="subjectInput select_beauty" cssStyle="height:30px;"></s:select>
 							</div>
 						</div>
-						<span class="Validform_checktip fl"></span>
+						<span class="Validform_checktip fl Validform_wrong">
+							<s:fielderror fieldName="grade_error1"></s:fielderror>
+						</span>
 					</div>
 					<p class="detailText">提示：那好每年7月1日自动为您更新年级，如果信息有误，请您及时调整</p>
 				</li>
@@ -247,7 +252,12 @@
 		</s:form> 
 		<!--手机版-->
     </div>
-    <div class="inforTabBox undis">
+    <s:if test="#request.tab == 'tab2'">
+    	<div class="inforTabBox">
+    </s:if>
+    <s:else>
+    	<div class="inforTabBox undis">
+    </s:else>
 		<!--修改密码-->
 		<s:form action="/member/changePwd" method="post" onsubmit="return formCheck(this);" >
 			<br/>
@@ -258,7 +268,9 @@
 					<div class="cf">
 						<input type="password" id="password" name="password" class="iniPassword fl cInput yh" validName="text"  onblur="check(this);"/>
                         <input type="hidden" name="encrypt_password" value=""/>
-						<span  id="p1" class="Validform_checktip fl undis">请输入密码</span>
+						<span  id="p1" class="Validform_checktip fl Validform_wrong">
+							<s:fielderror fieldName="password_error1"></s:fielderror>
+						</span>
 					</div>
 				</li>
 				<li>
@@ -266,7 +278,9 @@
 					<div class="cf">
 						<input type="password" id="newPassword" name="newPassword" class="setPassword fl cInput yh" validName="text"  onblur="check(this);"/>
                         <input type="hidden" name="encrypt_set_password" value=""/>
-						<span  id="p2" class="Validform_checktip fl undis">新密码不能为空</span>
+						<span  id="p2" class="Validform_checktip fl Validform_wrong">
+							<s:fielderror fieldName="newPassword_error1"></s:fielderror>
+						</span>
 					</div>
 				</li>
 				<li>
@@ -274,7 +288,9 @@
 					<div class="cf">
 						<input type="password" id="confirmNewPassword"  name="confirmNewPassword" class="reSetPassword fl cInput yh" validName="text" onblur="check(this);"/>
                         <input type="hidden" name="encrypt_reset_password" value=""/>
-                        <span  id="p3" class="Validform_checktip fl undis">请再次输入密码</span>
+                        <span  id="p3" class="Validform_checktip fl Validform_wrong">
+                        	<s:fielderror fieldName="confirmNewPassword_error1"></s:fielderror>
+                        </span>
 					</div>
 				</li>
 				<li>

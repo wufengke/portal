@@ -199,6 +199,10 @@ public class LoginAction extends BaseAction{
 		
 		return SUCCESS;
 	}
+	public void validateFindPasswordWay2Step2(){
+		super.validate();
+		
+	}
 	@Action(value = "/login/find_pwd_way2_return", results = { 
 			@Result(name = SUCCESS,location = "/WEB-INF/page/login/find_pwd_way2_step2.jsp")})
 	public String findPasswordWay2Step2Return(){
@@ -236,7 +240,8 @@ public class LoginAction extends BaseAction{
 			@Result(name = "ERROR1", type="redirect",location = "/login/find_pwd_way2_return?email=${email}&key=${key}&time=${time}"),
 			@Result(name = "ERROR2", type="redirect",location = "/login/find_pwd_way2_step1?email=${email}&key=${key}&time=${time}&error=2"),
 			@Result(name = "ERROR3", type="redirect",location = "/login/find_pwd_way2_step1?email=${email}&key=${key}&time=${time}&error=3"),
-			@Result(name = SUCCESS, location = "/WEB-INF/page/login/find_pwd_way2_finish.jsp")})
+			@Result(name = SUCCESS, location = "/WEB-INF/page/login/find_pwd_way2_finish.jsp"),
+			@Result(name = INPUT, location = "/WEB-INF/page/login/find_pwd_way2_step2.jsp")})
 	public String findPasswordWay2Step3(){
 		try {
 			//说明有页面错误

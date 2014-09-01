@@ -4,6 +4,9 @@ package com.cyou.common.action;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,10 +19,12 @@ import org.springframework.stereotype.Controller;
 
 import com.cyou.base.bean.Account;
 import com.cyou.base.bean.Users;
+import com.cyou.common.util.DateUtils;
 import com.cyou.core.action.BaseAction;
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
 import com.cyou.course.model.LessionScheduleJsonModel;
+import com.cyou.course.model.LessionScheduleModel;
 import com.cyou.course.model.OutlineJsonModel;
 import com.cyou.course.service.CourseService;
 import com.cyou.register.service.UsersService;
@@ -62,6 +67,17 @@ public class IndexAction extends BaseAction{
 				//解析开课时间json
 				String lessionSchedule = cd.getLessionSchedule();
 				LessionScheduleJsonModel model = new Gson().fromJson(lessionSchedule, LessionScheduleJsonModel.class);
+				List<LessionScheduleModel> lessionScheduleModels = model.getSchedule();
+				//去除过期的时间表
+				for (Iterator<LessionScheduleModel> iterator = lessionScheduleModels.iterator(); iterator.hasNext();) {
+					LessionScheduleModel lessionScheduleModel = iterator.next();
+					String startDate = lessionScheduleModel.getStartDate();
+					String startTime = lessionScheduleModel.getStartTime();
+					Date d = DateUtils.parseDate(startDate + " " + startTime, "yyyy-MM-dd HH:mm");
+					if(System.currentTimeMillis() > d.getTime()){
+						iterator.remove();
+					}
+				}
 				String outline = cd.getCourseDetailOutline();
 				OutlineJsonModel outlineModel = new Gson().fromJson(outline, OutlineJsonModel.class);
 				//查询教师团队
@@ -89,7 +105,7 @@ public class IndexAction extends BaseAction{
 				httpServletRequest.setAttribute("cd", cd);
 				httpServletRequest.setAttribute("c", c);
 				httpServletRequest.setAttribute("usersList", usersList);
-				httpServletRequest.setAttribute("lessionSchedule", model.getSchedule());
+				httpServletRequest.setAttribute("lessionSchedule", lessionScheduleModels);
 				httpServletRequest.setAttribute("outlline", outlineModel.getOutline());
 			}else {
 				return INPUT;

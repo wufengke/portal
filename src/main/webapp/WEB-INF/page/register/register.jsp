@@ -148,6 +148,12 @@
 			 	$("#passwordCheck1").addClass("Validform_wrong");
 				return false;
 			 }
+		 	if(password.length < 6 || password.length > 63){
+			 	$("#passwordCheck1").removeClass("undis");
+			 	$("#passwordCheck1").addClass("Validform_wrong");
+			 	$("#passwordCheck1").html("密码长度应为6~63个字符之间");
+				return false;
+			 }
 		 	return true;
 		}
 		function timer(){

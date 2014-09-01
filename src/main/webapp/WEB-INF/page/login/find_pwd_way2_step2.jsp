@@ -122,8 +122,22 @@
 			 	
 				return false;
 			 }
+		 	if(password.length < 6 || password.length > 63){
+		 		$("#passwordchecktip").html("密码长度应为6~63个字符之间");
+			 	$("#passwordchecktip").removeClass("undis");
+			 	$("#passwordchecktip").addClass("Validform_wrong");
+			 	
+				return false;
+			 }
 		 	if(confirmPassword == ''){
 		 		$("#confirmpasswordchecktip").html("请输入新密码确认");
+			 	$("#confirmpasswordchecktip").removeClass("undis");
+			 	$("#confirmpasswordchecktip").addClass("Validform_wrong");
+			 	
+				return false;
+			 }
+		 	if(confirmPassword.length < 6 || confirmPassword.length > 63){
+		 		$("#confirmpasswordchecktip").html("密码长度应为6~63个字符之间");
 			 	$("#confirmpasswordchecktip").removeClass("undis");
 			 	$("#confirmpasswordchecktip").addClass("Validform_wrong");
 			 	

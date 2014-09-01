@@ -2,6 +2,8 @@ package com.cyou.infor.action;
 
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 
@@ -40,7 +42,7 @@ public class InforAction extends BaseAction{
 	
 	private String gender;
 	
-	private Integer age;
+	private String age;
 	//阶段 小学初中高中
 	private Integer stage;
 	
@@ -121,7 +123,7 @@ public class InforAction extends BaseAction{
 	@Action(value = "/save_apply_teach", results = { 
 			@Result(name = SUCCESS, type="redirect",location = "/index"),
 			@Result(name = LOGIN, type="redirect",location = "/login"),
-			@Result(name = INPUT, type="redirect",location = "/index")
+			@Result(name = INPUT, location = "/WEB-INF/page/info/apply_teach.jsp")
 			})
 	public String saveApplyTeach(){
 		try {
@@ -139,7 +141,7 @@ public class InforAction extends BaseAction{
 					return SUCCESS;
 				}
 				ApplyTeach at = new ApplyTeach();
-				at.setAge(age);
+				at.setAge(Integer.parseInt(age));
 				at.setCourseBrief(courseBrief);
 				at.setCourseName(courseName);
 				at.setEmail(email);
@@ -198,9 +200,82 @@ public class InforAction extends BaseAction{
 		
 		return SUCCESS;
 	}
-	
+	public void validateSaveApplyTeach(){
+		super.validate();
+		if(StringUtils.isBlank(realName)){
+			this.addFieldError("realName_error1", "请填写真实姓名");
+		}
+		if(StringUtils.isNotBlank(realName) && realName.trim().length() > 63){
+			this.addFieldError("realName_error1", "真实姓名长度应在1~63字符之间");
+		}
+		if(StringUtils.isBlank(schoolName)){
+			this.addFieldError("schoolName_error1", "请填写地区与学校 255字符以内");
+		}
+		if(StringUtils.isNotBlank(schoolName) && schoolName.trim().length() > 63){
+			this.addFieldError("schoolName_error1", "输入的地区与学校应在1~255字符之间");
+		}
+		if(age == null){
+			this.addFieldError("age_error1", "请填写年龄");
+		}
+		if(!checkAge(age)){
+			this.addFieldError("age_error1", "年龄格式应为数字");
+		}
+		if(StringUtils.isBlank(teacherTitle)){
+			this.addFieldError("teacherTitle_error1", "请选择教师职称");
+		}
+		if(teachYears == -1){
+			this.addFieldError("teachYears_error1", "请选择教龄");
+		}
+		if(StringUtils.isBlank(phone)){
+			this.addFieldError("phone_error1", "请填写手机号码");
+		}
+		if(StringUtils.isNotBlank(phone) && phone.trim().length() > 32){
+			this.addFieldError("phone_error1", "手机号码长度应在1~32个字符之间");
+		}
+		if(StringUtils.isBlank(email)){
+			this.addFieldError("email_error1", "请填写常用邮箱");
+		}
+		if(StringUtils.isNotBlank(email) && email.trim().length() > 64){
+			this.addFieldError("email_error1", "邮箱长度应在1~64字符之间");
+		}
+		if(StringUtils.isBlank(qq)){
+			this.addFieldError("qq_error1", "请填写QQ号码");
+		}
+		if(StringUtils.isNotBlank(qq) && qq.trim().length() > 20){
+			this.addFieldError("qq_error1", "QQ长度应在1~20字符之间");
+		}
+		if(StringUtils.isBlank(teachType)){
+			this.addFieldError("teachType_error1", "请选择授课方式");
+		}
+		if(StringUtils.isBlank(subject)){
+			this.addFieldError("subject_error1", "请选择试讲科目");
+		}
+		if(StringUtils.isBlank(startDate)){
+			this.addFieldError("startDate_error1", "请选择试讲日期");
+		}
+		if(StringUtils.isBlank(startTime)){
+			this.addFieldError("startDate_error1", "请选择试讲开始时间");
+		}
+		if(StringUtils.isBlank(endTime)){
+			this.addFieldError("startDate_error1", "请选择试讲结束时间");
+		}
+		if(StringUtils.isBlank(courseName)){
+			this.addFieldError("courseName_error1", "请选择试讲课程名称");
+		}
+		if(StringUtils.isNotBlank(courseName) && courseName.trim().length() > 255){
+			this.addFieldError("courseName_error1", "试讲课程名称应在1~255字符之间");
+		}
+	}
+	private boolean checkAge(String age) {
+		String regex = "^[1-9]+$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(age);
+		return m.matches();
+	}
+
 	/**=====我的信息=====**/
-	@Action(value = "/my_infor", results = { @Result(name = SUCCESS, location = "/WEB-INF/page/info/my_info.jsp"),
+	@Action(value = "/my_infor", results = { 
+			@Result(name = SUCCESS, location = "/WEB-INF/page/info/my_info.jsp"),
 			@Result(name = INPUT, type="redirect",location = "/login")})
 	public String myInfor(){
 		try {
@@ -214,9 +289,12 @@ public class InforAction extends BaseAction{
 					setRealName(users.getRealName());
 					setGender(users.getSex());
 					setSchoolName(users.getSchoolName());
+					setGrade(users.getClasses());
+					setSchoolName(users.getSchoolName());
 					setIntoSession(users);
 				}else{
 					setIntoSession(new Users());
+					setGender("1");
 				}
 			}else {
 				return INPUT;
@@ -229,11 +307,11 @@ public class InforAction extends BaseAction{
 	}
 	@Action(value = "/save_infor", results = { 
 			@Result(name = SUCCESS,type="redirect",location = "/my_infor"),
-			@Result(name = INPUT, type="redirect",location = "/login")})
+			@Result(name = LOGIN, type="redirect",location = "/login"),
+			@Result(name = INPUT, location = "/WEB-INF/page/info/my_info.jsp")})
 	public String saveMyInfor(){
 		try {
 			Account account = (Account) getFromSession("account");
-			
 			if(account != null){
 				account = usersService.getAccountByUserId(account.getUserId());
 				Users user = usersService.getUsersByUserId(account.getUserId());
@@ -268,7 +346,7 @@ public class InforAction extends BaseAction{
 				}
 				
 			}else {
-				return INPUT;
+				return LOGIN;
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
@@ -276,11 +354,24 @@ public class InforAction extends BaseAction{
 		}
 		return SUCCESS;
 	}
+	public void validateSaveMyInfor(){
+		super.validate();
+		if(StringUtils.isBlank(nickName)){
+			this.addFieldError("nickName_error1", "请填写昵称");
+		}
+		if(StringUtils.isNotBlank(nickName) && nickName.trim().length() > 7){
+			this.addFieldError("nickName_error1", "昵称长度应在1~7个字符之间");
+		}
+		if(StringUtils.isBlank(grade)){
+			this.addFieldError("grade_error1", "请选择年级");
+		}
+	}
 	@Action(value = "/changePwd", results = { 
 			@Result(name = SUCCESS,type="redirect",location = "/my_infor?tab=tab2"),
 			@Result(name = "ERROR1",type="redirect",location = "/my_infor?tab=tab2&error=0"),
 			@Result(name = "ERROR2",type="redirect",location = "/my_infor?tab=tab2&error=1"),
-			@Result(name = INPUT, type="redirect",location = "/login")})
+			@Result(name = LOGIN, type="redirect",location = "/login"),
+			@Result(name = INPUT ,location = "/WEB-INF/page/info/my_info.jsp")})
 	public String changePwd(){
 		
 		try {
@@ -304,13 +395,35 @@ public class InforAction extends BaseAction{
 					setIntoSession(account);
 				}
 			}else {
-				return INPUT;
+				return LOGIN;
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			return INPUT;
 		}
 		return SUCCESS;
+	}
+	public void validateChangePwd(){
+		super.validate();
+		httpServletRequest.setAttribute("tab", "tab2");
+		if(StringUtils.isBlank(password)){
+			this.addFieldError("password_error1", "请输入原始密码");
+		}
+		if(StringUtils.isBlank(newPassword)){
+			this.addFieldError("newPassword_error1", "请输入新密码");
+		}
+		if(StringUtils.isNotBlank(newPassword) && ( newPassword.trim().length() > 63 || newPassword.trim().length() < 6)){
+			this.addFieldError("newPassword_error1", "新密码长度应在6~63字符之间");
+		}
+		if(StringUtils.isBlank(confirmNewPassword)){
+			this.addFieldError("confirmNewPassword_error1", "请输入确认密码");
+		}
+		if(StringUtils.isNotBlank(confirmNewPassword) &&( confirmNewPassword.trim().length() > 63 ||  confirmNewPassword.trim().length() < 6)){
+			this.addFieldError("confirmNewPassword_error1", "确认密码长度应在6~63字符之间");
+		}
+		if(!confirmNewPassword.equals(newPassword)){
+			this.addFieldError("confirmNewPassword_error1", "两次密码输入不一致");
+		}
 	}
 	/**=======我的订单======**/
 	@Action(value = "/my_order_all", results = { 
@@ -573,10 +686,10 @@ public class InforAction extends BaseAction{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Integer getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	public Integer getStage() {

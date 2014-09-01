@@ -49,7 +49,12 @@
 						</div>
 					</s:else>
 				</div>
-				<a href="http://online.demo.com/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
+				<s:if test="#c.isOver == 1">
+					<a href="#" class="btn blueBtn"  target="_self">已经结束</a>				
+				</s:if>
+				<s:else>
+					<a href="http://classroom.phas.cn/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
+				</s:else>
 			</li>
 		</s:iterator>
 	</ul>
