@@ -2010,7 +2010,8 @@ a.jqTransformChecked {
 }
 
 .login .regWrap .tabBox a.active {
-	border-top-color: #f14211;
+	/**border-top-color: #f14211;**/
+	border-top-color: #fff;
 	background: #fff;
 	color: #f14211;
 	font-weight: bold

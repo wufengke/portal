@@ -72,8 +72,10 @@ public class LoginAction extends BaseAction{
 			Account account = usersService.getAccount(username,new StrMD5(password).getResult());
 			
 			if(account == null){
+				httpSession.setAttribute("un", username);
 				return INPUT;
 			}
+			httpSession.removeAttribute("un");
 			setIntoSession(account);
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
@@ -81,6 +83,7 @@ public class LoginAction extends BaseAction{
 		}
 		return SUCCESS;
 	}
+	
 	@Action(value = "/login/fulfill", results = { @Result(name = SUCCESS, location = "/WEB-INF/page/login/fulfill.jsp")})
 	public String loginFulfill(){
 		return SUCCESS;

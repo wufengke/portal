@@ -37,10 +37,17 @@
                           			<div class="Validform_checktip"></div>
 								</li>
 								<li>
+									<p>密码确认</p>
+									<s:password id="confirmPassword" name="confirmPassword" cssClass="pwd regInput yh" placeholder="6-63位字符"  onblur="check(this);" maxlength="63"/>
+									<div id="confirmPasswordCheck1" class="Validform_tip_info undis">请输入密码确认</div>
+                          			<div class="Validform_checktip"></div>
+								</li>
+								<!-- 
+								<li>
 									<p>手机号（选填）</p>
 									<s:textfield name="ephone" cssClass="ephone regInput yh" placeholder="填写手机号码，第一时间获知名师公开课"/>
 								</li>
-								
+								 -->
 								<li class="agreementLi">
 									<input type="checkbox" checked id="agreementEmail"/>
 									<label for="agreementEmail">我已阅读并同意</label>
@@ -90,7 +97,7 @@
 			</div>			
 		</div>
 		<div class="regRight fl">
-			<p class="redText">在过去的几分钟</p>
+			<!-- <p class="redText">在过去的几分钟</p> -->
 			<div class="rollPar posr">
 				<div class="rollBox">
 					<ul class="rollUpDown">
@@ -119,7 +126,7 @@
 	 			$("#emailCheck1").removeClass("Validform_wrong");
 	 	 	}
 
-	 		setInterval(timer,10000);
+	 		//setInterval(timer,10000);
 	 	});
 		function check(element){
 			var v = $(element).val();
@@ -138,14 +145,24 @@
 	 	function formCheck(form){
 		 	var email = $(form).find("#email").val();
 		 	var password = $(form).find("#password").val();
+		 	var confirmPassword = $(form).find("#confirmPassword").val();
+		 	
 		 	if(email == ''){
 			 	$("#emailCheck1").removeClass("undis");
 			 	$("#emailCheck1").addClass("Validform_wrong");
+			 	$("#emailCheck1").html("请输入邮箱地址");
 				return false;
 			 }
 		 	if(password == ''){
 			 	$("#passwordCheck1").removeClass("undis");
 			 	$("#passwordCheck1").addClass("Validform_wrong");
+			 	$("#passwordCheck1").html("请输入密码");
+				return false;
+			 }
+		 	if(confirmPassword == ''){
+			 	$("#confirmPasswordCheck1").removeClass("undis");
+			 	$("#confirmPasswordCheck1").addClass("Validform_wrong");
+			 	$("#confirmPasswordCheck1").html("请输入密码确认");
 				return false;
 			 }
 		 	if(password.length < 6 || password.length > 63){
@@ -154,6 +171,13 @@
 			 	$("#passwordCheck1").html("密码长度应为6~63个字符之间");
 				return false;
 			 }
+		 	if(confirmPassword != password){
+			 	$("#confirmPasswordCheck1").removeClass("undis");
+			 	$("#confirmPasswordCheck1").addClass("Validform_wrong");
+			 	$("#confirmPasswordCheck1").html("两次密码输入不一致");
+				return false;
+			 }
+			 
 		 	return true;
 		}
 		function timer(){

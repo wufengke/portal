@@ -20,7 +20,7 @@
 				<p id="msgInfo" class="msgInfo" style="color:red;"></p>
 				<ul>
 					<li class="posr">
-						<s:textfield id="username" name="username" value="" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
+						<s:textfield id="username" name="username" value="%{#session.un}" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
 						<div class="unBg loginInputBg"></div>
 					</li>
 					<li class="posr">
@@ -30,7 +30,7 @@
                     <input type="hidden" name="redirect_url" value="<%=basePath%>register" />
 					<li class="cf autoLi posr">
 						<input type="checkbox" checked name="rembme" id="autoLogin" class="fl autoLogin"/>
-						<label for="autoLogin" class="fl">自动登录</label>
+						<label for="autoLogin" class="fl">记住用户名</label>
 						<a href="<%=basePath%>login/find_pwd" class="fr">忘记密码？</a>
 					</li>
 					<li>
@@ -48,6 +48,7 @@
  <jsp:include page="/foot.jsp" />
  <jsp:include page="/login_pop.jsp" />
   	<script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
+  	<script type="text/javascript" src="<%=basePath %>online/lib/cookie/1.0.0/cookie.js"></script>
  	<script type="text/javascript">
 	 	$(function(){
 	 		var url = window.location.href;
@@ -56,8 +57,7 @@
 	 		}else{
 	 			$("#msgInfo").html("");
 	 	 	}
-
-	 	 	
+	 		getRememberInfo();
 	 	});
 		function check(form){
 			var username = $("#username").val();
@@ -70,6 +70,9 @@
 				return false;
 			}else{
 				$("#msgInfo").html("");
+			}
+			if($("#autoLogin").attr("checked")=="checked"){
+				setCookie("username",username,24*10,"/");
 			}
 			return true;
 		}

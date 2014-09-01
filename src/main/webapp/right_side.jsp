@@ -4,7 +4,6 @@
 <div class="floatBox">
     <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAwOTkzNF8xNjEzODlfNDAwODY0ODY4Nl8yXw" target="_blank" class="ansQue">咨询答疑</a>
     <a href="http://diaocha.tizi.com/survey/41" class="courSurvey" target="_blank">开课调查</a>
-    <a href="javascript:void(0);" class="feedback">意见反馈</a>
     <a href="javascript:void(0);" class="returnTop">返回顶部</a>
 </div>
 <!-- 悬浮框结束 -->
