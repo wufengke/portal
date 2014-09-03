@@ -91,15 +91,18 @@ public class CourseAction extends BaseAction{
 			for(int i= 0 ; i < lessionScheduleModels.size() ; i++){
 				LessionScheduleModel model = lessionScheduleModels.get(i);
 				if(model.getRank().equals(userCourseModel.getLessionRank())){
-					if(DateUtils.parseDate(model.getStartDate(), "yyyy-MM-dd").after(new Date())){
+					
+					if(DateUtils.parseDate(model.getStartDate() + " " + model.getEndTime(), "yyyy-MM-dd HH:mm").after(new Date())){
+						//课程还没结束
 						userCourseModel.setIsOver(0);
-						userCourseModel.setHaveLerned(userCourseModel.getLessionRank().intValue());
+						userCourseModel.setHaveLerned(0);
 						StringBuilder sb = new StringBuilder();
 						sb.append(model.getStartDate()).append(model.getWeek()).append(model.getStartTime()).append("-").append(model.getEndTime());
 						userCourseModel.setNextLession(sb.toString());
 					}else {
+						//课程已经结束
 						userCourseModel.setIsOver(1);
-						userCourseModel.setHaveLerned(userCourseModel.getLessionRank().intValue() + 1);
+						userCourseModel.setHaveLerned(1);
 					}
 				}
 			}

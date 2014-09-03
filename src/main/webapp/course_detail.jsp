@@ -31,18 +31,18 @@
                         <span class="fr">1次／${requestScope.cd.lessionTimes}课时</span>
                     </div>
                 	<input type="hidden"  id="sell_endtime" value="2014-08-09 14:00:00" />
-                	<s:hidden id="rank" value="0"/>
                 	<s:hidden id="detailId" value="%{detailId}"/>
                     <ul class="cf">
                     	<s:iterator value="#request.lessionSchedule" var="ls" status="s">
                     		<s:if test="#s.index == 0">
+                    			<s:hidden id="rank" value="%{#ls.rank}"/>
 	                    		<li class="fl ctime ctimeOn">
-		                            <a href="javascript:getRank(${s.index});"><s:property value="%{#ls.date}"/>-<s:property value="%{#ls.date}"/></a>
+		                            <a href="javascript:getRank(${s.index},${ls.rank});"><s:property value="%{#ls.date}"/>-<s:property value="%{#ls.date}"/></a>
 		                        </li>
                     		</s:if>
 	                    	<s:else>
 		                    	<li class="fl ctime">
-		                            <a href="javascript:getRank(${s.index});"><s:property value="%{#ls.date}"/>-<s:property value="%{#ls.date}"/></a>
+		                            <a href="javascript:getRank(${s.index},${ls.rank});"><s:property value="%{#ls.date}"/>-<s:property value="%{#ls.date}"/></a>
 		                        </li>
 	                    	</s:else>
                     	</s:iterator>
@@ -203,13 +203,13 @@
 <!-- player播放器js结束 -->
  <jsp:include page="/right_side.jsp" />
  <script type="text/javascript">
- function getRank(index){
-	 $("#rank").val(index);
+ function getRank(index,rank){
+	 $("#rank").val(rank);
 	 var detailId = $("#detailId").val();
 	 $("ul[class='cf'] li").removeClass("ctimeOn");
 	 $("ul[class='cf'] li:eq("+(index)+")").addClass("ctimeOn");
 	 $.post("/checkBuyStatus",
-			 {"detailId":detailId,"rank":index},
+			 {"detailId":detailId,"rank":rank},
 			 function(data){
 				 if(data.status == 0){
 					 $("#soon_buy").css("display","none");
