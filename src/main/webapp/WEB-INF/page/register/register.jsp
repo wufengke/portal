@@ -26,7 +26,7 @@
 							<ul>
 								<li>
 									<p>邮箱</p>
-									<s:textfield id="email" name="email" value="" cssClass="email regInput yh" placeholder="邮箱地址" onblur="check(this);" maxlength="63"/>
+									<s:textfield id="email" name="email" value="%{#session.email}" cssClass="email regInput yh" placeholder="邮箱地址" onblur="check(this);" maxlength="63"/>
 									<div id="emailCheck1" class="Validform_tip_info undis">请输入邮箱地址</div>
                           			<div class="Validform_checktip"></div>
 								</li>
@@ -113,6 +113,7 @@
  <jsp:include page="/foot.jsp" />
  <jsp:include page="/login_pop.jsp" />
   	<script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
+  	<script type="text/javascript" src="<%=basePath %>online/lib/cookie/1.0.0/cookie.js"></script>
  	<script type="text/javascript">
 	 	$(function(){
 	 		var url = window.location.href;
@@ -125,7 +126,6 @@
 	 			$("#emailCheck1").addClass("undis");
 	 			$("#emailCheck1").removeClass("Validform_wrong");
 	 	 	}
-
 	 		//setInterval(timer,10000);
 	 	});
 		function check(element){
@@ -177,7 +177,6 @@
 			 	$("#confirmPasswordCheck1").html("两次密码输入不一致");
 				return false;
 			 }
-			 
 		 	return true;
 		}
 		function timer(){

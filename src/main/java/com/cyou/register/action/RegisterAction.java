@@ -86,8 +86,9 @@ public class RegisterAction extends BaseAction{
 	 * 添加用户的方法
 	 * @return
 	 */
-	@Action(value = "/register/submit", results = { @Result(name = SUCCESS, type="redirect",location = "/login/fulfill"), 
-											  @Result(name = INPUT, type="redirect",location = "/register?error=1")})
+	@Action(value = "/register/submit", results = { 
+			@Result(name = SUCCESS, type="redirect",location = "/login/fulfill"), 
+			@Result(name = INPUT, type="redirect",location = "/register?error=1")})
 	public String submit(){
 		try {
 			if(StringUtils.isBlank(email) || StringUtils.isBlank(password)){
@@ -95,6 +96,7 @@ public class RegisterAction extends BaseAction{
 			}
 			Account account = usersService.getAccountByAccountName(email);
 			if (account != null) {
+				httpSession.setAttribute("email", email);
 				return INPUT;
 			}
 			account = new Account();
@@ -125,15 +127,17 @@ public class RegisterAction extends BaseAction{
 				sb.append(str);
 				str = inReader.readLine();
 			}
-			if(StringUtils.isNotBlank(sb.toString())){
+			if(StringUtils.isNotBlank(sb.toString())) {
 				StringBuilder activate_url = new StringBuilder();
 				String basePath = httpServletRequest.getScheme()+"://"+httpServletRequest.getServerName();
 				activate_url.append(basePath).append("/register/activate?userId=").append(uniqueId);
 				String content = sb.toString().replace("activate_url", activate_url);
 				EmailUtil.sendEmail(content, "来自xx网的欢迎邮件", email);
 			}
+			httpSession.removeAttribute("email");
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			httpSession.setAttribute("email", email);
 			return INPUT;
 		}
 		
