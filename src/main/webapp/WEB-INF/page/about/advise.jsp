@@ -46,37 +46,70 @@
 	    <!--提出建议-->
 <div class="adviseBox">
 	<h2>意见反馈</h2>
-	<form action="<%=basePath%>about/feedback" class="feedbackForm" method="post">
+	<s:form action="feedback" cssClass="" namespace="/about" method="get" onsubmit="return formcheck(this);">
+		<s:if test=""></s:if>
 		<ul>
 			<li class="cf posr">
 				<p class="fbText">如果您对我们的产品服务想提出意见或建议，或使用中遇到问题，可以在这里自由吐槽</p>
 				<div class="cf">
-					<textarea name="content" class="fTextarea fl ctextarea" validname="textarea" datatype="*" nullmsg="请提出您宝贵的意见或者建议" errormsg=""></textarea>
-					<span class="Validform_checktip fl"></span>
+					<s:textarea name="content" cssClass="fTextarea fl ctextarea" validname="textarea" datatype="*" nullmsg="请提出您宝贵的意见或者建议" errormsg="" onblur="check(this);"/>
+					<span id="contentCheckTip"  class="Validform_checktip fl Validform_wrong" >
+						<s:fielderror fieldName="contentCheckTip" ></s:fielderror>
+					</span>
 				</div>
 			</li>
 			<li class="posr">
 				<p class="formName">您的称呼</p>
 				<div class="cf">
-					<input type="text" placeholder="请输入您的称呼，以便我们和您联系" name="nickname" class="fname fl cInput" validname="text" datatype="*2-20" nullmsg="请输入称呼" errormsg="长度2-20个字符">
-					<span class="Validform_checktip fl"></span>
+					<s:textfield type="text" placeholder="请输入您的称呼，以便我们和您联系" name="nickname" cssClass="fname fl cInput" validname="text" datatype="*2-20" nullmsg="请输入称呼" errormsg="长度2-20个字符" onblur="check(this);" maxlength="20"/>
+					<span id="nicknameCheckTip" class="Validform_checktip fl Validform_wrong">
+						<s:fielderror fieldName="nicknameCheckTip" ></s:fielderror>
+					</span>
 				</div>
 			</li>
 			<li class="cf posr">
 				<p class="formName">您的邮箱</p>
 				<div class="cf">
-					<input type="text" placeholder="请输入您的邮箱，以便尽快为您解决问题" name="email" class="fEmail fl cInput" validname="text" datatype="e" nullmsg="请输入邮箱地址" errormsg="请输入正确的邮箱地址">
-					<span class="Validform_checktip fl"></span>
+					<s:textfield type="text" placeholder="请输入您的邮箱，以便尽快为您解决问题" name="email" cssClass="fEmail fl cInput" validname="text" datatype="e" nullmsg="请输入邮箱地址" errormsg="请输入正确的邮箱地址" onblur="check(this);" maxlength="64"/>
+					<span id="emailCheckTip" class="Validform_checktip fl Validform_wrong">
+						<s:fielderror fieldName="emailCheckTip" ></s:fielderror>
+					</span>
 				</div>
 			</li>
 			<li>
-				<input type="submit" class="noShowBtn redBtn submit" value="提交">
+				<input type="submit" class="noShowBtn redBtn submit" value="提交" />
 			</li>
 		</ul>
-	</form>
+	</s:form>
 </div>
     </div>
 	</div>
 <!-- 主要内容结束 -->
  <jsp:include page="/login_pop.jsp" />
-</body></html>
+ <script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
+ 	<script type="text/javascript">
+	 	$(function(){
+	 		var url = window.location.href;
+	 		if(url.indexOf("error") != -1){
+	 			if(confirm("您的建议已经提交，点击【确定】跳转到首页")){
+					window.location.href="wwww.phas.cn/index";
+		 		}
+	 		}
+	 	});
+	 	function formcheck(form){
+		 	return true;
+		}
+		function check(element){
+			var v = $(element).val();
+			if(typeof(v) == 'undefined' || v == null || v == ''){
+				$(element).next().removeClass("undis");
+				$(element).next().addClass("Validform_wrong");
+				$(element).next().html("请输入内容");
+			}else{
+				$(element).next().addClass("undis");
+				$(element).next().removeClass("Validform_wrong");
+			}
+		}
+	 </script>
+</body>
+</html>

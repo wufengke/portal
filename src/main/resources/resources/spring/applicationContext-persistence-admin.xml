@@ -74,6 +74,7 @@
 				<value>com.cyou.infor.bean.ApplyTeach</value>
 				<value>com.cyou.pay.bean.UserOrder</value>
 				<value>com.cyou.login.bean.PasswordResetRecord</value>
+				<value>com.cyou.about.bean.Feedback</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

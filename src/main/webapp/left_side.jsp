@@ -16,7 +16,12 @@
 			</p>
 			<h2 class="cf">
 				<span class="myGrade">
-					<s:property value="%{#session.user.classes}" />
+					<s:if test="#session.account.accountType != 1">
+						<s:property value="%{#session.user.classes}" />
+					</s:if>
+					<s:else>
+						讲师
+					</s:else>
 				</span>
 				<span>
 					<s:if test="#session.account.nickName != null">

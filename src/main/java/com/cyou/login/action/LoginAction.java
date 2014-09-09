@@ -76,6 +76,10 @@ public class LoginAction extends BaseAction{
 				return INPUT;
 			}
 			httpSession.removeAttribute("un");
+			Users user = usersService.getUsersByUserId(account.getUserId());
+			if(user != null){
+				setIntoSession(user);
+			}
 			setIntoSession(account);
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);

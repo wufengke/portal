@@ -2,12 +2,12 @@
 <%@ include file="/common/taglib.jsp" %>
 <!-- 悬浮框开始 -->
 <div class="floatBox">
-    <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAwOTkzNF8xNjEzODlfNDAwODY0ODY4Nl8yXw" target="_blank" class="ansQue">咨询答疑</a>
-    <a href="http://diaocha.tizi.com/survey/41" class="courSurvey" target="_blank">开课调查</a>
+    <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=800039052&aty=0&a=0&curl=&ty=1" target="_blank" class="ansQue">咨询答疑</a>
+    <a href="<%=basePath %>about/advise" class="feedback" target="_self">意见反馈</a>
     <a href="javascript:void(0);" class="returnTop">返回顶部</a>
 </div>
 <!-- 悬浮框结束 -->
-<!--意见反馈 开始-->
+<!--意见反馈 开始
 <div class="feedbackHtml undis">
 	<div class="feedback">
 		<h2>意见反馈</h2>
@@ -41,4 +41,5 @@
 		</form>
 	</div>
 </div>
+-->
 <!--意见反馈 结束-->
