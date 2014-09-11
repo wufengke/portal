@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/about/style.css?v=v1.01" />
 <%@ include file="/common/JsCss.jsp" %>
 </head>
-<body class="aboutPage"><div class="aui_state_focus" style="position: absolute; left: -9999em; top: 164px; width: 485px; z-index: 1000;"><div class="aui_outer"><table class="aui_border"><tbody><tr><td class="aui_nw"></td><td class="aui_n"></td><td class="aui_ne"></td></tr><tr><td class="aui_w"></td><td class="aui_c"><div class="aui_inner"><table class="aui_dialog"><tbody><tr><td colspan="2" class="aui_header"><div class="aui_titleBar"><div class="aui_title" style="cursor: move;">系统提示</div><a class="aui_close" href="javascript:void(0);">×</a></div></td></tr><tr><td class="aui_icon"><div class="aui_iconBg" style="background-image: url(http://static.nahao.com/online/images/dialog/icon/warning.png);"></div></td><td class="aui_main" style="width: 420px; height: auto;"><div class="aui_content" style="padding: 20px;"><div class="aui_loading"><span>loading..</span></div></div></td></tr><tr><td colspan="2" class="aui_footer"><div class="aui_buttons"><button class="aui_state_highlight" type="button">确定</button></div></td></tr></tbody></table></div></td><td class="aui_e"></td></tr><tr><td class="aui_sw"></td><td class="aui_s"></td><td class="aui_se" style="cursor: auto;"></td></tr></tbody></table></div></div>
+<body class="aboutPage">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
 <div class="wrap layout about" id="nahaoModule" module="about" data_page="studentPage">
@@ -47,7 +47,6 @@
 <div class="adviseBox">
 	<h2>意见反馈</h2>
 	<s:form action="feedback" cssClass="" namespace="/about" method="get" onsubmit="return formcheck(this);">
-		<s:if test=""></s:if>
 		<ul>
 			<li class="cf posr">
 				<p class="fbText">如果您对我们的产品服务想提出意见或建议，或使用中遇到问题，可以在这里自由吐槽</p>
@@ -61,7 +60,7 @@
 			<li class="posr">
 				<p class="formName">您的称呼</p>
 				<div class="cf">
-					<s:textfield type="text" placeholder="请输入您的称呼，以便我们和您联系" name="nickname" cssClass="fname fl cInput" validname="text" datatype="*2-20" nullmsg="请输入称呼" errormsg="长度2-20个字符" onblur="check(this);" maxlength="20"/>
+					<s:textfield placeholder="请输入您的称呼，以便我们和您联系" name="nickname" cssClass="fname fl cInput" validname="text" datatype="*2-20" nullmsg="请输入称呼" errormsg="长度2-20个字符" onblur="check(this);" maxlength="20"/>
 					<span id="nicknameCheckTip" class="Validform_checktip fl Validform_wrong">
 						<s:fielderror fieldName="nicknameCheckTip" ></s:fielderror>
 					</span>
@@ -70,7 +69,7 @@
 			<li class="cf posr">
 				<p class="formName">您的邮箱</p>
 				<div class="cf">
-					<s:textfield type="text" placeholder="请输入您的邮箱，以便尽快为您解决问题" name="email" cssClass="fEmail fl cInput" validname="text" datatype="e" nullmsg="请输入邮箱地址" errormsg="请输入正确的邮箱地址" onblur="check(this);" maxlength="64"/>
+					<s:textfield placeholder="请输入您的邮箱，以便尽快为您解决问题" name="email" cssClass="fEmail fl cInput" validname="text" datatype="e" nullmsg="请输入邮箱地址" errormsg="请输入正确的邮箱地址" onblur="check(this);" maxlength="64"/>
 					<span id="emailCheckTip" class="Validform_checktip fl Validform_wrong">
 						<s:fielderror fieldName="emailCheckTip" ></s:fielderror>
 					</span>
