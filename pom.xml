@@ -1,19 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.portal</groupId>
-  <artifactId>portal</artifactId>
+  <groupId>com.admin</groupId>
+  <artifactId>admin</artifactId> 
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>console Maven Webapp</name>
+  <name>demo.com Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
+  <dependencies> 
   	<dependency>
 	  <groupId>fakepath</groupId>
 	  <artifactId>alisoft-xplatform-asf-cache</artifactId>
 	  <version>2.5.1</version>
 	</dependency>
-		<dependency>
+  	<dependency>
+	  <groupId>ueditor</groupId>
+	  <artifactId>ueditor</artifactId>
+	  <version>1.1.1</version>
+	</dependency>
+	<dependency>
 	  <groupId>org.slf4j</groupId>
 	  <artifactId>slf4j-api</artifactId>
 	  <version>1.6.1</version>
@@ -201,6 +206,21 @@
 	  <version>3.0.3</version>
 	</dependency>
     <dependency>
+	  <groupId>com.sun.jdmk</groupId>
+	  <artifactId>jmxtools</artifactId>
+	  <version>1.2.1</version>
+	</dependency>
+    <dependency>
+	  <groupId>com.sun.jmx</groupId>
+	  <artifactId>jmxri</artifactId>
+	  <version>1.2.1</version>
+	</dependency>
+    <dependency>
+	  <groupId>javax.jms</groupId>
+	  <artifactId>jms</artifactId>
+	  <version>1.1</version>
+	</dependency>
+    <dependency>
     	<groupId>javax.transaction</groupId>
     	<artifactId>jta</artifactId>
     	<version>1.1</version>
@@ -382,7 +402,7 @@
 	  <groupId>org.springframework.security</groupId>
 	  <artifactId>spring-security-taglibs</artifactId>
 	  <version>2.0.5.RELEASE</version>
-	</dependency>
+	</dependency> 
 	<dependency>
 	  <groupId>org.springframework</groupId>
 	  <artifactId>spring-test</artifactId>
@@ -461,6 +481,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>portal-0.0.1-SNAPSHOT</finalName>
+		<finalName>admin-0.0.1-SNAPSHOT</finalName>
 	</build>
 </project>
