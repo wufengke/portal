@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.admin</groupId>
-  <artifactId>admin</artifactId> 
+  <groupId>com.portal</groupId>
+  <artifactId>portal</artifactId> 
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>demo.com Maven Webapp</name>
@@ -481,6 +481,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>admin-0.0.1-SNAPSHOT</finalName>
+		<finalName>portal-0.0.1-SNAPSHOT</finalName>
 	</build>
 </project>
