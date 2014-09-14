@@ -42,7 +42,7 @@ public class AboutAction extends BaseAction{
 	public String userhelp(){
 		return SUCCESS;
 	}
-	@Action(value = "/advise", results = { @Result(name = SUCCESS, location = "/WEB-INF/page/about/advise.jsp") })
+	@Action(value = "/advise", results = { @Result(name = SUCCESS, location = "/WEB-INF/page/about/advise.jsp")})
 	public String advise(){
 		return SUCCESS;
 	}
