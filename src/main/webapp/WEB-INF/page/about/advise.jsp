@@ -51,7 +51,7 @@
 			<li class="cf posr">
 				<p class="fbText">如果您对我们的产品服务想提出意见或建议，或使用中遇到问题，可以在这里自由吐槽</p>
 				<div class="cf">
-					<s:textarea name="content" cssClass="fTextarea fl ctextarea" validname="textarea" datatype="*" nullmsg="请提出您宝贵的意见或者建议" errormsg="" onblur="check(this);"/>
+					<s:textarea name="content" cssClass="fTextarea fl ctextarea" validname="textarea" datatype="*" nullmsg="请提出您宝贵的意见或者建议" onblur="check(this);"/>
 					<span id="contentCheckTip"  class="Validform_checktip fl Validform_wrong" >
 						<s:fielderror fieldName="contentCheckTip" ></s:fielderror>
 					</span>
