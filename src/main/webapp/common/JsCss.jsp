@@ -2,13 +2,13 @@
 <!-- 加载头部公共变量定义开始 -->
 <!-- 加载全站公共变量开始 -->
 <script>
-    var siteUrl = "http://www.demo.com/";
-	var staticUrl = "http://www.demo.com/";
+    var siteUrl = "http://www.phas.cn/";
+	var staticUrl = "http://www.phas.cn/";
 	var staticVersion = "online";
 	var staticPath = staticUrl + staticVersion + "/";
-    var perfectUrl="http://www.demo.com/login/perfect";
-    var student_url = "http://www.demo.com/";
-    var nh_img_host = "http://www.demo.com/";
+    var perfectUrl="http://www.phas.cn/login/perfect";
+    var student_url = "http://www.phas.cn/";
+    var nh_img_host = "http://www.phas.cn/";
 </script>
 <!-- 加载全站公共变量结束 -->
 <!-- 加载学生端公共别名开始 -->
