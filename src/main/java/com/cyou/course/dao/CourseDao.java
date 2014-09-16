@@ -5,6 +5,7 @@ import java.util.List;
 import com.cyou.core.dao.BaseDao;
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
+import com.cyou.course.condition.CourseCondition;
 import com.cyou.course.model.UserCourseModel;
 
 public interface CourseDao extends BaseDao{
@@ -25,5 +26,7 @@ public interface CourseDao extends BaseDao{
 
 	Long getUserCourseByCourseIdAndRank(String userId, String courseId,
 			int lessonRank);
+
+	List<Course> getCourseByCondition(CourseCondition condition);
 
 }

@@ -3,6 +3,7 @@ package com.cyou.course.dao.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.transform.Transformers;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.cyou.core.dao.hibernate.BaseCyouPayDaoImpl;
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
+import com.cyou.course.condition.CourseCondition;
 import com.cyou.course.dao.CourseDao;
 import com.cyou.course.model.UserCourseModel;
 @Repository
@@ -110,6 +112,43 @@ public class CourseDaoImpl extends BaseCyouPayDaoImpl implements CourseDao{
 				return session.createQuery("select count(uo) from UserOrder uo where uo.userId='" + userId + "' and uo.courseId='" + courseId + "' and uo.lessionRank=" + lessonRank).uniqueResult();
 			}
 		});
+	}
+
+	@Override
+	public List<Course> getCourseByCondition(CourseCondition condition) {
+		final StringBuffer sb = new StringBuffer();
+		sb.append("select c from Course c where 1=1 and c.status = 1 ");
+		sb.append(getConditionHql(condition));
+		return getHibernateTemplate().executeFind(new HibernateCallback() {
+			
+			@Override
+			public Object doInHibernate(Session arg0) throws HibernateException,
+					SQLException {
+				return arg0.createQuery(sb.toString()).list();
+			}
+		});
+	}
+
+	private String getConditionHql(CourseCondition condition) {
+		if(condition == null){
+			return " order by c.courseTime desc";
+		}
+		StringBuffer sb = new StringBuffer();
+		if(StringUtils.isNotBlank(condition.getCourseType()) && !"-1".equals(condition.getCourseType())){
+			sb.append(" and c.courseType = '").append(condition.getCourseType()).append("'");
+		}
+		if(StringUtils.isNotBlank(condition.getPriceType())&& !"-1".equals(condition.getPriceType())){
+			sb.append(" and c.priceType = '").append(condition.getPriceType()).append("'");
+		}
+		if(StringUtils.isNotBlank(condition.getStartTime())){
+			sb.append(" and c.courseTime >='").append(condition.getStartTime()).append("'");
+		}
+		if(StringUtils.isNotBlank(condition.getEndTime())){
+			sb.append(" and c.courseTime <= '").append(condition.getEndTime()).append("'");
+		}
+		sb.append(" order by c.courseTime desc");
+		
+		return sb.toString();
 	}
 	
 }

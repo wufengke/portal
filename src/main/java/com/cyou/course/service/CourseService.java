@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
+import com.cyou.course.condition.CourseCondition;
 import com.cyou.course.model.UserCourseModel;
 
 
@@ -34,5 +35,11 @@ public interface CourseService{
 	 * @param i
 	 */
 	int getUserCourseByCourseIdAndRank(String userId, String courseId, int lessonRank);
+	/**
+	 * 公开课筛选列表
+	 * @param condition
+	 * @return
+	 */
+	List<Course> getCourseByCondition(CourseCondition condition);
 	
 }

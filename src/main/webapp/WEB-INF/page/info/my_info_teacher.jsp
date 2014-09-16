@@ -5,6 +5,7 @@
 <head>
  <title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <jsp:include page="/head.jsp" />
@@ -101,9 +102,12 @@
                      <div class="cf" style="float: left">
                          <div class="fl">
                              <div>
-                                 <select name="province" id="province" validname="select" class="province">
+                                 <s:select list="#request.provinceList" 
+                                 			listKey="id" listValue="provinceName" 
+                                 			headerKey="-1" headerValue="请选择" 
+                                 			name="province" id="province" validname="select" cssCclass="province">
                                     
-                                 </select>
+                                 </s:select>
                              </div>
                          </div>
                          <span class="Validform_checktip fl"></span>
@@ -111,9 +115,12 @@
                      <div class="cf" style="float: left">
                          <div class="fl">
                              <div>
-                                 <select name="city" id="city" validname="select" class="city">
+                                 <s:select list="#request.cityList" 
+                                 			listKey="id" listValue="cityName" 
+                                 			headerKey="-1" headerValue="请选择" 
+                                 			name="city" id="city" validname="select" cssClass="city">
                                   
-                                 </select>
+                                 </s:select>
                              </div>
                          </div>
                          <span class="Validform_checktip fl"></span>
@@ -142,7 +149,7 @@
                      <p class="optional noFillin">手机号</p>
                      <div class="cf">
                          <div class="fl">
-                             <s:textfield name="phone" cssClass="wphone textInput fl" ></s:textfield>
+                             <s:textfield name="phone" cssClass="wphone textInput fl" id="phone"></s:textfield>
 							<div class="Validform_tip_info fl Validform_wrong">
 								<s:fielderror name="phone_error1" fieldName="phone_error1"></s:fielderror>
 							</div>
@@ -156,9 +163,11 @@
                      <p class="optional noFillin">验证码</p>
                      <div class="cf">
                          <div class="fl">
-                             <input type="text" class="cInput phone_number" style="width: 150px;" value="" name="phoneVerifyCode" validname="text" readonly="readonly"/>
-                             <input type="button" class="btn greenBtn" style="margin: 0 0 0 10px; font-weight: normal; font-size: 14px; height: 32px; line-height: 32px;" value="获取手机验证码" />
-                             <span class="Validform_checktip"></span>
+                             <input type="text" class="cInput phone_number" style="width: 150px;" value="" name="phoneVerifyCode" id="phoneVerifyCode" validname="text"/>
+                             <input type="button" id="verifyButton" class="btn greenBtn" style="margin: 0 0 0 10px; font-weight: normal; font-size: 14px; height: 32px; line-height: 32px;" value="获取手机验证码" />
+                             <span class="Validform_checktip Validform_wrong">
+                             		<s:fielderror name="phone_verifyCode_rror1" fieldName="phone_verifyCode_rror1"></s:fielderror>
+                             </span>
                          </div>
                      </div>
                  </li>
@@ -472,6 +481,26 @@
                 this.sync();
             }
         });
+    });
+    
+    $(function(){
+    	$("#province").change(function(){
+    		var provinceId = $("#province").val();
+    		$.post("/member/getCityList.action",{"province":provinceId},
+    		function(data){
+    			$("#city").empty();
+    			$("#city").append("<option value='-1'>请选择</option>");
+    			$(data).each(function(index){
+    				$("#city").append("<option value='"+data[index].id+"'>"+data[index].cityName+"</option>");
+    			});
+    		},"json");
+    	});
+    	$("#verifyButton").click(function(){
+    		var phone = $("#phone").val();
+    		$.post("/member/sendVerifyCode.action",{"phone":phone},
+    		function(data){
+    		},"json");
+    	});
     });
 </script>
 </body>

@@ -22,6 +22,7 @@ import com.cyou.common.util.DateUtils;
 import com.cyou.core.action.BaseAction;
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
+import com.cyou.course.condition.CourseCondition;
 import com.cyou.course.model.LessionScheduleJsonModel;
 import com.cyou.course.model.LessionScheduleModel;
 import com.cyou.course.model.OutlineJsonModel;
@@ -36,20 +37,28 @@ public class IndexAction extends BaseAction{
 	private static final Logger logger = Logger.getLogger(IndexAction.class);
 	private String detailId;
 	private Integer rank;
-	private InputStream inputStream;;
+	private InputStream inputStream;
 	private List<Users> usersList = null;
 	@Resource
 	private CourseService courseService;
 	@Resource
 	private UsersService usersService;
 	
+	private String courseType; 
+	
+	private String priceType;
+	
+	private String startDate;
+	
+	private String endDate;
+	
 	@Action(value = "/index", results = { @Result(name = SUCCESS, location = "/index.jsp")})
 	public String index(){
 		try {
 			List<Course> courseList = courseService.getOnlineCourseList();
-			List<Course> rollList = courseService.getRollCourseList();
+			//List<Course> rollList = courseService.getRollCourseList();
 			httpServletRequest.setAttribute("courseList", courseList);
-			httpServletRequest.setAttribute("rollList", rollList);
+			//httpServletRequest.setAttribute("rollList", rollList);
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
 			return INPUT;
@@ -61,13 +70,33 @@ public class IndexAction extends BaseAction{
 			@Result(name = INPUT, type="redirect",location = "/index")})
 	public String publicOnline(){
 		try {
+			CourseCondition condition = new CourseCondition();
+			condition.setCourseType(courseType);
 			
+			condition.setPriceType(priceType);
+			
+			if(StringUtils.isBlank(startDate)){
+				condition.setStartTime(DateUtils.format(System.currentTimeMillis(), "yyyy-MM-dd"));
+			}else{
+				condition.setStartTime(startDate);
+			}
+			if(StringUtils.isBlank(endDate)){
+				long l = System.currentTimeMillis();
+				l = l + 3600*1000*24*30;
+				condition.setEndTime(DateUtils.format(l, "yyyy-MM-dd"));
+			}else{
+				condition.setEndTime(endDate);
+			}
+			List<Course> courseList = courseService.getCourseByCondition(condition);
+			httpServletRequest.setAttribute("courseList", courseList);
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
 			return INPUT;
 		}
 		return SUCCESS;
 	}
+	
+	
 	
 	@Action(value = "/detail", results = { 
 			@Result(name = SUCCESS, location = "/course_detail.jsp"),
@@ -172,4 +201,31 @@ public class IndexAction extends BaseAction{
 	public void setInputStream(InputStream inputStream) {
 		this.inputStream = inputStream;
 	}
+	public String getCourseType() {
+		return courseType;
+	}
+	public void setCourseType(String courseType) {
+		this.courseType = courseType;
+	}
+	public String getPriceType() {
+		return priceType;
+	}
+	public void setPriceType(String priceType) {
+		this.priceType = priceType;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+
+	
 }

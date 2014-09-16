@@ -1,5 +1,8 @@
 package com.cyou.infor.action;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -15,15 +18,23 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
 import com.cyou.base.bean.Account;
+import com.cyou.base.bean.City;
+import com.cyou.base.bean.Province;
 import com.cyou.base.bean.Users;
+import com.cyou.base.service.ProvinceCityService;
+import com.cyou.base.util.SMSUtil;
+import com.cyou.common.util.UUIDUtil;
 import com.cyou.core.action.BaseAction;
 import com.cyou.core.util.StrMD5;
+import com.cyou.course.bean.PrivateCourse;
 import com.cyou.infor.bean.ApplyTeach;
 import com.cyou.infor.model.UserOrderModel;
+import com.cyou.infor.service.InforService;
 import com.cyou.login.service.ApplyTeachService;
 import com.cyou.pay.bean.UserOrder;
 import com.cyou.pay.service.PayService;
 import com.cyou.register.service.UsersService;
+import com.google.gson.Gson;
 
 @Controller
 @Namespace(value="/member")
@@ -77,7 +88,8 @@ public class InforAction extends BaseAction{
 	private String tab = "";
 	
 	private String orderId;
-	
+	private Integer province;
+	private Integer city;
 	private long allOrderCount = 0;
 	private long notPaidOrderCount = 0;
 	private long paidOrderCount = 0;
@@ -100,9 +112,14 @@ public class InforAction extends BaseAction{
 	private ApplyTeachService applyTeachService;
 	@Resource
 	private PayService payService;
+	@Resource
+	private ProvinceCityService provinceCityService;
+	@Resource
+	private InforService inforService;
+	
 	private String idCardNo;
 	private String teacherBrief;
-	
+	private InputStream inputStream;
 	@Action(value = "/apply_teach", results = { 
 			@Result(name = SUCCESS, location = "/WEB-INF/page/info/apply_teach.jsp"),
 			@Result(name = LOGIN, type="redirect",location = "/login")})
@@ -412,6 +429,12 @@ public class InforAction extends BaseAction{
 					setTeachYears(users.getTeachYear());
 					setIdCardNo(users.getIdCardNo());
 					setTeacherBrief(users.getTeacherBrief());
+					setCity(users.getCityId());
+					setProvince(users.getProvinceId());
+					List<Province> provinceList = provinceCityService.getProvinceList();
+					List<City> cityList = provinceCityService.getCityList();
+					httpServletRequest.setAttribute("provinceList", provinceList);
+					httpServletRequest.setAttribute("cityList", cityList);
 					if(getFromSession("user") == null){
 						setIntoSession(users);
 					}
@@ -436,16 +459,22 @@ public class InforAction extends BaseAction{
 		try {
 			Account account = (Account) getFromSession("account");
 			if(account != null){
+				String verifyCode = (String)httpSession.getAttribute("verifyCode");
+				if(!phoneVerifyCode.equals(verifyCode)){
+					this.addFieldError("phone_verifyCode_rror1", "验证码不正确,请重新输入");
+					return INPUT;
+				}
 				account = usersService.getAccountByUserId(account.getUserId());
 				Users user = usersService.getUsersByUserId(account.getUserId());
 				account.setPhone(phone);
 				if(usersService.updateAccount(account)){
 					setIntoSession(account);
 				}
+				
 				if(user == null){
 					user = new Users();
-					user.setCityId(0);
-					user.setProvinceId(0);
+					user.setCityId(city == null? 0:city);
+					user.setProvinceId(province == null? 0:province);
 					user.setRealName(realName);
 					user.setRegionId(0);
 					user.setSchoolId(0);
@@ -485,6 +514,14 @@ public class InforAction extends BaseAction{
 					user.setQq(qq);
 					user.setPhone(phone);
 					user.setSchoolName(schoolName);
+					if(province != null){
+						user.setProvinceId(province);
+					}
+					if(city != null){
+						user.setCityId(city);
+					}
+					
+					
 					switch (stage) {
 					case 1:
 						user.setStage("小学");
@@ -528,11 +565,18 @@ public class InforAction extends BaseAction{
 	}
 	public void validateSaveMyInforTeacher(){
 		super.validate();
+		List<Province> provinceList = provinceCityService.getProvinceList();
+		List<City> cityList = provinceCityService.getCityList();
+		httpServletRequest.setAttribute("provinceList", provinceList);
+		httpServletRequest.setAttribute("cityList", cityList);
 		if(StringUtils.isBlank(realName)){
 			this.addFieldError("realName_error1", "请填写真实姓名");
 		}
 		if(StringUtils.isNotBlank(realName) && realName.trim().length() > 63){
 			this.addFieldError("realName_error1", "真实姓名长度应在1~63字符之间");
+		}
+		if(StringUtils.isBlank(phoneVerifyCode)){
+			this.addFieldError("phone_verifyCode_rror1", "请输入验证码");
 		}
 		/*if(StringUtils.isBlank(schoolName)){
 			this.addFieldError("schoolName_error1", "请填写地区与学校 255字符以内");
@@ -860,6 +904,162 @@ public class InforAction extends BaseAction{
 		}
 		return SUCCESS;
 	}
+
+	@Action(value = "/getCityList", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String checkBuyStatus(){
+		try {
+			List<City> cityList = null;
+			if(province != null){
+				 cityList =  provinceCityService.getCityListByProvinceId(province);
+			}
+			if(cityList == null){
+				cityList = new ArrayList<City>();
+			}
+			Gson gson = new Gson();
+			String jsonStr = gson.toJson(cityList);
+			
+			inputStream = new ByteArrayInputStream(jsonStr.getBytes("utf-8"));
+
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	@Action(value = "/sendVerifyCode", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String sendVerifyCode(){
+		try {
+			String verifyCode = "";
+			if(StringUtils.isNotBlank(phone)){
+				verifyCode = UUIDUtil.generateVerifyCode();
+				if(StringUtils.isNotBlank(verifyCode)){
+					String result = SMSUtil.sendSMS(verifyCode, phone);
+					if(result.contains("success")){
+						httpSession.setAttribute("verifyCode", verifyCode);
+					}
+				}
+			}
+			String jsonResult = "{\"phoneVerifyCode\":\"\"}";
+			inputStream = new ByteArrayInputStream(jsonResult.getBytes("utf-8"));
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	private String courseTitle;
+	
+	public String getCourseTitle() {
+		return courseTitle;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
+	}
+	
+	@Action(value = "/createPrivateClass", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String createPrivateClass(){
+		try {
+			String jsonResult = "{\"code\":codePlaceHolder}";
+			Account account = (Account)getFromSession("account");
+			if(account != null){
+				String code = null;
+				if(StringUtils.isNotBlank(courseTitle)){
+					PrivateCourse pc = new PrivateCourse();
+					pc.setUserId(account.getUserId());
+					pc.setCourseTitle(courseTitle);
+					Date d = new Date();
+					pc.setCreateTime(d);
+					pc.setUpdateTime(d);
+					pc.setStatus(1);
+					code = UUIDUtil.generateVerifyCode();
+					pc.setCoursePassword(code);
+					boolean b = inforService.savePrivateCourse(pc);
+					if(b){
+						jsonResult = jsonResult.replace("codePlaceHolder", code);
+					}else{
+						jsonResult = jsonResult.replace("codePlaceHolder", "2");
+					}
+				}else{
+					jsonResult = jsonResult.replace("codePlaceHolder", "1");
+				}
+			}else{
+				jsonResult = jsonResult.replace("codePlaceHolder", "0");
+			}
+			inputStream = new ByteArrayInputStream(jsonResult.getBytes("utf-8"));
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	
+	@Action(value = "/resetCode", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String resetCode(){
+		try {
+			String jsonResult = "{\"code\":codePlaceHolder}";
+			Account account = (Account)getFromSession("account");
+			if(account != null){
+				String code = UUIDUtil.generateVerifyCode();
+				PrivateCourse pc = inforService.getPrivateCourseByUserId(account.getUserId());
+				if(pc != null){
+					pc.setCoursePassword(code);
+					boolean b = inforService.updatePrivateCourse(pc);
+					if(b){
+						jsonResult = jsonResult.replace("codePlaceHolder", code);
+					}else{
+						jsonResult = jsonResult.replace("codePlaceHolder", "1");
+					}
+				}
+			}else{
+				jsonResult = jsonResult.replace("codePlaceHolder", "0");
+			}
+			inputStream = new ByteArrayInputStream(jsonResult.getBytes("utf-8"));
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	private String code;
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
+	@Action(value = "/sendCode", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String sendCode(){
+		try {
+			String jsonResult = "{\"code\":codePlaceHolder}";
+			Account account = (Account)getFromSession("account");
+			if(account != null){
+				String phone = account.getPhone();
+				if(StringUtils.isNotBlank(phone)){
+					String b = SMSUtil.sendSMS(code, phone);
+					if(b.contains("success")){
+						jsonResult = jsonResult.replace("codePlaceHolder", code);
+					}else{
+						jsonResult = jsonResult.replace("codePlaceHolder", "2");
+					}
+				}else{
+					jsonResult = jsonResult.replace("codePlaceHolder", "1");
+				}
+			}else{
+				jsonResult = jsonResult.replace("codePlaceHolder", "0");
+			}
+			inputStream = new ByteArrayInputStream(jsonResult.getBytes("utf-8"));
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
 	
 	public Integer getId() {
 		return id;
@@ -1089,4 +1289,53 @@ public class InforAction extends BaseAction{
 	public void setPhoneVerifyCode(String phoneVerifyCode) {
 		this.phoneVerifyCode = phoneVerifyCode;
 	}
+
+	public Integer getProvince() {
+		return province;
+	}
+
+	public void setProvince(Integer province) {
+		this.province = province;
+	}
+
+	public Integer getCity() {
+		return city;
+	}
+
+	public void setCity(Integer city) {
+		this.city = city;
+	}
+
+	public UsersService getUsersService() {
+		return usersService;
+	}
+
+	public void setUsersService(UsersService usersService) {
+		this.usersService = usersService;
+	}
+
+	public PayService getPayService() {
+		return payService;
+	}
+
+	public void setPayService(PayService payService) {
+		this.payService = payService;
+	}
+
+	public ProvinceCityService getProvinceCityService() {
+		return provinceCityService;
+	}
+
+	public void setProvinceCityService(ProvinceCityService provinceCityService) {
+		this.provinceCityService = provinceCityService;
+	}
+
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+	
 }

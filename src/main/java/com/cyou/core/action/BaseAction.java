@@ -1,5 +1,6 @@
 package com.cyou.core.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -49,15 +50,20 @@ public class BaseAction extends ActionSupport implements ServletContextAware,
     
     @Override
     public void setServletResponse(HttpServletResponse response) {
-	this.httpServletResponse = response;
-	httpServletResponse.setHeader("Cache-Control", "no-cache");   
-	httpServletResponse.setContentType("text/json;charset=UTF-8");  
-	httpServletResponse.setCharacterEncoding("UTF-8");
+		this.httpServletResponse = response;
+		httpServletResponse.setHeader("Cache-Control", "no-cache");   
+		httpServletResponse.setContentType("text/json;charset=UTF-8");  
+		httpServletResponse.setCharacterEncoding("UTF-8");
     }
 
     @Override
     public void setServletRequest(HttpServletRequest request) {
 	this.httpServletRequest = request;
+	try {
+		httpServletRequest.setCharacterEncoding("UTF-8");
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
 	this.httpSession = request.getSession();
     }
 

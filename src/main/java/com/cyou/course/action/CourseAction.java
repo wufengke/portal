@@ -18,11 +18,13 @@ import com.cyou.base.bean.Account;
 import com.cyou.common.util.DateUtils;
 import com.cyou.core.action.BaseAction;
 import com.cyou.course.bean.Course;
+import com.cyou.course.bean.PrivateCourse;
 import com.cyou.course.model.LessionScheduleJsonModel;
 import com.cyou.course.model.LessionScheduleModel;
 import com.cyou.course.model.UserCourseModel;
 import com.cyou.course.service.CourseService;
 import com.cyou.infor.bean.ApplyTeach;
+import com.cyou.infor.service.InforService;
 import com.cyou.login.service.ApplyTeachService;
 import com.google.gson.Gson;
 
@@ -72,6 +74,8 @@ public class CourseAction extends BaseAction{
 		}
 		return SUCCESS;
 	}
+	@Resource
+	private InforService inforService;
 	
 	@Action(value = "/my_podium", results = { 
 			@Result(name = SUCCESS, location = "/WEB-INF/page/course/my_podium.jsp"),
@@ -83,6 +87,11 @@ public class CourseAction extends BaseAction{
 				//查询课程信息
 				List<Course> courseList = courseService.getTeacherCourseCourseByUserId(account.getUserId());
 				httpServletRequest.setAttribute("courseList", courseList);
+				PrivateCourse pc = inforService.getPrivateCourseByUserId(account.getUserId());
+				if(pc != null){
+					httpServletRequest.setAttribute("courseTitle", pc.getCourseTitle());
+					httpServletRequest.setAttribute("code", pc.getCoursePassword());
+				}
 			}else{
 				return INPUT;
 			}
@@ -149,12 +158,6 @@ public class CourseAction extends BaseAction{
 
 	public void validateMyPodiumNewClassAdd() {
 		super.validate();
-		System.out.println("teachType" + teachType);
-		System.out.println("subject" + subject);
-		System.out.println("startDate" + startDate);
-		System.out.println("startTime" + startTime);
-		System.out.println("endTime" + endTime);
-		System.out.println("courseName" + courseName);
 		
 		if(StringUtils.isBlank(teachType)){
 			this.addFieldError("teachType_error1", "请选择授课方式");

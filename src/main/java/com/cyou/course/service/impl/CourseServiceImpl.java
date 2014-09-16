@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
+import com.cyou.course.condition.CourseCondition;
 import com.cyou.course.dao.CourseDao;
 import com.cyou.course.model.UserCourseModel;
 import com.cyou.course.service.CourseService;
@@ -106,6 +107,16 @@ public class CourseServiceImpl  implements CourseService{
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			return 0;
+		}
+	}
+
+	@Override
+	public List<Course> getCourseByCondition(CourseCondition condition) {
+		try {
+			return courseDao.getCourseByCondition(condition);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return new ArrayList<Course>();
 		}
 	}
 

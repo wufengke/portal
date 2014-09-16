@@ -25,6 +25,43 @@ $(document).ready(function () {
     $("#createClass").click(function () {
         $(this).parent().hide();
         $(this).parent().next().attr("class", "");
+        $("#courseTitle").attr("readonly","true");
+        alert($("#courseTitle").val());
+        $.post("/member/createPrivateClass.action",
+        		{"courseTitle":$("#courseTitle").val()},
+        function(data){
+			if(data.code != 0 && data.code != 2 && data.code != 3){
+				$("#code").val(data.code);
+			}
+        	
+        },"json");
+    });
+    $("#sendCode").click(function () {
+    	$.post("/member/sendCode.action",
+    			{"code":$("#code").val()},
+		function(data){
+			if(data.code != 0 && data.code !=2){
+				if(data.code == 1){
+					alert("手机号码为空，请在我的资料页完善个人资料");
+				}else{
+					alert("已发送，请查收");
+				}
+			}
+		},"json");
+    });
+    $("#resetCode").click(function () {
+    	$.post("/member/resetCode.action",
+    			{},
+		function(data){
+			if(data.code != 0 && data.code != 1 ){
+				$("#code").val(data.code);
+			}
+		},"json");
+    });
+    $("#enterClass").click(function () {
+    	var userId = $("#userId").val();
+    	var classroom = "http://classroom.phan.cn/demo3.jsp?action=create&username="+ userId + "&password=111&meetingID=111";
+    	window.location.href = classroom
     });
     $(".iniBox").each(function () {
         var obj = $(this);
@@ -54,7 +91,7 @@ $(document).ready(function () {
         var dataurl = $(this).attr("data-action");
         window.location.href = dataurl;
     });
-    //ҳ����֤
+    //ҳ����֤
     function ValidateForm()
     {
         //$("[validname=]")
