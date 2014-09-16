@@ -87,7 +87,7 @@ public class RegisterAction extends BaseAction{
 	 * @return
 	 */
 	@Action(value = "/register/submit", results = { 
-			@Result(name = SUCCESS, type="redirect",location = "/login/fulfill"), 
+			@Result(name = SUCCESS, type="redirect",location = "/register/notice"), 
 			@Result(name = INPUT, type="redirect",location = "/register?error=1")})
 	public String submit(){
 		try {
@@ -141,6 +141,12 @@ public class RegisterAction extends BaseAction{
 			return INPUT;
 		}
 		
+		return SUCCESS;
+	}
+	@Action(value = "/notice", results = { 
+			@Result(name = SUCCESS, location = "/WEB-INF/page/register/notice.jsp"),
+			@Result(name = INPUT, type="redirect",location = "/login")})
+	public String notice(){
 		return SUCCESS;
 	}
 	public String getPhone() {

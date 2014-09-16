@@ -65,7 +65,7 @@ public class LoginAction extends BaseAction{
 	}
 	
 	@Action(value = "/login/submit", results = { 
-			@Result(name = SUCCESS, type="redirect", location = "/index"),
+			@Result(name = SUCCESS, type="redirect", location = "/member/my_course"),
 			@Result(name = INPUT, type="redirect",location = "/login?error=1")})
 	public String loginSubmit(){
 		try {

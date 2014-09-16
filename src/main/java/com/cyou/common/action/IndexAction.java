@@ -56,8 +56,22 @@ public class IndexAction extends BaseAction{
 		}
 		return SUCCESS;
 	}
-	@Action(value = "/detail", results = { @Result(name = SUCCESS, location = "/course_detail.jsp"),
-										@Result(name = INPUT, type="redirect",location = "/index")})
+	@Action(value = "/public_online", results = {
+			@Result(name = SUCCESS, location = "/public_course_list.jsp"),
+			@Result(name = INPUT, type="redirect",location = "/index")})
+	public String publicOnline(){
+		try {
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return INPUT;
+		}
+		return SUCCESS;
+	}
+	
+	@Action(value = "/detail", results = { 
+			@Result(name = SUCCESS, location = "/course_detail.jsp"),
+			@Result(name = INPUT, type="redirect",location = "/index")})
 	public String courseDetail(){
 		try {
 			CourseDetail cd = courseService.getCourseDetailByDetailId(detailId);

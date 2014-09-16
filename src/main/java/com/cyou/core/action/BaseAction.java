@@ -17,15 +17,6 @@ import com.cyou.base.bean.Account;
 import com.cyou.base.bean.Users;
 import com.cyou.core.bean.PageList;
 import com.opensymphony.xwork2.ActionSupport;
-/**
- * 基础action处理类
- * 实现了ServletContextAware接口，可以直接访问servletContext对象
- * 实现了ServletResponseAware接口，可以直接访问httpServletRequest对象
- * 实现了ServletRequestAware接口，可以直接访问httpServletResponse对象及httpSession对象
- * 实现了SessionAware接口，可以直接访问session对象,注意此session是struts通过将httpSession封装之后的session，类型是Map
- * @author liuyang_js
- *
- */
 public class BaseAction extends ActionSupport implements ServletContextAware,
 	ServletResponseAware, ServletRequestAware, SessionAware {
 

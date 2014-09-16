@@ -1,6 +1,7 @@
 package com.cyou.base.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -58,6 +59,23 @@ public class Users implements Serializable{
 	private Integer teachYear;
 	@Column(name="TEACHER_BRIEF")
 	private String teacherBrief;
+	
+	@Column(name="QQ",length=20)
+	private String qq;
+	@Column(name="STAGE",length=10)
+	private String stage;
+	@Column(name="ID_CARD_NO",length=20)
+	private String idCardNo;
+	@Column(name="PHONE",length=16)
+	private String phone;
+	@Column(name="COMMENTS",length=255)
+	private String comments;
+	@Column(name="CREATE_TIME")
+	private Date createTime;
+	@Column(name="UPDATE_TIME")
+	private Date updateTime;
+	@Column(name="STATUS")
+	private String status;
 	
 	public Integer getId() {
 		return id;
@@ -142,6 +160,55 @@ public class Users implements Serializable{
 	}
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
+	}
+	public String getQq() {
+		return qq;
+	}
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+	public String getStage() {
+		return stage;
+	}
+	public void setStage(String stage) {
+		this.stage = stage;
+	}
+	public String getIdCardNo() {
+		return idCardNo;
+	}
+	public void setIdCardNo(String idCardNo) {
+		this.idCardNo = idCardNo;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

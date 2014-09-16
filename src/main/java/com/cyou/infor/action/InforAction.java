@@ -93,12 +93,15 @@ public class InforAction extends BaseAction{
 	
 	private UserOrderModel userOrderModel;
 	
+	private String phoneVerifyCode;
 	@Resource
 	private UsersService usersService;
 	@Resource
 	private ApplyTeachService applyTeachService;
 	@Resource
 	private PayService payService;
+	private String idCardNo;
+	private String teacherBrief;
 	
 	@Action(value = "/apply_teach", results = { 
 			@Result(name = SUCCESS, location = "/WEB-INF/page/info/apply_teach.jsp"),
@@ -276,11 +279,15 @@ public class InforAction extends BaseAction{
 	/**=====我的信息=====**/
 	@Action(value = "/my_infor", results = { 
 			@Result(name = SUCCESS, location = "/WEB-INF/page/info/my_info.jsp"),
+			@Result(name = "MY_INFOR_TEACHER", type="redirect", location = "/member/my_infor_teacher"),
 			@Result(name = INPUT, type="redirect",location = "/login")})
 	public String myInfor(){
 		try {
 			Account account = (Account) getFromSession("account");
 			if(account != null){
+				if("1".equals(account.getAccountType())){
+					return "MY_INFOR_TEACHER";
+				}
 				setNickName(account.getNickName());
 				setPhone(account.getPhone());
 			
@@ -306,7 +313,7 @@ public class InforAction extends BaseAction{
 		return SUCCESS;
 	}
 	@Action(value = "/save_infor", results = { 
-			@Result(name = SUCCESS,type="redirect",location = "/my_infor"),
+			@Result(name = SUCCESS,type="redirect",location = "/member/my_infor"),
 			@Result(name = LOGIN, type="redirect",location = "/login"),
 			@Result(name = INPUT, location = "/WEB-INF/page/info/my_info.jsp")})
 	public String saveMyInfor(){
@@ -365,6 +372,192 @@ public class InforAction extends BaseAction{
 		if(StringUtils.isBlank(grade)){
 			this.addFieldError("grade_error1", "请选择年级");
 		}
+	}
+	/**=====我的信息_老师=====**/
+	@Action(value = "/my_infor_teacher", results = { 
+			@Result(name = SUCCESS, location = "/WEB-INF/page/info/my_info_teacher.jsp"),
+			@Result(name = "MY_INFOR", type="redirect",location = "/member/my_infor"),
+			@Result(name = INPUT, type="redirect",location = "/login")})
+	public String myInforTeacher(){
+		try {
+			Account account = (Account) getFromSession("account");
+			if(account != null){
+				//是学生并且申请开课了跳回去
+				if("0".equals(account.getAccountType()) && "1".equals(account.getApplyStatus())){
+					return "MY_INFOR";
+				}
+				Users users = usersService.getUsersByUserId(account.getUserId());
+				if(users != null){
+					setRealName(users.getRealName());
+					setGender(users.getSex());
+					setQq(users.getQq());
+					setPhone(users.getPhone());
+					setSchoolName(users.getSchoolName());
+					if("小学".equals(users.getStage())){
+						setStage(1);
+					}else if("初中".equals(users.getStage())){
+						setStage(2);
+					}else if("高中".equals(users.getStage())){
+						setStage(3);
+					}else{
+						setStage(1);
+					}
+					setTeacherTitle(users.getTeacherTitle());
+					setTeachYears(users.getTeachYear());
+					setIdCardNo(users.getIdCardNo());
+					setTeacherBrief(users.getTeacherBrief());
+					if(getFromSession("user") == null){
+						setIntoSession(users);
+					}
+				}else{
+					setIntoSession(new Users());
+					setGender("1");
+				}
+			}else {
+				return INPUT;
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return INPUT;
+		}
+		return SUCCESS;
+	}
+	@Action(value = "/save_infor_teacher", results = { 
+			@Result(name = SUCCESS,type="redirect",location = "/member/my_infor_teacher"),
+			@Result(name = LOGIN,  type="redirect",location = "/login"),
+			@Result(name = INPUT, location = "/WEB-INF/page/info/my_info_teacher.jsp")})
+	public String saveMyInforTeacher(){
+		try {
+			Account account = (Account) getFromSession("account");
+			if(account != null){
+				account = usersService.getAccountByUserId(account.getUserId());
+				Users user = usersService.getUsersByUserId(account.getUserId());
+				account.setPhone(phone);
+				if(usersService.updateAccount(account)){
+					setIntoSession(account);
+				}
+				if(user == null){
+					user = new Users();
+					user.setCityId(0);
+					user.setProvinceId(0);
+					user.setRealName(realName);
+					user.setRegionId(0);
+					user.setSchoolId(0);
+					user.setSchoolName(schoolName);
+					user.setSex(gender);
+					user.setTeachYear(teachYears);
+					user.setUserId(account.getUserId());
+					user.setQq(qq);
+					switch (stage) {
+					case 1:
+						user.setStage("小学");
+						break;
+					case 2:
+						user.setStage("初中");
+						break;
+					case 3:
+						user.setStage("高中");
+						break;
+
+					default:
+						user.setStage("小学");
+						break;
+					}
+					user.setIdCardNo(idCardNo);
+					user.setPhone(phone);
+					user.setTeacherBrief(teacherBrief);
+					Date d = new Date();
+					user.setCreateTime(d);
+					user.setUpdateTime(d);
+					user.setStatus("0");
+					usersService.saveUsers(user);
+					
+					setIntoSession(user);
+				}else{
+					user.setRealName(realName);
+					user.setSex(gender);
+					user.setQq(qq);
+					user.setPhone(phone);
+					user.setSchoolName(schoolName);
+					switch (stage) {
+					case 1:
+						user.setStage("小学");
+						break;
+					case 2:
+						user.setStage("初中");
+						break;
+					case 3:
+						user.setStage("高中");
+						break;
+
+					default:
+						user.setStage("小学");
+						break;
+					}
+					user.setTeacherTitle(teacherTitle);
+					user.setTeachYear(teachYears);
+					user.setIdCardNo(idCardNo);
+					user.setTeacherBrief(teacherBrief);
+					user.setUpdateTime(new Date());
+					user.setStatus(user.getStatus());
+					
+					if(usersService.updateUsers(user)){
+						setIntoSession(user);
+					}
+				}
+				account.setApplyStatus("1");
+				boolean r = usersService.updateAccount(account);
+				//更新account的applyTeach信息和session中的account信息
+				if(r){
+					setIntoSession(account);
+				}
+			}else {
+				return LOGIN;
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			return SUCCESS;
+		}
+		return SUCCESS;
+	}
+	public void validateSaveMyInforTeacher(){
+		super.validate();
+		if(StringUtils.isBlank(realName)){
+			this.addFieldError("realName_error1", "请填写真实姓名");
+		}
+		if(StringUtils.isNotBlank(realName) && realName.trim().length() > 63){
+			this.addFieldError("realName_error1", "真实姓名长度应在1~63字符之间");
+		}
+		/*if(StringUtils.isBlank(schoolName)){
+			this.addFieldError("schoolName_error1", "请填写地区与学校 255字符以内");
+		}
+		if(StringUtils.isNotBlank(schoolName) && schoolName.trim().length() > 63){
+			this.addFieldError("schoolName_error1", "输入的地区与学校应在1~255字符之间");
+		}
+		if(StringUtils.isBlank(teacherTitle)){
+			this.addFieldError("teacherTitle_error1", "请选择教师职称");
+		}
+		if(teachYears == -1){
+			this.addFieldError("teachYears_error1", "请选择教龄");
+		}
+		if(StringUtils.isBlank(phone)){
+			this.addFieldError("phone_error1", "请填写手机号码");
+		}
+		if(StringUtils.isNotBlank(phone) && phone.trim().length() > 32){
+			this.addFieldError("phone_error1", "手机号码长度应在1~32个字符之间");
+		}
+		if(StringUtils.isBlank(qq)){
+			this.addFieldError("qq_error1", "请填写QQ号码");
+		}
+		if(StringUtils.isNotBlank(qq) && qq.trim().length() > 20){
+			this.addFieldError("qq_error1", "QQ长度应在1~20字符之间");
+		}
+		if(StringUtils.isBlank(courseName)){
+			this.addFieldError("courseName_error1", "请选择试讲课程名称");
+		}
+		if(StringUtils.isNotBlank(courseName) && courseName.trim().length() > 255){
+			this.addFieldError("courseName_error1", "试讲课程名称应在1~255字符之间");
+		}*/
 	}
 	@Action(value = "/changePwd", results = { 
 			@Result(name = SUCCESS,type="redirect",location = "/my_infor?tab=tab2"),
@@ -871,5 +1064,23 @@ public class InforAction extends BaseAction{
 	}
 	public void setUserOrderModel(UserOrderModel userOrderModel) {
 		this.userOrderModel = userOrderModel;
+	}
+	public String getIdCardNo() {
+		return idCardNo;
+	}
+	public void setIdCardNo(String idCardNo) {
+		this.idCardNo = idCardNo;
+	}
+	public String getTeacherBrief() {
+		return teacherBrief;
+	}
+	public void setTeacherBrief(String teacherBrief) {
+		this.teacherBrief = teacherBrief;
+	}
+	public String getPhoneVerifyCode() {
+		return phoneVerifyCode;
+	}
+	public void setPhoneVerifyCode(String phoneVerifyCode) {
+		this.phoneVerifyCode = phoneVerifyCode;
 	}
 }
