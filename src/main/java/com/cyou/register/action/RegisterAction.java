@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 
 import com.cyou.base.bean.Account;
 import com.cyou.base.util.EmailUtil;
+import com.cyou.common.util.DateUtils;
 import com.cyou.common.util.JsonUtil;
 import com.cyou.common.util.UUIDUtil;
 import com.cyou.core.action.BaseAction;
@@ -119,6 +120,7 @@ public class RegisterAction extends BaseAction{
 			usersService.saveAccount(account);
 			
 			setIntoSession(account);
+			//send email
 			InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("template/register.txt");
 			BufferedReader inReader = new BufferedReader(new InputStreamReader(in,"utf-8"));
 			StringBuilder sb = new StringBuilder();
@@ -131,8 +133,13 @@ public class RegisterAction extends BaseAction{
 				StringBuilder activate_url = new StringBuilder();
 				String basePath = httpServletRequest.getScheme()+"://"+httpServletRequest.getServerName();
 				activate_url.append(basePath).append("/register/activate?userId=").append(uniqueId);
-				String content = sb.toString().replace("activate_url", activate_url);
-				EmailUtil.sendEmail(content, "来自xx网的欢迎邮件", email);
+				String content = sb.toString()
+						.replace("activate_url", activate_url)
+						.replace("webName", "9527在线课堂")
+						.replace("email", email)
+						.replace("datetime", DateUtils.format(System.currentTimeMillis(), "yyyy年MM月dd日HH:mm:ss"));
+				
+				EmailUtil.sendEmail(content, "来自9527在线课堂的邮件", email);
 			}
 			httpSession.removeAttribute("email");
 		} catch (Exception e) {

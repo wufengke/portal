@@ -9,7 +9,7 @@
 <body class="myCoursePage">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout studentMyCourse" id="nahaoModule" module="studentMyCourse" data_page="studentPage">
+<div class="wrap layout studentMyCourse">
 	<!-- 右侧框架开始 -->
     <div class="wrapContent fr myOrderCon" id="wrapContent" name="myOrderCon">
  	<!--我的订单-->

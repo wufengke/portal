@@ -5,6 +5,10 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
     padding: 0;
 }
 
+i, cite, em, var, address, dfn {
+    font-style: normal;
+}
+
 body {
     font-size: 12px;
     font-family: 'Microsoft Yahei',Tahoma,Arial,sans-serif;
@@ -363,15 +367,20 @@ p {
 .page .page_lst li {
     float: left;
 }
-    .page .page_btn:hover, .page_lst a:hover, .page .page_on {
-        text-decoration: none;
-        background: #43b0aa;
-        border: 1px solid #43b0aa;
-        color: #fff;
-    }
+
+.page .page_btn:hover, .page_lst a:hover, .page .page_on {
+    text-decoration: none;
+    background: #43b0aa;
+    border: 1px solid #43b0aa;
+    color: #fff;
+}
 
 .page .tip {
-margin-left: 20px;
-line-height: 30px;
-color: #575757;
+    margin-left: 20px;
+    line-height: 30px;
+    color: #575757;
+}
+
+a.blueText {
+    color: #6dcde6;
 }

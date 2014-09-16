@@ -96,6 +96,7 @@
         width: 275px;
         background: #f1f1f1;
     }
+
 .loginInputBg {
     position: absolute;
     width: 55px;
@@ -591,7 +592,7 @@ a.jqTransformChecked {
     .zb_tab_ct2 .btn {
         vertical-align: middle;
         margin: 0 10px;
-        box-shadow:none;
+        box-shadow: none;
     }
 
     .zb_tab_ct2 .rgt {
@@ -913,6 +914,414 @@ a.jqTransformChecked {
         width: 109px;
         cursor: pointer;
     }
+/*订单*/
+.studentMyCourse .myOrderCon {
+    font-size: 16px;
+}
+
+    .studentMyCourse .myOrderCon .orderComBox {
+        border: 1px solid #dadada;
+        background: #fff;
+    }
+
+    .studentMyCourse .myOrderCon .tabh {
+        background: #f7f7f7;
+    }
+
+        .studentMyCourse .myOrderCon .tabh li.norbor {
+            width: 154px;
+            border-right: 0;
+        }
+
+        .studentMyCourse .myOrderCon .tabh li {
+            cursor: pointer;
+            width: 152px;
+            height: 48px;
+            line-height: 48px;
+            border: 1px solid #dadada;
+            float: left;
+            text-align: center;
+            border-left: none;
+            border-top: 0;
+        }
+
+            .studentMyCourse .myOrderCon .tabh li.tabhOn {
+                height: 49px;
+                background: #fff;
+                border-bottom: 0;
+                font-weight: bold;
+                color: #f14211;
+            }
+
+            .studentMyCourse .myOrderCon .tabh li a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .studentMyCourse .myOrderCon .tabh li span {
+                margin-left: 8px;
+            }
+
+    .studentMyCourse .myOrderCon .tabCon {
+        background: #fff;
+    }
+
+.studentMyCourse .tabBox {
+    padding: 0 22px 0 15px;
+    color: #4b4b4b;
+}
+
+.studentMyCourse .myOrderCon table {
+    background: #fff;
+    width: 100%;
+}
+
+.studentMyCourse .tabBox thead {
+    line-height: 46px;
+}
+
+.studentMyCourse .orderName {
+    color: #585858;
+    font-weight: bold;
+}
+
+.studentMyCourse .myOrderCon table td {
+    text-align: center;
+}
+
+.studentMyCourse .tabBox .oInfor {
+    padding-left: 12px;
+    text-align: left;
+    width: 245px;
+}
+
+.studentMyCourse .tabBox tbody tr {
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.studentMyCourse .tabBox tbody td {
+    padding: 15px 0;
+}
+
+.studentMyCourse .tabBox .oInfor {
+    padding-left: 12px;
+    text-align: left;
+    width: 245px;
+}
+
+.studentMyCourse .ordernum {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+    .studentMyCourse .ordernum span {
+        margin-left: 14px;
+    }
+
+.studentMyCourse .oInfor img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 8px 0;
+}
+
+.studentMyCourse .orderTitle {
+    font-size: 14px;
+}
+
+.studentMyCourse .tabBox tr strong {
+    font-size: 18px;
+}
+
+.studentMyCourse .tabBox tr .time {
+    font-size: 12px;
+}
+
+.studentMyCourse .tabBox tr a.blueText {
+    font-size: 14px;
+}
+/*订单信息*/
+.studentCourse .infoCheck {
+    margin-bottom: 20px;
+}
+
+.studentCourse .progressBar {
+    height: 64px;
+    padding-top: 36px;
+    display: block;
+    margin-bottom: 0;
+}
+
+    .studentCourse .progressBar .line {
+        height: 6px;
+        line-height: 6px;
+        font-size: 0;
+        border-radius: 3px;
+        background: #f14211;
+        zoom: 1;
+    }
+
+    .studentCourse .progressBar ul {
+        margin-top: -16px;
+    }
+
+    .studentCourse .progressBar li {
+        width: 185px;
+        display: inline-block;
+        text-align: center;
+    }
+
+        .studentCourse .progressBar li em {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            border-radius: 13px;
+            background: #f14211;
+            line-height: 26px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            font-style: normal;
+        }
+
+        .studentCourse .progressBar li span {
+            display: block;
+            color: #f14211;
+            height: 22px;
+            line-height: 22px;
+            font-size: 14px;
+            background: none;
+            width: auto;
+        }
+
+        .studentCourse .progressBar li.last {
+            text-align: right;
+            width: 100px;
+            position: relative;
+        }
+
+.studentCourse .infoCheck .progressBar li.last em {
+    background: #6dcde6;
+    color: #3da8c4;
+    font-style: normal;
+}
+
+.studentCourse .infoCheck .progressBar li.last span {
+    color: #63696c;
+}
+
+.studentCourse .infoCheck .progressBar li.last .lineBg {
+    width: 155px;
+    height: 6px;
+    line-height: 6px;
+    font-size: 0;
+    background: #6dcde6;
+    display: inline-block;
+    position: absolute;
+    left: -79px;
+    top: 10px;
+}
+
+.studentCourse .infoCheck .outerBox h2 {
+    height: 37px;
+    padding: 17px 0 0 2px;
+}
+
+    .studentCourse .infoCheck .outerBox h2 span {
+        padding-left: 6px;
+        border-left: 3px solid #f14211;
+        height: 20px;
+        line-height: 20px;
+        font-size: 18px;
+        color: #0e455e;
+    }
+
+.studentCourse .innerBox {
+    border: 1px solid #d5d5d5;
+}
+
+.studentCourse .checkForm dt {
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.studentCourse .checkForm dt, .studentCourse .checkForm dd {
+    background: #f7f7f7;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    color: #4b4b4b;
+}
+
+.studentCourse .checkForm span {
+    display: inline-block;
+    text-align: center;
+}
+
+.studentCourse .checkForm .name {
+    width: 400px;
+}
+
+.studentCourse .checkForm .time {
+    width: 300px;
+}
+
+.studentCourse .checkForm .oldPrice, .studentCourse .checkForm .newPrice {
+    width: 120px;
+    position: relative;
+}
+
+.studentCourse .checkForm dd .oldPrice {
+    text-decoration: line-through;
+}
+
+.studentCourse .checkForm dd .newPrice {
+    color: #f14211;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.studentCourse .checkForm .total {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 30px;
+}
+
+    .studentCourse .checkForm .total span {
+        font-size: 16px;
+        margin-right: 50px;
+    }
+
+        .studentCourse .checkForm .total span.save {
+            font-size: 14px;
+        }
+
+        .studentCourse .checkForm .total span em {
+            color: #f14211;
+            margin: 0 10px;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .studentCourse .checkForm .total span.price em {
+            font-size: 24px;
+            font-style: normal;
+        }
+
+.studentCourse .contactInfo .innerBox {
+    padding: 45px 45px 30px 45px;
+}
+
+.studentCourse .contactInfo li {
+    margin-bottom: 15px;
+}
+
+    .studentCourse .contactInfo li .title {
+        line-height: 22px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .studentCourse .contactInfo li .submitBtn {
+        width: 190px;
+        border: 0;
+        height: 40px;
+        line-height: 40px;
+    }
+
+.studentCourse .toPay .orderForm {
+    background: #e1f2f4;
+    padding: 20px 30px;
+    border: 1px solid #d5d5d5;
+    margin-bottom: 20px;
+}
+
+    .studentCourse .toPay .orderForm h3 {
+        margin-bottom: 10px;
+        height: 46px;
+        line-height: 46px;
+        padding-left: 2px;
+        font-size: 24px;
+        font-weight: normal;
+        color: #0e455e;
+    }
+
+    .studentCourse .toPay .orderForm p {
+        line-height: 34px;
+        font-size: 18px;
+        color: #717575;
+    }
+
+        .studentCourse .toPay .orderForm p span {
+            margin-right: 50px;
+        }
+
+        .studentCourse .toPay .orderForm p .red {
+            color: #f14211;
+            padding: 0 10px;
+        }
+
+        .studentCourse .toPay .orderForm p.last {
+            font-size: 16px;
+        }
+/*订单详情*/
+.studentMyCourse .myOrderCon .detailBox {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd #c3c3c3;
+    background: #fff;
+}
+
+.studentMyCourse .myOrderCon table {
+    background: #fff;
+    width: 100%;
+}
+
+.studentMyCourse .orderDetail thead {
+    height: 60px;
+    line-height: 60px;
+    background: #f7f7f7;
+}
+
+.studentMyCourse .myOrderCon table td {
+    text-align: center;
+}
+
+.studentMyCourse .myOrderCon .tableCon {
+    width: 730px;
+    margin-left: 16px;
+}
+
+.studentMyCourse .orderDetail .tName {
+    color: #848484;
+    height: 40px;
+}
+
+.studentMyCourse .myOrderCon table .textal {
+    text-align: left;
+    padding-left: 6px;
+    width: 300px;
+}
+
+.studentMyCourse .myOrderCon table .tName .textal {
+    padding-left: 72px;
+}
+
+.studentMyCourse .orderDetail .tCon td {
+    height: 80px;
+}
+
+.studentMyCourse .orderDetail .iniPrice {
+    text-decoration: line-through;
+}
+
+.studentMyCourse .orderDetail .tCon .redText {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.studentMyCourse .orderDetail .tCon td, .studentMyCourse .tabBox tbody tr {
+    border-bottom: 1px solid #d7d7d7;
+}
 /*课程列表部分*/
 .studentMyCourse .courseConList {
     margin-right: -35px;

@@ -3,15 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>核对订单信息</title>
-<meta name="keywords" content=""/>
-<meta name="description" content=""/>
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentCart/style.css" />
 <%@ include file="/common/JsCss.jsp" %>
 </head>
-<body>
+<body style="background-color: white;">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout studentCart" id="nahaoModule" module="studentCart" data_page="studentPage">
+<div class="wrap layout studentCourse" >
 	<div class="toPay">
 		<!-- 进度条开始 -->
 		<div class="progressBar cf">

@@ -56,7 +56,20 @@
                      <p class="optional noFillin">性别</p>
                      <div class="cf">
                          <div class="fl">
-                             <span class="jqTransformRadioWrapper">
+                         <s:if test='#request.gender == "0"'>
+                         	<span class="jqTransformRadioWrapper">
+                             	<a href="javascript:;" class="jqTransformRadio " rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender1" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender1" class="radio" style="cursor: pointer;">男</label>
+                              <span class="jqTransformRadioWrapper">
+                             	 <a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender0"  checked="checked" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                         </s:if>
+                         <s:elseif test='#request.gender == "1"'>
+                         	<span class="jqTransformRadioWrapper">
                              	<a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
                                  <input type="radio" name="gender" id="save_infor_gender1" checked="checked" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
                               </span>
@@ -66,6 +79,19 @@
                                  <input type="radio" name="gender" id="save_infor_gender0" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
                               </span>
                               <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                         </s:elseif>
+                         <s:else>
+                        	 <span class="jqTransformRadioWrapper">
+                             	<a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender1" checked="checked" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender1" class="radio" style="cursor: pointer;">男</label>
+                              <span class="jqTransformRadioWrapper">
+                             	 <a href="javascript:;" class="jqTransformRadio" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender0" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                         </s:else>
                              <span class="cf"></span>
                          </div>
                      </div>
@@ -146,13 +172,45 @@
                      <p class="optional noFillin">教学阶段</p>
                      <div class="cf">
                          <div class="fl">
-                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="teachlevel"></a>
+                         	<s:if test="#request.stage == 1">
+                         	 <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="teachlevel"></a>
                                  <input type="radio" name="stage" id="save_apply_teach_level0" checked="checked"  value="1" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">小学</label>
                              <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
                                  <input type="radio" name="stage" id="save_apply_teach_level1" value="2" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">初中</label>
                              <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
                                  <input type="radio" name="stage" id="save_apply_teach_level2" value="3" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender2" class="radio" style="cursor: pointer;">高中</label>
-                             <span class="cf"></span>
+                             
+                         	</s:if>
+                         	<s:elseif test="#request.stage == 2">
+                         	 <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio " rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level0"  value="1" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">小学</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level1" checked="checked"  value="2" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">初中</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level2" value="3" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender2" class="radio" style="cursor: pointer;">高中</label>
+                             
+                         	</s:elseif>
+                         	
+                         	<s:elseif test="#request.stage == 3">
+                         	 <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio " rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level0"  value="1" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">小学</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level1" value="2" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">初中</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level2" checked="checked"  value="3" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender2" class="radio" style="cursor: pointer;">高中</label>
+                             
+                         	</s:elseif>
+                         	
+                         	<s:else>
+                         	  <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level0" checked="checked"  value="1" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">小学</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level1" value="2" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">初中</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level2" value="3" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender2" class="radio" style="cursor: pointer;">高中</label>
+                             
+                         	</s:else>
+                            <span class="cf"></span>
                          </div>
                          <span class="Validform_checktip fl"></span>
                      </div>

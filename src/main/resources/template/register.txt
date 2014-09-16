@@ -1,7 +1,7 @@
-尊敬的XX网用户，你好!<br/>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您注册XX网 。 点击以下链接激活您的账号：<br/><br/>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="activate_url">activate_url</a><br/><br/>
-
-本邮件由系统自动发出，请勿直接回复！
+	<div style="width:500px;font-family: 'Arial Normal', 'Arial'; font-weight: 400; font-style: normal; font-size: 13px; color: #333333; text-align: left; line-height: normal;">
+        <p>您好:</p>
+        <p style="text-indent:2em;">webName在 datetime收到了邮箱 email 的注册申请。请点击以下的链接完成注册：</p>
+        <p style="text-indent:2em;"><a href="activate_url">activate_url</a></p>
+        <p style="text-indent:2em;">如果邮箱中不能打开链接，您也可以将它复制到浏览器地址栏中打开。</p>
+        <p style="text-align:right;">webName</p>
+    </div>

@@ -340,6 +340,10 @@ public class InforAction extends BaseAction{
 					user.setSex(gender);
 					user.setTeachYear(0);
 					user.setUserId(account.getUserId());
+					user.setStatus("0");
+					Date d = new Date();
+					user.setCreateTime(d);
+					user.setUpdateTime(d);
 					usersService.saveUsers(user);
 					setIntoSession(user);
 				}else{
@@ -390,18 +394,20 @@ public class InforAction extends BaseAction{
 				if(users != null){
 					setRealName(users.getRealName());
 					setGender(users.getSex());
+					httpServletRequest.setAttribute("gender", users.getSex());
 					setQq(users.getQq());
 					setPhone(users.getPhone());
 					setSchoolName(users.getSchoolName());
 					if("小学".equals(users.getStage())){
-						setStage(1);
+						httpServletRequest.setAttribute("stage", 1);
 					}else if("初中".equals(users.getStage())){
-						setStage(2);
+						httpServletRequest.setAttribute("stage", 2);
 					}else if("高中".equals(users.getStage())){
-						setStage(3);
+						httpServletRequest.setAttribute("stage", 3);
 					}else{
-						setStage(1);
+						httpServletRequest.setAttribute("stage", 1);
 					}
+					
 					setTeacherTitle(users.getTeacherTitle());
 					setTeachYears(users.getTeachYear());
 					setIdCardNo(users.getIdCardNo());

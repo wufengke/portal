@@ -44,8 +44,7 @@
 						<a href="<%=basePath %>member/my_course?id=${sessionScope.account.id}" class="mCourse">我的课程</a>
 					</li>
 					<li name="myOrderCon">
-<%-- 						<a href="<%=basePath %>member/my_order_all?id=${sessionScope.account.id}" class="mOrder">我的订单</a>
- --%>						<a href="#" class="mOrder">我的订单</a>
+						<a href="<%=basePath %>member/my_order_all?id=${sessionScope.account.id}" class="mOrder">我的订单</a>
 					</li>
 					<li name="myInforCon">
 						<a href="<%=basePath %>member/my_infor?id=${sessionScope.account.id}" class="mInfor">基本资料</a>

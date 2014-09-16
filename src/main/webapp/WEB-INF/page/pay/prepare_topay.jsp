@@ -2,16 +2,13 @@
 <%@ include file="/common/taglib.jsp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>核对订单信息</title>
-<meta name="keywords" content=""/>
-<meta name="description" content=""/>
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentCart/style.css" />
+ <title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
 </head>
-<body>
+<body style="background-color:white;">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout studentCart" id="nahaoModule" module="studentCart" data_page="studentPage">
+<div class="wrap layout studentCourse">
 	<div class="infoCheck">
 		<!-- 进度条开始 -->
 		<div class="progressBar cf">
@@ -103,7 +100,5 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
-<jsp:include page="/right_side.jsp" />
 </body>
 </html>
