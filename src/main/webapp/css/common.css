@@ -1,0 +1,377 @@
+﻿@charset "utf-8";
+/* 页面格式化 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, select, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    font-family: 'Microsoft Yahei',Tahoma,Arial,sans-serif;
+    color: #333;
+    background: #eee;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th {
+    text-align: left;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+:focus {
+    outline: 0;
+}
+
+address, button, caption, cite, code, dfn, input, optgroup, option, select, textarea, th, var {
+    font: inherit;
+}
+
+del, ins {
+    text-decoration: none;
+}
+
+ol, ul, dl {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a, a:link, a:visited, a:active {
+    color: #333;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+/* 浮动及定位样式 */
+.fc:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.fc {
+    display: inline-block;
+    *zoom: 1;
+}
+/* Hides from IE-mac */
+* html .fc {
+    height: 1%;
+}
+
+.fc {
+    display: block;
+}
+/* End hide from IE-mac */
+.fl {
+    float: left;
+    display: inline;
+}
+
+.fr {
+    float: right;
+    display: inline;
+}
+
+.w980 {
+    width: 980px;
+    margin: 0 auto;
+}
+/* 栅格样式 */
+.hauto {
+    height: auto;
+}
+
+.ml25 {
+    margin-left: 25px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.h30 {
+    height: 30px;
+}
+/* 字体样式 */
+.ft14 {
+    font-family: 'Microsoft Yahei',Tahoma,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.ft18 {
+    font-family: 'Microsoft Yahei',Tahoma,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.fwb {
+    font-weight: bold;
+}
+
+.fwn {
+    font-weight: normal;
+}
+
+
+/* 字体居中 */
+.center {
+    text-align: center;
+    !important;
+}
+
+/* 颜色文字 */
+.gray {
+    color: #5a5959;
+}
+
+.gray2 {
+    color: #363d40;
+}
+
+.gray3 {
+    color: #808080;
+}
+
+.gray4 {
+    color: #bababa;
+}
+
+.gray5 {
+    color: #505050;
+}
+
+.gray6 {
+    color: #333;
+}
+
+/* 背景颜色 */
+.bg_white {
+    background: #FFF;
+}
+
+.bg_gray {
+    background: #eeeff1;
+}
+
+/* 超链颜色样式 */
+.link_gray a, .link_gray a:link, .link_gray a:visited, .link_gray a:active, a.link_gray, a.link_gray:link, a.link_gray:visited, a.link_gray:active {
+    color: #666;
+}
+/*灰色*/
+.link_gray2 a, .link_gray2 a:link, .link_gray2 a:visited, .link_gray2 a:active, a.link_gray2, a.link_gray2:link, a.link_gray2:visited, a.link_gray2:active {
+    color: #333;
+}
+/*灰色2*/
+.link_gray3 a, .link_gray3 a:link, .link_gray3 a:visited, .link_gray3 a:active, a.link_gray3, a.link_gray3:link, a.link_gray3:visited, a.link_gray3:active {
+    color: #505050;
+}
+/*灰色3*/
+.link_gray4 a, .link_gray4 a:link, .link_gray4 a:visited, .link_gray4 a:active, a.link_gray4, a.link_gray4:link, a.link_gray4:visited, a.link_gray4:active {
+    color: #909090;
+}
+/*灰色4*/
+.link_white a, .link_white a:link, .link_white a:visited, .link_white a:active, a.link_white, a.link_white:link, a.link_white:visited, a.link_white:active {
+    color: #fff;
+}
+/*白色*/
+.link_green a, .link_green a:link, .link_green a:visited, .link_green a:active, a.link_green, a.link_green:link, a.link_green:visited, a.link_green:active {
+    color: #43b1aa;
+}
+/*绿色*/
+.link_green2 a, .link_green2 a:link, .link_green2 a:visited, .link_green2 a:active, a.link_green2, a.link_green2:link, a.link_green2:visited, a.link_green2:active {
+    color: #339892;
+}
+/*绿色*/
+.link_grass a, .link_grass a:link, .link_grass a:visited, .link_grass a:active, a.link_grass, a.link_grass:link, a.link_grass:visited, a.link_grass:active {
+    color: #43b1aa;
+}
+/*草绿色*/
+.link_blue a, .link_blue a:link, .link_blue a:visited, .link_blue a:active, a.link_blue, a.link_blue:link, a.link_blue:visited, a.link_blue:active {
+    color: #3b82c4;
+}
+/*蓝色*/
+.link_black a, .link_black a:link, .link_black a:visited, .link_black a:active, a.link_black, a.link_black:link, a.link_black:visited, a.link_black:active {
+    color: #000;
+}
+/*黑的*/
+.link_bule a, .link_bule a:link, .link_bule a:visited, .link_bule a:active, a.link_bule, a.link_bule:link, a.link_bule:visited, a.link_bule:active {
+    color: #3b82c4;
+}
+/*黑的*/
+.tdunder a, a.tdunder {
+    text-decoration: underline;
+}
+
+.tdno a:hover, a.tdno:hover {
+    text-decoration: none;
+}
+
+.btn {
+    font-size: 20px;
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block;
+    box-shadow: 1px 1px 3px rgba(88,87,83,0.5);
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+    font-family: "Microsoft YaHei";
+}
+
+.yh {
+    font-family: "Microsoft YaHei";
+    font-weight: normal;
+}
+
+.posr {
+    position: relative;
+}
+
+.redBtn {
+    background: #f14211;
+    border: none;
+    color: white;
+}
+
+    .redBtn:hover {
+        background: #f15930;
+    }
+
+.greenBtn {
+    border: none;
+    background: #3b82c4;
+    color: #fff;
+}
+
+    .greenBtn:hover {
+        background: #5297d7;
+    }
+
+.blueBtn {
+    background: #88c2f3;
+    border: none;
+    color: #fff;
+}
+
+    .blueBtn:hover {
+        background: #88cbf3;
+    }
+
+.layout {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.undis {
+    display: none;
+}
+
+.formName {
+    margin: 20px 0 8px;
+    color: #0e455e;
+    font-weight: bold;
+}
+
+.Validform_tip_info {
+    padding-left: 10px;
+}
+
+.cInput {
+    border: 1px solid #a2a2a2;
+    padding: 0 10px;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+
+p {
+    word-wrap: break-word;
+}
+
+.layout:after, .hd:after, .bd:after, .ft:after, .cf:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.redText, .grayText:hover, .footer .ftNav a:hover, .floatBox a:hover {
+    color: #f14211!important;
+}
+
+.Validform_wrong {
+    color: #f60;
+    white-space: nowrap;
+}
+
+.Validform_error {
+    background-color: #fff7cb!important;
+    border-color: #ffbd5b!important;
+}
+
+.page {
+    line-height: 27px;
+    text-align: center;
+}
+
+.page_btn {
+    cursor: pointer;
+}
+
+.page .page_btn, .page .tip, .page .page_lst {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.page .page_btn, .page .page_num {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0 12px;
+    height: 30px;
+    border: 1px solid #ddd;
+    color: #575757;
+}
+
+.page .page_lst li {
+    float: left;
+}
+    .page .page_btn:hover, .page_lst a:hover, .page .page_on {
+        text-decoration: none;
+        background: #43b0aa;
+        border: 1px solid #43b0aa;
+        color: #fff;
+    }
+
+.page .tip {
+margin-left: 20px;
+line-height: 30px;
+color: #575757;
+}

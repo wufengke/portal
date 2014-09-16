@@ -1,0 +1,1369 @@
+/* 头部样式 */
+.lhb_header {
+    height: 66px;
+    border-bottom: 4px solid #000;
+    background: #252525;
+    position: relative;
+    z-index: 1000;
+}
+
+.lhb_logo {
+    margin-top: 18px;
+}
+
+.lhb_mn li {
+    float: left;
+    height: 66px;
+    margin-left: 60px;
+}
+
+    .lhb_mn li a {
+        display: inline-block;
+        height: 66px;
+        line-height: 66px;
+    }
+
+        .lhb_mn li a:hover, .lhb_mn li a.sel {
+            border-bottom: 4px solid #3b82c4;
+        }
+
+.lhb_login a {
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+/*登录样式*/
+.loginContainer {
+    background-color: #eee;
+}
+
+.wrap {
+    padding-top: 18px;
+}
+
+.loginContainer .login {
+    padding-bottom: 35px;
+}
+
+.login .loginWrap {
+    margin: 0 auto;
+    margin-top: 0px;
+    border-top: 3px solid #5297d7;
+    box-shadow: 2px 2px 6px rgba(6,7,7,.35),-2px 0 2px rgba(6,7,7,.35);
+    background: #fff;
+    padding: 0 0 0 48px;
+    width: 776px;
+}
+
+.login .loginBgIco {
+    width: 322px;
+    height: 231px;
+    background: url(../images/loginadIco.png) no-repeat;
+    margin-top: 62px;
+}
+
+.login .loginWrap .loginBox {
+    border: 0;
+    box-shadow: none;
+    width: 345px;
+    padding: 46px 28px 12px 25px;
+}
+
+.login .loginWrap .msgInfo {
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.login .loginWrap li {
+    line-height: 50px;
+}
+
+    .login .loginWrap li .userName {
+        background-position: 15px 0;
+        border-bottom: 1px solid #dfdede;
+        margin-bottom: 5px;
+    }
+
+    .login .loginWrap li .userName, .login .loginWrap li .pwd {
+        font-size: 16px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 15px 0 55px;
+        display: block;
+        border: 0;
+        width: 275px;
+        background: #f1f1f1;
+    }
+.loginInputBg {
+    position: absolute;
+    width: 55px;
+    height: 50px;
+    left: 0;
+    top: 0;
+}
+
+.login .loginWrap li {
+    line-height: 50px;
+}
+
+.login .loginWrap .autoLi {
+    font-size: 14px;
+}
+
+.login .loginWrap li .autoLogin {
+    margin: 20px 10px 0 0;
+}
+
+.login .loginWrap li .btn {
+    width: 345px;
+    height: 46px;
+    line-height: 46px;
+    margin-bottom: 20px;
+}
+
+.login .loginWrap li .submit {
+    border: 0;
+    cursor: pointer;
+}
+
+.login .loginWrap li .btn {
+    width: 345px;
+    height: 46px;
+    line-height: 46px;
+    margin-bottom: 20px;
+}
+
+.login .pwd .findType, .login .pwd .setSuccess, .login .pwd .setNewpwd {
+    padding-top: 70px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login .pwd .box {
+    border: 1px solid #d5d5d5;
+    margin: 0 auto;
+    background-color: #fff;
+    width: 763px;
+}
+
+    .login .pwd .box h2 {
+        height: 50px;
+        line-height: 50px;
+        background-color: #f7f7f7;
+        text-align: center;
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 20px;
+    }
+
+.progressBar {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+    .progressBar span {
+        text-indent: -20px;
+        display: inline-block;
+        font-size: 14px;
+        color: #000;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        background: url(../images/barIcon1.png) no-repeat right center #e3e3e3;
+    }
+
+        .progressBar span.ok {
+            background-image: url(../images/barIcon2.png);
+        }
+
+        .progressBar span.currentPreve {
+            background-image: url(../images/barIcon4.png);
+        }
+
+        .progressBar span.current {
+            background-color: #f14211;
+            background-image: url(../images/barIconok3.png);
+            color: #fff;
+        }
+
+        .progressBar span.finish {
+            background-color: #f14211;
+            background-image: url(../images/barIcon3.png);
+            color: #fff;
+        }
+
+.login .pwd .box h2 {
+    height: 50px;
+    line-height: 50px;
+    background-color: #f7f7f7;
+    text-align: left;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-indent: 45px;
+    background: url(../images/emailIcon.png) no-repeat 20px center #f7f7f7;
+}
+
+.login .pwd .box ul {
+    padding-left: 210px;
+}
+
+.login .pwd .box li {
+    margin-bottom: 15px;
+}
+
+    .login .pwd .box li p {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        text-indent: 5px;
+        color: #333;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+
+        .login .pwd .box li p span {
+            color: #f14211;
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+    .login .pwd .box li input {
+        width: 310px;
+        height: 38px;
+        line-height: 38px;
+        border: 1px solid #d5d5d5;
+        padding: 0 15px;
+        font-size: 16px;
+    }
+
+.login .pwd .box .submit {
+    width: 340px;
+    margin-bottom: 20px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.login .pwd .box h3 {
+    font-size: 18px;
+    margin: 20px 0 40px 0;
+}
+
+.login .pwd .box .tips {
+    font-size: 14px;
+    color: #63696c;
+    margin-bottom: 20px;
+}
+/*float*/
+.floatBox {
+    border: 1px solid #d4d4d4;
+    border-bottom: 0;
+    width: 68px;
+    background: #fff;
+    position: fixed;
+    _position: absolute;
+    bottom: 20%;
+    right: 0;
+    z-index: 1111;
+}
+
+    .floatBox a {
+        text-align: center;
+        border-bottom: 1px solid #d4d4d4;
+        color: #979797;
+        display: inline-block;
+        padding: 46px 0 4px;
+        width: 68px;
+        background-position: center 8px;
+        background-repeat: no-repeat;
+    }
+
+    .floatBox .ansQue {
+        background-image: url(../images/ansQue.jpg);
+    }
+
+        .floatBox .ansQue:hover {
+            background-image: url(../images/hansQue.jpg);
+        }
+
+    .floatBox .feedback {
+        background-image: url(../images/feedback.jpg);
+        margin-top: 0;
+    }
+
+        .floatBox .feedback:hover {
+            background-image: url(../images/hfeedback.jpg);
+            margin-top: 0;
+        }
+
+    .floatBox .returnTop {
+        background-image: url(../images/returnTop.jpg);
+        background-position: center 18px;
+    }
+
+        .floatBox .returnTop:hover {
+            background-image: url(../images/hreturnTop.jpg);
+            background-position: center 18px;
+        }
+/*个人中心*/
+.studentMyCourse {
+    padding: 35px 0 44px;
+}
+
+    .studentMyCourse .wrapContent {
+        width: 768px;
+    }
+
+    .studentMyCourse .inforTab {
+        border: 1px solid #dadada;
+        background: #fff;
+    }
+
+        .studentMyCourse .inforTab .courseList {
+            padding: 0 20px;
+            min-height: 280px;
+        }
+
+        .studentMyCourse .inforTab .tabh {
+            background: #f7f7f7;
+            height: 50px;
+            line-height: 50px;
+        }
+
+            .studentMyCourse .inforTab .tabh .inforOn {
+                background: #fff;
+                border-top: 3px solid #f14211;
+                line-height: 47px;
+                font-weight: bold;
+                color: #f14211;
+            }
+
+            .studentMyCourse .inforTab .tabh li {
+                width: 150px;
+                text-align: center;
+                font-size: 18px;
+                color: #4b4b4b;
+                float: left;
+                cursor: pointer;
+            }
+
+    .studentMyCourse .inforTabBox {
+        color: #333;
+        padding: 0 135px 30px 104px;
+        font-size: 16px;
+        min-height: 400px;
+    }
+
+    .studentMyCourse .atareditorBox {
+        padding: 0;
+        min-height: 468px;
+    }
+
+    .studentMyCourse .inforTabBox li .formName {
+        margin-left: -20px;
+    }
+
+        .studentMyCourse .inforTabBox li .formName span {
+            color: #f14211;
+            margin-right: 12px;
+        }
+
+    .studentMyCourse .inforTabBox .Validform_tip_info, .studentMyCourse .inforTabBox .Validform_checktip {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .studentMyCourse form input {
+        width: 325px;
+        height: 30px;
+    }
+
+    .studentMyCourse .inforTabBox .detailText {
+        font-size: 14px;
+    }
+
+    .studentMyCourse .inforTabBox .optional {
+        margin: 20px 0 8px;
+        color: #0e455e;
+    }
+
+    .studentMyCourse .noFillin {
+        font-weight: bold;
+    }
+
+    .studentMyCourse .inforTabBox form input.radio {
+        width: auto;
+    }
+
+    .studentMyCourse .locaSele select {
+        padding: 6px;
+        margin-right: 10px;
+    }
+
+    .studentMyCourse form .btn {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        width: 130px;
+        margin: 26px 22px 0 0;
+        height: 40px;
+    }
+
+    .studentMyCourse form .applyTeacher {
+        font-size: 16px;
+        color: #fff;
+        width: 200px;
+        height: 40px;
+        position: absolute;
+        top: 0px;
+        left: 400px;
+        border: none;
+    }
+
+    .studentMyCourse .slide {
+        margin-top: 30px;
+        width: 190px;
+        height: 500px;
+        background: #fff;
+        box-shadow: 1px 1px 3px rgba(6,7,7,.25),-1px -1px 3px rgba(6,7,7,.25);
+        border: 1px solid #dbdbdb;
+    }
+
+    .studentMyCourse .slideBox {
+        padding-top: 150px;
+    }
+
+    .studentMyCourse .memberInfo {
+        text-align: center;
+        position: absolute;
+        top: -30px;
+        width: 100%;
+    }
+
+        .studentMyCourse .memberInfo img {
+            width: 130px;
+            height: 130px;
+            box-shadow: 0 0 5px rgba(6,7,7,.56);
+            cursor: pointer;
+        }
+
+        .studentMyCourse .memberInfo h2 {
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+            color: #0e455e;
+        }
+
+            .studentMyCourse .memberInfo h2 .myGrade {
+                margin-right: 15px;
+                font-weight: normal;
+            }
+
+    .studentMyCourse .menu li {
+        height: 50px;
+        line-height: 50px;
+    }
+
+        .studentMyCourse .menu li a {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 190px;
+            height: 100%;
+            padding-left: 72px;
+            color: #4b4b4b;
+            font-size: 18px;
+        }
+
+            .studentMyCourse .menu li a:hover, .studentMyCourse .menu .menuOn a {
+                color: #f14211;
+                border-left: 6px solid #f14211;
+                padding-left: 66px;
+            }
+
+    .studentMyCourse .menu .mCourse {
+        background: url(../images/menu1.png) 30px center no-repeat;
+    }
+
+        .studentMyCourse .menu .menuOn .mCourse, .studentMyCourse .menu .mCourse:hover {
+            background: #f7f7f7 url(../images/hmenu1.png) 24px center no-repeat;
+        }
+
+    .studentMyCourse .menu .mOrder {
+        background: url(../images/menu2.png) 30px center no-repeat;
+    }
+
+        .studentMyCourse .menu .menuOn .mOrder, .studentMyCourse .menu .mOrder:hover {
+            background: #f7f7f7 url(../images/hmenu2.png) 24px center no-repeat;
+        }
+
+    .studentMyCourse .menu .mInfor {
+        background: url(../images/menu3.png) 30px center no-repeat;
+    }
+
+        .studentMyCourse .menu .menuOn .mInfor, .studentMyCourse .menu .mInfor:hover {
+            background: #f7f7f7 url(../images/hmenu3.png) 24px center no-repeat;
+        }
+
+.jqTransformRadioWrapper {
+    display: inline-block;
+    margin: -6px 0;
+}
+
+.jqTransformRadio {
+    background: transparent url(../images/radio.gif) no-repeat center top;
+    vertical-align: middle;
+    height: 19px;
+    width: 18px;
+    display: block;
+}
+
+.jqTransformHidden {
+    display: none;
+}
+
+a.jqTransformChecked {
+    background-position: center bottom;
+}
+
+.radio {
+    margin-right: 10px;
+}
+
+.studentMyCourse .inforTabBox form input.radio {
+    width: auto;
+}
+/*课程列表*/
+.studentMyCourse .zb_top_tab {
+    background: #fff;
+    height: 37px;
+    border: 1px solid #dbdbdb;
+    margin-top: 0px;
+    color: #333;
+    font-size: 14px;
+    line-height: 37px;
+    clear: both;
+}
+
+    .studentMyCourse .zb_top_tab .on {
+        background: #505050;
+        color: #fff;
+    }
+
+.studentMyCourse .zb_tab_tit {
+    font-style: normal;
+    padding-left: 20px;
+}
+
+.studentMyCourse .zb_top_lst {
+    overflow: hidden;
+}
+
+    .studentMyCourse .zb_top_lst li {
+        float: left;
+        padding: 0 16px;
+        cursor: pointer;
+    }
+
+.zb_tab_ct2 {
+    height: 32px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #fff;
+    margin: 10px 0 -27px 0;
+    padding: 10px 30px 0;
+    position: relative;
+}
+
+    .zb_tab_ct2 .zb_tab_tit {
+        float: left;
+        color: #333;
+        font-style: normal;
+        vertical-align: middle;
+        font-size: 14px;
+    }
+
+    .zb_tab_ct2 .btn {
+        vertical-align: middle;
+        margin: 0 10px;
+        box-shadow:none;
+    }
+
+    .zb_tab_ct2 .rgt {
+        width: 550px;
+        position: absolute;
+        right: 0;
+        top: 9px;
+        line-height: 25px;
+    }
+
+.zb_tab .zb_unbg span {
+    background: none;
+}
+
+.zb_tab_ct2 .zb_unbg span {
+    background: none;
+    color: #333 !important;
+}
+
+.zb_tab_ct2 .text_input_box {
+    float: left;
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+    margin-left: 10px;
+    background: #f0f0f0;
+}
+/*课程详情部分*/
+.studentMyCourse .buyCourse {
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+}
+
+.studentMyCourse .buyBefore .buyHead {
+    border: 1px solid #d2d2d2;
+    margin-bottom: 32px;
+}
+
+.studentMyCourse .buyBefore .buyHeadt {
+    background: #f7f7f7;
+    border-style: solid;
+    border-width: 2px 0 1px;
+    border-color: #f14211 #fff #d2d2d2;
+    padding: 6px 0 16px 15px;
+}
+
+.studentMyCourse .buyHeadt h2 {
+    font-size: 20px;
+    line-height: 46px;
+}
+
+.studentMyCourse .buyCourse .buyHeadf {
+    padding: 14px 36px 26px 12px;
+}
+
+    .studentMyCourse .buyCourse .buyHeadf img {
+        width: 288px;
+        height: 216px;
+    }
+
+.studentMyCourse .buyCourse .startTime {
+    width: 354px;
+    margin-left: 12px;
+}
+
+.studentMyCourse .buyCourse .timeTitle {
+    color: #a2a2a2;
+    font-size: 16px;
+}
+
+    .studentMyCourse .buyCourse .timeTitle .fl {
+        background: url(../images/time.png) left center no-repeat;
+        padding-left: 25px;
+    }
+
+    .studentMyCourse .buyCourse .timeTitle .fr {
+        font-size: 14px;
+    }
+
+.studentMyCourse .buyCourse .startTime ul {
+    margin-right: -8px;
+}
+
+.studentMyCourse .buyCourse .startTime li {
+    width: 170px;
+    height: 28px;
+    border: 1px solid #d2d2d2;
+    background: #eaeaea;
+    text-align: center;
+    line-height: 28px;
+    margin: 8px 8px 0 0;
+    cursor: pointer;
+}
+
+.studentMyCourse .buyCourse .startTime .ctimeOn {
+    background: #fcd9cf url(../images/activetime.png) right bottom no-repeat;
+    border-color: #f14211;
+}
+
+.studentMyCourse .buyCourse .startTime .more {
+    color: #a2a2a2;
+    cursor: inherit;
+}
+
+.studentMyCourse .buyCourse .fromf {
+    line-height: 40px;
+    margin-top: 80px;
+}
+
+    .studentMyCourse .buyCourse .fromf .oldPrice {
+        color: #a2a2a2;
+        font-size: 14px;
+    }
+
+        .studentMyCourse .buyCourse .fromf .oldPrice span {
+            text-decoration: line-through;
+        }
+
+#soon_buy {
+    font-weight: normal;
+    width: 100px;
+    margin: 0;
+    padding-left: 20px;
+    color: white;
+    text-align: center;
+}
+
+.studentMyCourse .buyCourse .fromf strong {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 14px;
+}
+
+    .studentMyCourse .buyCourse .fromf strong span {
+        font-size: 30px;
+        margin-left: -5px;
+    }
+
+.studentMyCourse .buyCourse .buyLeft {
+    border: 1px solid #e7e7e7;
+    width: 644px;
+}
+
+.studentMyCourse .buyBefore .slash {
+    background: url(../images/slash.png) no-repeat;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 35px;
+    height: 30px;
+}
+
+.studentMyCourse .buyBefore .revTimt, .studentMyCourse .buyBefore .allReview, .studentMyCourse .outlineList .listc {
+    color: #6dcde6;
+}
+
+.studentMyCourse .buyBefore .cBox {
+    padding: 0 26px 24px 140px;
+    border-top: 1px solid #e7e7e7;
+}
+
+    .studentMyCourse .buyBefore .cBox p {
+        line-height: 24px;
+    }
+
+.studentMyCourse .buyBefore .fitStu {
+    background: url(../images/fitStu.png) 12px 22px no-repeat;
+    padding-top: 54px;
+}
+
+.studentMyCourse .buyBefore .outline, .studentMyCourse .buyAfter .outline {
+    background: url(../images/outline.png) 12px 22px no-repeat;
+    padding-top: 74px;
+}
+
+.studentMyCourse .outlineList .listb {
+    width: 420px;
+}
+
+.studentMyCourse .outlineList .listh {
+    font-size: 16px;
+    width: 279px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.studentMyCourse .buyBefore .outlineList li {
+    background: url(../images/reda.png) 5px 8px no-repeat;
+    height: 60px;
+}
+
+.studentMyCourse .buyBefore .summary {
+    background: url(../images/summary.png) 12px 28px no-repeat;
+    padding: 70px 22px 65px 140px;
+}
+
+.studentMyCourse .buyBefore .editorBox {
+    margin: 10px 0 0 -118px;
+}
+
+.studentMyCourse .buyBefore .introd {
+    text-indent: 2em;
+    padding-top: 70px;
+    border-top: 0;
+    background: url(../images/introd.png) 12px 44px no-repeat;
+}
+
+.studentMyCourse .buyBefore .buyRight {
+    background: url(../images/cteam.png) no-repeat;
+    margin-top: -5px;
+    padding-top: 30px;
+}
+
+.studentMyCourse .buyCourse .buyRight {
+    width: 308px;
+}
+
+.studentMyCourse .buyBefore .buyRight ul {
+    border-top: 1px solid #f14211;
+}
+
+.studentMyCourse .buyBefore .buyRight li {
+    border-bottom: 1px solid #f14211;
+    padding: 20px 0 38px;
+}
+
+.studentMyCourse .buyBefore .head {
+    width: 90px;
+    height: 90px;
+    border-left: 3px solid #f14211;
+}
+
+.studentMyCourse .buyBefore .headR {
+    position: absolute;
+    width: 176px;
+    left: 110px;
+    bottom: 0;
+}
+
+.studentMyCourse .buyBefore .cMan {
+    font-size: 12px;
+}
+
+.studentMyCourse .buyBefore .teaDetail strong {
+    font-size: 16px;
+    margin-right: 14px;
+}
+
+.studentMyCourse .buyBefore .teaIntrod {
+    line-height: 24px;
+    text-indent: 2em;
+    margin-top: 16px;
+}
+/*头像上传部分*/
+.picup span.upcontainer {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 41px;
+}
+
+.zb_zpup {
+    width: 109px;
+    display: inline-block;
+    line-height: normal;
+    overflow: hidden;
+}
+
+.zb_dl_lst2 .hauto img {
+    vertical-align: middle;
+}
+
+.zb_scbtn input {
+    height: 31px;
+    width: 109px;
+    cursor: pointer;
+}
+
+.zb_zpup {
+    width: 109px;
+    display: inline-block;
+    line-height: normal;
+    overflow: hidden;
+}
+
+.zb_scbtnbox {
+    display: inline-block;
+    width: 109px;
+    height: 31px;
+    line-height: 31px;
+    background: #99a1a6;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border: 0;
+    position: relative;
+}
+
+.zb_scbtn {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    width: 109px;
+    height: 31px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+    .zb_scbtn input {
+        height: 31px;
+        width: 109px;
+        cursor: pointer;
+    }
+/*课程列表部分*/
+.studentMyCourse .courseConList {
+    margin-right: -35px;
+}
+
+    .studentMyCourse .courseConList li {
+        width: 230px;
+        margin: 0 35px 20px 0;
+        box-shadow: 1px 1px 3px rgba(6,7,7,.35),-1px -1px 3px rgba(6,7,7,.35);
+        cursor: pointer;
+    }
+
+.studentMyCourse .myCourseList li {
+    margin: 20px 18px 20px 0;
+    background: #fff;
+    height: 320px;
+}
+
+.studentMyCourse .hasCourse {
+    color: #4b4b4b;
+    text-align: center;
+}
+
+    .studentMyCourse .hasCourse h3 {
+        font-size: 16px;
+        font-weight: normal;
+        height: 40px;
+        line-height: 48px;
+        text-align: center;
+    }
+
+    .studentMyCourse .hasCourse .cover {
+        width: 230px;
+        height: 173px;
+    }
+
+    .studentMyCourse .hasCourse .progress {
+        position: relative;
+        height: 2px;
+        background: #6dcde6;
+    }
+
+    .studentMyCourse .hasCourse .bar {
+        position: absolute;
+        height: 2px;
+        background: #f14211;
+        width: 20%;
+        left: 0;
+    }
+
+    .studentMyCourse .hasCourse .courseInfor {
+        font-size: 14px;
+        padding: 0 8px 8px;
+    }
+
+    .studentMyCourse .hasCourse .lessons {
+        text-align: right;
+    }
+
+    .studentMyCourse .hasCourse .over {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .studentMyCourse .hasCourse .btn {
+        height: 30px;
+        line-height: 30px;
+        width: 160px;
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
+        margin-left: -80px;
+        color: #fff;
+    }
+
+.studentMyCourse #createClass {
+    width: 160px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.studentMyCourse #sendCode, .studentMyCourse #enterClass {
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.studentMyCourse .noCourse {
+    line-height: 350px;
+    text-align: center;
+}
+
+    .studentMyCourse .noCourse span a {
+        text-decoration: none;
+    }
+
+    .studentMyCourse .noCourse span {
+        color: #a2a2a2;
+        font-size: 16px;
+        padding-top: 60px;
+        background: url(../images/addCourse.png) center top no-repeat;
+    }
+
+    .studentMyCourse .noCourse:hover span {
+        color: #f14211;
+        background: url(../images/addCourseh.png) center top no-repeat;
+    }
+
+.studentMyCourse .pageName {
+    font-size: 18px;
+    color: #0e455e;
+    border-left: 3px solid #f14211;
+    padding-left: 6px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+/*列表课程样式*/
+.studentMyCourse .newList {
+    margin-top: 20px;
+}
+
+    .studentMyCourse .newList li {
+        height: 270px;
+        margin-top: 4px;
+        position: relative;
+    }
+
+.clBoxShaow {
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 230px;
+    cursor: pointer;
+    height: 270px;
+    color: #333;
+    background: #fff;
+}
+
+    .clBoxShaow .courseTitle {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.iniBox .iniInfor {
+    padding: 0 12px 0 8px;
+}
+
+.iniBox .courseTitle {
+    height: 44px;
+    line-height: 44px;
+    font-weight: bold;
+}
+
+.iniBox .fitGrade {
+    color: #a2a2a2;
+}
+
+.rotateBox {
+    background: #252525;
+    color: #fff;
+}
+
+    .rotateBox .brief {
+        line-height: 20px;
+        padding: 25px 16px 0;
+        font-size: 12px;
+    }
+
+    .rotateBox .courseTitle {
+        position: absolute;
+        bottom: 10px;
+        left: 16px;
+        padding-right: 32px;
+        width: 170px;
+        height: 32px;
+        line-height: 32px;
+    }
+
+.teaInfor {
+    padding: 32px 18px 0;
+    border-bottom: 1px solid #656565;
+    height: 42px;
+}
+
+    .teaInfor img {
+        width: 35px;
+        height: 35px;
+        margin-right: 6px;
+    }
+
+    .teaInfor .teaInforR {
+        padding-top: 3px;
+        width: 152px;
+    }
+
+    .teaInfor h3 span {
+        display: inline-block;
+        width: 18px;
+        height: 15px;
+        margin-left: 10px;
+    }
+
+    .teaInfor h3 em {
+        line-height: 14px;
+        width: 68px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.rotateBox .detailInfor {
+    font-size: 12px;
+    margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*about样式*/
+.about {
+    padding: 35px 0;
+}
+
+    .about .sideLeftNav {
+        width: 200px;
+    }
+
+        .about .sideLeftNav ul li {
+            margin-bottom: 5px;
+        }
+
+        .about .sideLeftNav ul a {
+            display: block;
+            font-size: 16px;
+            color: #0e455e;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #dbe3ec;
+            border-top: 0;
+            box-shadow: 0 -1px 1px #b9c7d7 inset;
+            text-decoration: none;
+        }
+
+            .about .sideLeftNav ul a:hover, .about .sideLeftNav ul .curNav a {
+                background: #f14211;
+                color: #fff;
+            }
+
+    .about .aboutContent {
+        font-size: 14px;
+        width: 764px;
+        color: #334251;
+        background: #fff;
+        border: 1px solid #dbe3ec;
+        border-top: 0;
+        box-shadow: 0 -1px 1px #b9c7d7 inset;
+    }
+	.about .aboutusBox {
+		padding: 18px 34px 38px 14px;
+		font-size: 12px;
+	}
+	.about .userhelpBox {
+	padding: 14px 20px 32px 12px;
+	font-size: 12px;
+	}
+	.about .contactusBox {
+		padding: 55px 0 77px 50px;
+	}
+	.aboutPage .serviceBox {
+	padding: 16px 36px 26px 18px;
+	font-size: 12px;
+	}
+    .about .addUsBox {
+        padding: 14px 18px 50px 12px;
+        font-size: 12px;
+    }
+
+        .about .addUsBox p {
+            line-height: 28px;
+        }
+
+    .about .aboutContent h2, .about .aboutContent h3 {
+        font-size: 14px;
+    }
+
+    .about .addUsBox .section {
+        margin-bottom: 30px;
+    }
+
+    .about .adviseBox {
+        padding: 14px 7650px 44px 60px;
+        width: 652px;
+        margin-top: 30px;
+    }
+
+        .about .adviseBox h2 {
+            font-size: 20px;
+            padding: 13px 0 0 33px;
+            height: 22px;
+            line-height: 22px;
+            margin-bottom: 7px;
+            background: url(../images/feedback.png) 3px top no-repeat;
+        }
+
+        .about .adviseBox .fbText {
+            height: 28px;
+            line-height: 28px;
+        }
+
+        .about .adviseBox textarea {
+            width: 610px;
+            height: 100px;
+        }
+
+        .about .adviseBox .formName {
+            font-size: 16px;
+        }
+
+        .about .adviseBox form input {
+            width: 288px;
+        }
+
+        .about .adviseBox .submit {
+            width: 140px;
+            margin-top: 12px;
+            height: 40px;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+/*注册*/
+.layout {
+    padding: 35px 0;
+}
+
+.login .regWrap {
+    margin-bottom: 0;
+    padding: 0px;
+}
+
+    .login .regWrap .regTab {
+        border: 1px solid #d5d5d5;
+        border-left: none;
+        width: 499px;
+        background: #fff;
+    }
+
+    .login .regWrap .tabBox a {
+        display: inline-block;
+        width: 175px;
+        border-top: 3px solid #f7f7f7;
+        height: 47px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 47px;
+        border-top-color: #fff;
+        background: #fff;
+        color: #f14211;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .login .regWrap .contentBox .box {
+        padding: 20px 55px;
+    }
+
+    .login .regWrap .box li {
+        font-size: 16px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .login .regWrap .box li p {
+            height: 22px;
+            line-height: 22px;
+            margin-bottom: 5px;
+        }
+
+        .login .regWrap .box li .regInput {
+            width: 90%;
+            border: 1px solid #6dcde6;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 5%;
+            font-size: 16px;
+        }
+
+        .login .regWrap .box li .Validform_tip_info {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .login .regWrap .box li.agreementLi {
+            font-size: 14px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+            .login .regWrap .box li.agreementLi a {
+                color: #f14211;
+            }
+
+        .login .regWrap .box li .submit {
+            border: 0;
+            width: 100%;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+.login .regLeft {
+    width: 479px;
+    border: 1px solid #d5d5d5;
+    border-right: none;
+    background-color: #fff;
+    height: 469px;
+}
+
+    .login .regLeft img {
+        margin: 50px 0px 20px 50px;
+    }
+/*底部样式*/
+.footer {
+    background: #252525;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    padding: 20px 0 16px;
+    font-family: 'Microsoft YaHei';
+}
+
+    .footer .ftNav span {
+        margin: 0 15px;
+        color: #fff;
+    }
+
+    .footer .ftNav a {
+        color: #fff;
+    }
+
+    .footer .fb {
+        height: 30px;
+        padding-top: 24px;
+    }
+
+    .footer .fbSpan {
+        margin-right: 3px;
+    }

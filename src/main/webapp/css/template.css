@@ -1,0 +1,355 @@
+﻿@charset "utf-8";
+
+.btn{text-align:center;cursor:pointer;display:inline-block;overflow:hidden}
+.btn:hover{text-decoration:none}
+.btn span{display:block;_overflow:hidden}
+.btn_lft,.btn_mid,.btn_rgt{float:left}
+
+/* 灰色按钮 */
+.btn_gray .btn_lft,.btn_gray .btn_rgt{width:5px}
+.btn_gray .btn_lft span,.btn_gray .btn_rgt span{background:url(../images/template.png?v1111) no-repeat;width:5px}
+.btn_gray .btn_lft .btn_lft_top{height:6px;background-position:0 0}
+.btn_gray .btn_lft .btn_lft_mid{background:#656e73; display:block;}
+.btn_gray .btn_lft .btn_lft_btm{height:6px;background-position:0 -7px}
+
+.btn_gray .btn_mid span{background:#656e73}
+.btn_gray .btn_mid .btn_mid_top{height:6px}
+.btn_gray .btn_mid .btn_mid_btm{height:6px;}
+
+.btn_gray .btn_rgt .btn_rgt_top{height:6px;background-position:-7px 0}
+.btn_gray .btn_rgt .btn_rgt_mid{background:#656e73;display:block;}
+.btn_gray .btn_rgt .btn_rgt_btm{height:6px;background-position:-7px -7px}
+
+.btn_gray .btn_style .btn_mid_top{width:155px;}
+.btn_gray .btn_style .btn_mid_mid{width:155px;height:44px;color:#fff;font-size:24px;line-height:44px;font-family:'微软雅黑'}
+.btn_gray .btn_style .btn_mid_btm{width:155px;}
+.btn_gray:hover .btn_lft .btn_lft_top{background-position:-15px -397px}
+.btn_gray:hover .btn_lft .btn_lft_mid{background:#869095;}
+.btn_gray:hover .btn_lft .btn_lft_btm{background-position:-15px -405px}
+.btn_gray:hover .btn_mid span{background:#869095}
+.btn_gray:hover .btn_rgt .btn_rgt_top{background-position:-22px -397px}
+.btn_gray:hover .btn_rgt .btn_rgt_mid{background:#869095;}
+.btn_gray:hover .btn_rgt .btn_rgt_btm{background-position:-22px -405px}
+
+/* 灰色按钮2 */
+.btn_gray2 .btn_lft,.btn_gray2 .btn_rgt{width:4px}
+.btn_gray2 .btn_lft span,.btn_gray2 .btn_rgt span{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_gray2 .btn_lft .btn_lft_top{height:4px;background-position:0 -18px}
+.btn_gray2 .btn_lft .btn_lft_mid{background:#656e73; display:block;}
+.btn_gray2 .btn_lft .btn_lft_btm{height:4px;background-position:0 -25px}
+
+.btn_gray2 .btn_mid span{;background:#656e73}
+.btn_gray2 .btn_mid .btn_mid_top{height:4px;}
+.btn_gray2 .btn_mid .btn_mid_btm{height:4px;}
+
+.btn_gray2 .btn_rgt .btn_rgt_top{height:4px;background-position:-5px -18px}
+.btn_gray2 .btn_rgt .btn_rgt_mid{background:#656e73;display:block;}
+.btn_gray2 .btn_rgt .btn_rgt_btm{height:4px;background-position:-5px -25px}
+
+.btn_gray2 .btn_style .btn_mid_top{width:98px}
+.btn_gray2 .btn_style .btn_mid_mid{width:98px;height:28px;color:#fff;font-size:18px;line-height:28px;font-family:'微软雅黑'}
+.btn_gray2 .btn_style .btn_mid_btm{width:98px}
+.btn_gray2:hover .btn_lft .btn_lft_top{background-position:-31px -397px}
+.btn_gray2:hover .btn_lft .btn_lft_mid{background:#869095;}
+.btn_gray2:hover .btn_lft .btn_lft_btm{background-position:-31px -403px}
+.btn_gray2:hover .btn_mid span{background:#869095}
+.btn_gray2:hover .btn_rgt .btn_rgt_top{background-position:-36px -397px}
+.btn_gray2:hover .btn_rgt .btn_rgt_mid{background:#869095;}
+.btn_gray2:hover .btn_rgt .btn_rgt_btm{background-position:-36px -403px}
+
+/* 绿色按钮 */
+.btn_green .btn_lft,.btn_green .btn_rgt{width:5px}
+.btn_green .btn_lft span,.btn_green .btn_rgt span{background:url(../images/template.png?v1111) no-repeat;width:5px}
+.btn_green .btn_lft .btn_lft_top{height:6px;background-position:-16px 0}
+.btn_green .btn_lft .btn_lft_mid{background:#43b1aa;display:block;}
+.btn_green .btn_lft .btn_lft_btm{height:6px;background-position:-16px -7px}
+
+.btn_green .btn_mid span{background:#43b1aa;}
+.btn_green .btn_mid .btn_mid_top{height:6px}
+.btn_green .btn_mid .btn_mid_btm{height:6px;}
+
+.btn_green .btn_rgt .btn_rgt_top{height:6px;background-position:-23px 0}
+.btn_green .btn_rgt .btn_rgt_mid{background:#43b1aa;display:block;}
+.btn_green .btn_rgt .btn_rgt_btm{height:6px;background-position:-23px -7px}
+
+.btn_green .btn_style{width:155px;color:#fff;font-size:24px;line-height:44px;font-family:'微软雅黑'}
+.btn_green:hover .btn_lft .btn_lft_top{background-position:0 -397px}
+.btn_green:hover .btn_lft .btn_lft_mid{background:#58c3bc;}
+.btn_green:hover .btn_lft .btn_lft_btm{background-position:0 -405px}
+.btn_green:hover .btn_mid span{background:#58c3bc;}
+.btn_green:hover .btn_rgt .btn_rgt_top{background-position:-7px -397px}
+.btn_green:hover .btn_rgt .btn_rgt_mid{background:#58c3bc}
+.btn_green:hover .btn_rgt .btn_rgt_btm{background-position:-7px -405px}
+
+/* 绿色按钮2 */
+.btn_green2 .btn_lft,.btn_green2 .btn_rgt{width:4px}
+.btn_green2 .btn_lft span,.btn_green2 .btn_rgt span{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_green2 .btn_lft .btn_lft_top{height:4px;background-position:-12px -18px}
+.btn_green2 .btn_lft .btn_lft_mid{background:#43b1aa}
+.btn_green2 .btn_lft .btn_lft_btm{display:block;height:4px;background-position:-12px -25px}
+
+.btn_green2 .btn_mid span{;background:#43b1aa;}
+.btn_green2 .btn_mid .btn_mid_top{height:4px}
+.btn_green2 .btn_mid .btn_mid_btm{height:4px;}
+
+.btn_green2 .btn_rgt .btn_rgt_top{height:4px;background-position:-17px -18px}
+.btn_green2 .btn_rgt .btn_rgt_mid{background:#43b1aa}
+.btn_green2 .btn_rgt .btn_rgt_btm{display:block;height:4px;background-position:-17px -25px}
+
+.btn_green2 .btn_style .btn_mid_top{width:98px;}
+.btn_green2 .btn_style .btn_mid_mid{width:98px;height:28px;color:#fff;font-size:18px;line-height:28px;font-family:'微软雅黑'}
+.btn_green2 .btn_style .btn_mid_btm{width:98px;}
+
+.btn_green2 .btn_style2 .btn_mid_top{width:147px;}
+.btn_green2 .btn_style2 .btn_mid_mid{width:147px;height:22px;color:#fff;font-size:16px;line-height:22px;font-family:'微软雅黑'}
+.btn_green2 .btn_style2 .btn_mid_btm{width:147px;}
+
+.btn_green2 .btn_style3 .btn_mid_top{width:115px;}
+.btn_green2 .btn_style3 .btn_mid_mid{width:115px;height:28px;color:#fff;font-size:18px;line-height:28px;font-family:'微软雅黑'}
+.btn_green2 .btn_style3 .btn_mid_btm{width:115px;}
+.btn_green2 .btn_style3 .btn_mid_mid .add{display:inline-block;width:14px;height:14px;background:url(../images/template.png?v1111) -34px 0 no-repeat;margin-right:6px;*vertical-align:5px}
+.btn_green2:hover .btn_lft .btn_lft_top{background-position:-42px -397px}
+.btn_green2:hover .btn_lft .btn_lft_mid{background:#58c3bc;}
+.btn_green2:hover .btn_lft .btn_lft_btm{background-position:-42px -403px}
+.btn_green2:hover .btn_mid span{background:#58c3bc}
+.btn_green2:hover .btn_rgt .btn_rgt_top{background-position:-48px -397px}
+.btn_green2:hover .btn_rgt .btn_rgt_mid{background:#58c3bc;}
+.btn_green2:hover .btn_rgt .btn_rgt_btm{background-position:-48px -403px}
+
+/* 绿色按钮高度固定30 */
+.btn_green3 .btn_lft,.btn_green3 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_green3 .btn_lft{height:30px;background-position:0 -117px}
+.btn_green3 .btn_mid{width:192px;height:30px;color:#fff;font-size:14px;line-height:30px;font-family:'微软雅黑';background:#43b1aa}
+.btn_green3 .btn_rgt{height:30px;background-position:-6px -117px}
+.btn_green3 .play_ico{width:9px;height:14px;background:url(../images/template.png?v1111) -75px 0;margin-right:10px}
+.btn_green3:hover .btn_lft{background-position:0 -361px}
+.btn_green3:hover .btn_mid{background:#58c3bc}
+.btn_green3:hover .btn_rgt{background-position:-8px -361px}
+
+/* 绿色按钮高度固定36 */
+.btn_green4 .btn_lft,.btn_green4 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_green4 .btn_lft{height:36px;background-position:-141px -202px}
+.btn_green4 .btn_mid{width:84px;height:36px;font-size:14px;line-height:36px;font-family:'微软雅黑';background:#43b1aa}
+.btn_green4 .btn_rgt{height:36px;background-position:-148px -202px}
+.btn_green4:hover .btn_lft{background-position:-158px -202px}
+.btn_green4:hover .btn_mid{background:#58c3bc}
+.btn_green4:hover .btn_rgt{background-position:-165px -202px} 
+.btn_green4 .add{display:inline-block;width:14px;height:14px;background:url(../images/template.png?v1111) -34px 0 no-repeat;margin-right:6px;vertical-align:-1px;*vertical-align:3px}
+
+/* 绿色按钮高度固定30_2 */
+.btn_green5 .btn_lft,.btn_green5 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_green5 .btn_lft{height:30px;background-position:0 -361px}
+.btn_green5 .btn_mid{width:192px;height:30px;color:#fff;font-size:14px;line-height:30px;font-family:'微软雅黑';background:#58c3bc}
+.btn_green5 .btn_rgt{height:30px;background-position:-8px -361px}
+
+/* 蓝色按钮高度固定 */
+.btn_blue2 .btn_lft,.btn_blue2 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_blue2 .btn_lft{height:30px;background-position:-60px 0}
+.btn_blue2 .btn_mid{width:192px;height:30px;color:#fff;font-size:16px;line-height:30px;font-family:'微软雅黑';background:#3b82c4}
+.btn_blue2 .btn_rgt{height:30px;background-position:-67px 0}
+.btn_blue2 .play_ico{width:9px;height:14px;background:url(../images/template.png?v1111) -75px 0;margin-right:10px;display:inline-block;}
+.btn_blue2:hover .btn_lft{background-position:-16px -361px}
+.btn_blue2:hover .btn_mid{background:#5297d7}
+.btn_blue2:hover .btn_rgt{background-position:-23px -361px}
+
+/* 蓝色按钮高度固定36 */
+.btn_blue3 .btn_lft,.btn_blue3 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_blue3 .btn_lft{height:36px;background-position:-119px -144px}
+.btn_blue3 .btn_mid{width:192px;height:36px;font-size:16px;line-height:36px;font-family:'微软雅黑';background:#3b82c4}
+.btn_blue3 .btn_rgt{height:36px;background-position:-127px -144px}
+.btn_blue3:hover .btn_lft{background-position:-119px -269px}
+.btn_blue3:hover .btn_mid{background:#5297d7}
+.btn_blue3:hover .btn_rgt{background-position:-126px -269px}
+
+/* 蓝色按钮高度固定26 */
+.btn_blue4 .btn_lft,.btn_blue4 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_blue4 .btn_lft{height:26px;background-position:-122px -107px}
+.btn_blue4 .btn_mid{width:73px;height:26px;font-size:16px;line-height:26px;font-family:'微软雅黑';background:#3b82c4}
+.btn_blue4 .btn_rgt{height:26px;background-position:-129px -107px}
+.btn_blue4:hover .btn_lft{background-position:-118px -321px}
+.btn_blue4:hover .btn_mid{background:#5297d7}
+.btn_blue4:hover .btn_rgt{background-position:-127px -321px}
+
+/* 灰色按钮高度固定24 */
+.btn_blue5 .btn_lft,.btn_blue5 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:12px}
+.btn_blue5 .btn_lft{height:24px;background-position:-172px 0}
+.btn_blue5 .btn_mid{height:24px;font-size:14px;line-height:23px;font-family:'微软雅黑';background:#3b82c4}
+.btn_blue5 .btn_rgt{height:24px;background-position:-190px 0}
+
+/* 蓝色按钮高度固定56 */
+.btn_blue6 .btn_lft,.btn_blue6 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:6px}
+.btn_blue6 .btn_lft{height:56px;background-position:-162px -140px}
+.btn_blue6 .btn_mid{width:154px;height:56px;line-height:56px;font-family:'微软雅黑';background:#3b82c4;font-size:24px}
+.btn_blue6 .btn_rgt{height:56px;background-position:-170px -140px}
+.btn_blue6:hover .btn_lft{background-position:-188px -140px}
+.btn_blue6:hover .btn_mid{background:#5297d7}
+.btn_blue6:hover .btn_rgt{background-position:-196px -140px}
+
+/* 灰色按钮高度固定30 */
+.btn_gray3 .btn_lft,.btn_gray3 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_gray3 .btn_lft{height:30px;background-position:-93px 0}
+.btn_gray3 .btn_mid{width:84px;height:30px;color:#fff;font-size:16px;line-height:30px;font-family:'微软雅黑';background:#99a1a6}
+.btn_gray3 .btn_rgt{height:30px;background-position:-102px 0}
+.btn_gray3:hover .btn_lft{background-position:-155px -269px}
+.btn_gray3:hover .btn_mid{background:#b8bcbe}
+.btn_gray3:hover .btn_rgt{background-position:-163px -269px}
+
+/* 灰色按钮高度固定30_2 */
+.btn_gray4 .btn_lft,.btn_gray4 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_gray4 .btn_lft{height:30px;background-position:-13px -117px}
+.btn_gray4 .btn_mid{width:84px;height:30px;color:#fff;font-size:14px;line-height:30px;font-family:'微软雅黑';background:#d1d1d1}
+.btn_gray4 .btn_rgt{height:30px;background-position:-21px -117px}
+
+/* 灰色按钮高度固定36 */
+.btn_gray5 .btn_lft,.btn_gray5 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_gray5 .btn_lft{height:36px;background-position:-119px -185px}
+.btn_gray5 .btn_mid{width:84px;height:36px;font-size:14px;line-height:36px;font-family:'微软雅黑';background:#ccc}
+.btn_gray5 .btn_rgt{height:36px;background-position:-127px -185px}
+.btn_gray5:hover .btn_lft{background-position:-138px -269px}
+.btn_gray5:hover .btn_mid{background:#ddd}
+.btn_gray5:hover .btn_rgt{background-position:-145px -269px}
+
+/* 灰色按钮高度固定30_3 */
+.btn_gray6 .btn_lft,.btn_gray6 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_gray6 .btn_lft{height:30px;background-position:-118px -227px}
+.btn_gray6 .btn_mid{width:84px;height:30px;color:#fff;font-size:14px;line-height:30px;font-family:'微软雅黑';background:#d1d1d1}
+.btn_gray6 .btn_rgt{height:30px;background-position:-127px -227px}
+
+/* 灰色按钮高度固定26 */
+.btn_gray7 .btn_lft,.btn_gray7 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_gray7 .btn_lft{height:26px;background-position:-138px -107px}
+.btn_gray7 .btn_mid{width:109px;height:26px;font-size:16px;line-height:26px;line-height:25px\9;font-family:'微软雅黑';background:#bbcbd9}
+.btn_gray7 .btn_rgt{height:26px;background-position:-144px -107px}
+.btn_gray7 .zb_qxgz{height:15px;display:inline-block;padding-left:6px;color:#7b8c9b;font-family:'宋体';font-style:normal;border-left:1px solid #9dafbf;font-size:12px;position:relative;top:-1px;line-height:17px;line-height:16px\9;*top:-2px;}
+.btn_gray7:hover .zb_qxgz{text-decoration:underline}
+
+/* 灰色按钮高度固定24 */
+.btn_gray8 .btn_lft,.btn_gray8 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:12px}
+.btn_gray8 .btn_lft{height:26px;background-position:-172px -29px}
+.btn_gray8 .btn_mid{height:24px;font-size:14px;line-height:23px;font-family:'微软雅黑';background:#bdbdbd}
+.btn_gray8 .btn_rgt{height:26px;background-position:-190px -29px}
+
+/* 灰色按钮高度固定56 */
+.btn_gray9 .btn_lft,.btn_gray9 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:6px}
+.btn_gray9 .btn_lft{height:56px;background-position:-142px -140px}
+.btn_gray9 .btn_mid{height:56px;font-size:24px;line-height:56px;font-family:'微软雅黑';background:#656e73;width:154px}
+.btn_gray9 .btn_rgt{height:56px;background-position:-150px -140px}
+.btn_gray9:hover .btn_lft{background-position:-188px -202px}
+.btn_gray9:hover .btn_mid{background:#869095}
+.btn_gray9:hover .btn_rgt{background-position:-196px -202px}
+
+/* 黄色按钮高度固定30 */
+.btn_yellow .btn_lft,.btn_yellow .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_yellow .btn_lft{height:30px;background-position:-136px -69px}
+.btn_yellow .btn_mid{width:96px;height:30px;font-size:14px;line-height:30px;font-family:'微软雅黑';background:#fb8800}
+.btn_yellow .btn_rgt{height:30px;background-position:-142px -69px}
+.btn_yellow .play_ico{width:9px;height:14px;background:url(../images/template.png?v1111) -75px -18px;margin-right:10px;display:inline-block;}
+.btn_yellow:hover .btn_lft{background-position:-31px -361px}
+.btn_yellow:hover .btn_mid{background:#f79c2f}
+.btn_yellow:hover .btn_rgt{background-position:-38px -361px}
+
+.btn_yellow_nh{cursor:default}
+.btn_yellow_nh .btn_lft,.btn_yellow_nh .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:4px}
+.btn_yellow_nh .btn_lft{height:30px;background-position:-136px -69px}
+.btn_yellow_nh .btn_mid{width:96px;height:30px;font-size:14px;line-height:30px;font-family:'微软雅黑';background:#fb8800}
+.btn_yellow_nh .btn_rgt{height:30px;background-position:-142px -69px}
+.btn_yellow_nh .play_ico{width:9px;height:14px;background:url(../images/template.png?v1111) -75px -18px;margin-right:10px;display:inline-block;}
+
+
+/* 黄色按钮高度固定56 */
+.btn_yellow2 .btn_lft,.btn_yellow2 .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:6px}
+.btn_yellow2 .btn_lft{height:56px;background-position:-162px -66px}
+.btn_yellow2 .btn_mid{width:154px;height:56px;font-size:14px;line-height:56px;font-family:'微软雅黑';background:#fb8800;font-size:24px}
+.btn_yellow2 .btn_rgt{height:56px;background-position:-170px -66px}
+.btn_yellow2:hover .btn_lft{background-position:-188px -66px}
+.btn_yellow2:hover .btn_mid{background:#f79c2f}
+.btn_yellow2:hover .btn_rgt{background-position:-196px -66px}
+
+/* 浅蓝色按钮高度固定 */
+.btn_blue .btn_lft,.btn_blue .btn_rgt{background:url(../images/template.png?v1111) no-repeat;width:9px}
+.btn_blue .btn_lft{height:58px;background-position:-135px -1px}
+.btn_blue .btn_mid{width:212px;height:58px;color:#fff;font-size:20px;line-height:58px;font-family:'微软雅黑';background:#94b9db}
+.btn_blue .add{display:inline-block;width:24px;height:24px;background:url(../images/template.png?v1111) -49px -89px no-repeat;margin-right:16px;top:4px;position:relative;}
+.btn_blue .btn_rgt{height:58px;background-position:-153px -1px}
+.btn_blue:hover .btn_lft{background-position:-179px -269px}
+.btn_blue:hover .btn_mid{background:#9fc8ed}
+.btn_blue:hover .btn_rgt{background-position:-196px -269px}
+
+/* 加减按钮2 */
+.add_btn,.sub_btn{display:inline-block;width:32px;height:31px;background:url(../images/template.png?v1111) no-repeat;cursor:pointer}
+.add_btn{background-position:0 -46px}
+.sub_btn{background-position:0 -83px}
+.add_btn:hover{background-position:-48px -360px}
+.sub_btn:hover{background-position:-83px -360px}
+
+/* 白色按钮宽高按钮 */
+.white_btn{display:inline-block;width:83px;height:33px;line-height:33px;background:url(../images/template.png?v1111) -42px -46px no-repeat;color:#43b1aa;font-size:16px;text-align:center;font-family:'微软雅黑' !important}
+
+/* 绿色按钮宽高固定 */
+.green_btn{display:inline-block;width:104px;height:30px;line-height:30px;background:url(../images/template.png?v1111) 0 -149px no-repeat;color:#fff;font-size:14px;text-align:center;font-family:'微软雅黑' !important;position:relative;}
+.green_btn:hover{background-position:0 -498px;text-decoration:none;}
+.green_btn .add{display:inline-block;width:14px;height:14px;background:url(../images/template.png?v1111) -34px 0 no-repeat;margin-right:6px;vertical-align:-1px;*vertical-align:3px}
+
+/* 蓝色按钮宽高固定 */
+.blue_btn{display:inline-block;width:104px;height:30px;line-height:30px;background:url(../images/template.png?v1111) 0 -231px no-repeat;color:#fff;font-size:14px;text-align:center;font-family:'微软雅黑' !important}
+.blue_btn:hover{background-position:0 -417px;text-decoration:none;}
+
+/* 灰色按钮宽高固定 */
+.gray_btn{display:inline-block;width:104px;height:30px;line-height:30px;background:url(../images/template.png?v1111) 0 -187px no-repeat;color:#fff;font-size:14px;text-align:center;font-family:'微软雅黑' !important}
+.gray_btn:hover{text-decoration:none;}
+
+/* 黄色按钮宽高固定 */
+.yellow_btn{display:inline-block;width:104px;height:30px;line-height:30px;background:url(../images/template.png?v1111) 0 -274px no-repeat;color:#fff;font-size:14px;text-align:center;font-family:'微软雅黑' !important}
+.yellow_btn:hover{background-position:0 -457px;text-decoration:none;}
+
+/* 弹框绿色 */
+.pop_box{position:fixed;z-index:200}
+.pop_box .pop_tit{ display:block;height:42px;line-height:42px;background:#43b1aa;padding-left:18px;color:#fff;font-size:18px;font-style:normal;font-family:'微软雅黑';position:relative;cursor:move;}
+.pop_box .cls_ico{width:14px;height:14px;position:absolute;right:10px;top:12px;background:url(../images/template.png?v1111) -82px -90px no-repeat;cursor:pointer;}
+.pop_box .pop_ct{background:#f2f2f2}
+.pop_ct_btn{text-align:center;}
+
+/* 弹框蓝色 */
+.pop_box2{position:fixed;z-index:200}
+.pop_box2 .pop_tit{display:block;height:42px;line-height:42px;background:#3b82c4;padding-left:18px;color:#fff;font-size:18px;font-style:normal;font-family:'微软雅黑';position:relative;cursor:move;}
+.pop_box2 .cls_ico{width:14px;height:14px;position:absolute;right:10px;top:12px;background:url(../images/template.png?v1111) -82px -90px no-repeat;cursor:pointer;} /* 白色关闭按钮 */
+.pop_box2 .cls_ico2{width:10px;height:10px;position:absolute;right:15px;top:17px;background:url(../images/template.png?v1111) -99px -120px no-repeat;cursor:pointer;} /* 黑色关闭按钮 */
+.pop_box2 .pop_ct{background:#f2f2f2}
+
+.zmask{width:100%;height:100%;position:fixed;left:0;top:0;background:black;opacity:0.5;filter:alpha(opacity=50);-ms-filter:"alpha(opacity=50)";z-index:100;}
+
+/* 单选是否 */
+.radio_un{width:69px;height:25px;line-height:25px;display:inline-block;border:1px solid #dfdfdf;text-align:center;font-size:14px;colro:#333;background:#fff;}
+.radio_on{width:69px;height:25px;line-height:25px;display:inline-block;border:1px solid #43b1aa;text-align:center;font-size:14px;color:#fff;background:#43b1aa;position:relative;}
+.radio_on .radio_on_ico{width:24px;height:19px;background:url(../images/template.png?v1111) -30px -120px no-repeat;position:absolute;right:-5px;top:-2px}
+
+/* 下拉菜单 */
+.sel_box{height:25px;border:1px solid #e1e1e1;width:240px;background:#fff;position:relative;padding:0 20px 0 15px;cursor:pointer;font-size:14px;line-height:25px}
+.sel_box .arr{width:7px;height:6px;background:url(../images/template.png?v1111) no-repeat;position:absolute;right:10px;top:10px}
+.sel_box .up{background-position:-60px -120px}
+.sel_box .down{background-position:-60px -132px}
+
+/* 文本框 */
+.text_wid{width:240px;}
+.text_wid2{width:164px;}
+.text_wid3{width:500px}
+.text_wid4{width:150px}
+.text_wid5{width:73px}
+.text_wid6{width:300px}
+.text_wid7{width:452px}
+.text_wid8{width:445px;}
+.text_wid9{width:116px;}
+.text_input{height:25px;border:1px solid #e1e1e1;background:#fff;position:relative;padding:0 20px 0 15px;font-size:14px;line-height:25px}
+
+/* 文本框2老师添加 */
+.klbf{border:1px solid #e1e1e1;width:240px;min-height:23px;background:#fff;position:relative;padding:2px 20px 4px 15px;*padding:2px 20px 2px 15px;font-size:14px;}
+.klbf .teach_nam{display:inline-block;font-size:12px;padding:0 15px 0 10px;background:#f1f1f1;height:20px;line-height:20px;position:relative;*margin:0 4px 4px 0;margin-bottom:2px}
+.klbf .remove_teach{position:absolute;width:8px; height:8px;background:url(../images/template.png?v1111) -76px -120px no-repeat;right:0;top:1px;cursor:pointer;}
+.nam_green{display:inline-block;font-size:14px;background:#43b1aa;height:23px;border:1px solid #43b1aa;text-align:center;color:#fff;padding:0 14px;cursor:pointer;;line-height:25px}
+.nam_gray{display:inline-block;font-size:14px;background:#fff;height:23px;text-align:center;color:#333;padding:0 14px;border:1px solid #dfdfdf;cursor:pointer;line-height:25px}
+.nam_gray:hover{background:#43b1aa;border:1px solid #43b1aa;color:#fff;}
+
+/* 弹窗中间文字 */
+.txt_center{font-size:16px;line-height:36px;padding:26px 52px;height:124px;font-family:'微软雅黑'}
+.pop_box .ft14{font-size:14px} 
+

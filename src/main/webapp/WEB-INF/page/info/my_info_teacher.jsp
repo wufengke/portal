@@ -1,0 +1,420 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>9527在线课堂</title>
+<%@ include file="/common/JsCss.jsp" %>
+</head>
+<body>
+<jsp:include page="/head.jsp" />
+<!-- 主要内容开始 -->
+<div class="wrap layout studentMyCourse">
+	<!-- 右侧框架开始 -->
+ 	<div class="wrapContent fr myInforCon" id="wrapContent" name="myInforCon">
+	<div class="inforTab">
+	<s:hidden name="tab" value="%{#session.tab}"></s:hidden>
+	<ul class="tabh cf">
+		<s:if test="#request.tab == 'tab2'">
+			<li >个人资料</li>
+			<li class="inforOn">修改密码</li>
+			<li>修改头像</li>
+		</s:if>
+		<s:elseif test="#request.tab == 'tab3'">
+			<li >个人资料</li>
+			<li >修改密码</li>
+			<li  class="inforOn">修改头像</li>
+		</s:elseif>
+		<s:else>
+			<li class="inforOn">个人资料</li>
+			<li>修改密码</li>
+			<li>修改头像</li>
+		</s:else>
+		
+	</ul>
+	 <s:if test="#request.tab == 'tab2' || #request.tab == 'tab3' ">
+    	<div class="inforTabBox undis">
+    </s:if>
+    <s:else>
+    	<div class="inforTabBox">
+    </s:else>
+        <!--邮箱版-->
+		<s:form action="/member/save_infor_teacher" method="post"  cssClass="emailForm" onsubmit="">
+			 <p class="formName"> 请完善您的资料<span class="ft14">(以下信息会严格保密,请放心填写)</span></p>
+             <ul>
+                 <li>
+                     <p class="formName"><span>*</span>真实姓名</p>
+                     <div class="cf">
+                         <s:textfield name="realName" cssClass="wUname fl textInput" validName="text" ></s:textfield>
+							<div class="Validform_tip_info fl Validform_wrong">
+								<s:fielderror name="realName_error1" fieldName="realName_error1"></s:fielderror>
+							</div>
+                          	<div class="Validform_checktip fl"></div>
+                     </div>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">性别</p>
+                     <div class="cf">
+                         <div class="fl">
+                             <span class="jqTransformRadioWrapper">
+                             	<a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender1" checked="checked" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender1" class="radio" style="cursor: pointer;">男</label>
+                              <span class="jqTransformRadioWrapper">
+                             	 <a href="javascript:;" class="jqTransformRadio" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender0" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                             <span class="cf"></span>
+                         </div>
+                     </div>
+                 </li>
+                 <li class="locaSele">
+                     <p class="formName"><span>*</span>地区</p>
+                     <div class="cf" style="float: left">
+                         <div class="fl">
+                             <div>
+                                 <select name="province" id="province" validname="select" class="province">
+                                    
+                                 </select>
+                             </div>
+                         </div>
+                         <span class="Validform_checktip fl"></span>
+                     </div>
+                     <div class="cf" style="float: left">
+                         <div class="fl">
+                             <div>
+                                 <select name="city" id="city" validname="select" class="city">
+                                  
+                                 </select>
+                             </div>
+                         </div>
+                         <span class="Validform_checktip fl"></span>
+                     </div>
+                     <div class="cf">
+                         <div class="fl">
+                             <div id="area_div">
+                             </div>
+                         </div>
+                         <span class="Validform_checktip fl"></span>
+                     </div>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">QQ号</p>
+                     <div class="cf">
+                         <div class="fl">
+                             <s:textfield  name="qq" cssClass="wQQ textInput fl" validName="text" ></s:textfield>
+							<div class="Validform_tip_info fl Validform_wrong">
+								<s:fielderror name="qq_error1" fieldName="qq_error1"></s:fielderror>
+							</div>
+                      		<div class="Validform_checktip fl"></div>
+                         </div>
+                     </div>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">手机号</p>
+                     <div class="cf">
+                         <div class="fl">
+                             <s:textfield name="phone" cssClass="wphone textInput fl" ></s:textfield>
+							<div class="Validform_tip_info fl Validform_wrong">
+								<s:fielderror name="phone_error1" fieldName="phone_error1"></s:fielderror>
+							</div>
+                      		<div class="Validform_checktip fl"></div>
+
+                         </div>
+                     </div>
+                     <p class="detailText">保密,方便我们与您电话沟通</p>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">验证码</p>
+                     <div class="cf">
+                         <div class="fl">
+                             <input type="text" class="cInput phone_number" style="width: 150px;" value="" name="phoneVerifyCode" validname="text" readonly="readonly"/>
+                             <input type="button" class="btn greenBtn" style="margin: 0 0 0 10px; font-weight: normal; font-size: 14px; height: 32px; line-height: 32px;" value="获取手机验证码" />
+                             <span class="Validform_checktip"></span>
+                         </div>
+                     </div>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">所属学校</p>
+                     <div class="cf schoolPar">
+                         <s:textfield cssClass="schoolFullName cInput yh" validName="text" name="schoolName" ></s:textfield>
+                     </div>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">教学阶段</p>
+                     <div class="cf">
+                         <div class="fl">
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level0" checked="checked"  value="1" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">小学</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level1" value="2" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender1" class="radio" style="cursor: pointer;">初中</label>
+                             <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="teachlevel"></a>
+                                 <input type="radio" name="stage" id="save_apply_teach_level2" value="3" class="radioInput fl jqTransformHidden" validname="radio" /></span><label for="save_apply_teach_gender2" class="radio" style="cursor: pointer;">高中</label>
+                             <span class="cf"></span>
+                         </div>
+                         <span class="Validform_checktip fl"></span>
+                     </div>
+                 </li>
+                 <li>
+                     <p class="optional noFillin">教师职称</p>
+                     <div class="cf">
+                         <div>
+						<s:select list="#{'无职称':'无职称','正高级教师':'正高级教师','高级教师':'高级教师','一级教师':'一级教师','二级教师':'二级教师','三级教师':'三级教师'}"
+						name="teacherTitle" id="" validName="select" cssClass="teaTitle" listKey="key" listValue="value" headerKey=" " headerValue="请选择职称"></s:select>
+						</div>
+                     </div>
+                     <span class="Validform_checktip fl Validform_wrong">
+							<s:fielderror name="teacherTitle_error1" fieldName="teacherTitle_error1"></s:fielderror>
+					</span>	
+                 </li>
+                 <li>
+                     <p class="optional noFillin">实际教龄</p>
+                     <div class="cf">
+                         <div>
+                             <s:select headerKey="-1" headerValue="请选择教龄" 
+								list="#{'1':'1年',
+										'2':'2年',
+										'3':'3年',
+										'4':'4年',
+										'5':'5年',
+										'6':'6年',
+										'7':'7年',
+										'8':'8年',
+										'9':'9年',
+										'10':'10年',
+										'11':'11年',
+										'12':'12年',
+										'13':'13年',
+										'14':'14年',
+										'15':'15年',
+										'16':'16年',
+										'17':'17年',
+										'18':'18年',
+										'19':'19年',
+										'20':'20年',
+										'21':'21年',
+										'22':'22年',
+										'23':'23年',
+										'24':'24年',
+										'25':'25年',
+										'26':'26年',
+										'27':'27年',
+										'28':'28年',
+										'29':'29年',
+										'30':'30年'}" 
+								 name="teachYears" id="teachYears" validName="select" cssClass="seniority"></s:select>
+                         </div>
+                     </div>
+                     <span class="Validform_checktip fl Validform_wrong">
+							<s:fielderror name="teachYears_error1" fieldName="teachYears_error1"></s:fielderror>
+						</span>	
+                 </li>
+                 <li>
+                     <p class="optional noFillin">身份证号</p>
+                     <div class="cf">
+                         <div class="fl">
+                             <s:textfield cssClass="cInput phone_number" name="idCardNo" validname="text" />
+                             <span class="Validform_checktip"></span>
+                         </div>
+                     </div>
+                 </li>
+				 <li>
+					<p class="optional noFillin">个人简介</p>
+					<div class="cf">
+                         <div class="fl">
+                         	<s:textarea name="teacherBrief" id="introEditor" cssStyle="visibility: hidden;"></s:textarea>
+                             <span class="Validform_checktip"></span>
+                         </div>
+                     </div>
+				</li>
+                 <li>
+                     <input type="submit" class="btn greenBtn" value="提交审核" />
+                 </li>
+             </ul>
+		</s:form> 
+		<!--手机版-->
+    </div>
+    <s:if test="#request.tab == 'tab2'">
+    	<div class="inforTabBox">
+    </s:if>
+    <s:else>
+    	<div class="inforTabBox undis">
+    </s:else>
+		<!--修改密码-->
+		<s:form action="/member/changePwd" method="post" onsubmit="return formCheck(this);" >
+			<br/>
+			<p id="msgInfo" class="msgInfo" style="color:red;"></p>
+			<ul>
+				<li>
+					<p class="formName"><span>*</span>当前密码</p>
+					<div class="cf">
+						<input type="password" id="password" name="password" class="iniPassword fl cInput yh" validName="text"  onblur="check(this);"/>
+                        <input type="hidden" name="encrypt_password" value=""/>
+						<span  id="p1" class="Validform_checktip fl Validform_wrong">
+							<s:fielderror fieldName="password_error1"></s:fielderror>
+						</span>
+					</div>
+				</li>
+				<li>
+					<p class="formName"><span>*</span>新密码</p>
+					<div class="cf">
+						<input type="password" id="newPassword" name="newPassword" class="setPassword fl cInput yh" validName="text"  onblur="check(this);"/>
+                        <input type="hidden" name="encrypt_set_password" value=""/>
+						<span  id="p2" class="Validform_checktip fl Validform_wrong">
+							<s:fielderror fieldName="newPassword_error1"></s:fielderror>
+						</span>
+					</div>
+				</li>
+				<li>
+					<p class="formName"><span>*</span>确认新密码</p>
+					<div class="cf">
+						<input type="password" id="confirmNewPassword"  name="confirmNewPassword" class="reSetPassword fl cInput yh" validName="text" onblur="check(this);"/>
+                        <input type="hidden" name="encrypt_reset_password" value=""/>
+                        <span  id="p3" class="Validform_checktip fl Validform_wrong">
+                        	<s:fielderror fieldName="confirmNewPassword_error1"></s:fielderror>
+                        </span>
+					</div>
+				</li>
+				<li>
+					<input type="submit" class="btn redBtn" value="保存"/>
+				</li>
+			</ul>
+		</s:form>
+	</div>
+	<s:if test="#request.tab == 'tab3'">
+		<div class="inforTabBox atareditorBox">
+	</s:if>
+	<s:else>
+		<div class="inforTabBox atareditorBox undis">
+	</s:else>
+		<!--添加头像开始-->
+        <div class="box modifyPic TiZiAvatar">
+            <dl class="atareditor cf">
+                <dt id="upload" class="current ml10"><a href="javascript:void(0);" class="localUpload"><em></em><span>本地照片</span></a></dt>
+                <dt id="webcam" class=""><a href="javascript:void(0);" class="videoUpload"><em></em><span>拍照上传</span></a></dt>
+                <dd class="cf">
+                    <p>仅支持GIF  JPG  PNG 图片文件，请注意头像清晰度</p>
+                    <div id="avatar">
+                        <div id="TiZiAvatar"></div>
+                    </div>
+                    <ul id="editorPanelButtons" class="cf undis">
+                        <li class="fr">
+                            <a href="javascript:void(0)" class="noShowBtn redBtn button_upload">上传</a>
+                            <a href="javascript:void(0)" class="noShowBtn redBtn button_cancel">取消</a>
+                        </li>
+                    </ul>
+                    <p id="webcamPanelButton" class="cf undis">
+                        <a href="javascript:void(0)" class="noShowBtn redBtn button_shutter">拍照</a>
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        
+        <!--添加头像结束-->
+	</div>
+</div>
+</div> 
+<!-- 右侧框架结束 -->
+<jsp:include page="/left_side.jsp" />
+</div>
+<!-- 主要内容结束 -->
+ <jsp:include page="/foot.jsp" />
+ <script type="text/javascript">
+ 	(function($){
+		$.getUrlParam = function(name){
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);	
+			if (r!=null) return unescape(r[2]); return null;
+		}
+	})(jQuery);
+ 	$(function(){
+		var tab = $.getUrlParam('tab');
+		var error = $.getUrlParam('error');
+		if(tab == 'tab2'){
+			$(".inforTabBox:eq(0)").addClass("undis");
+			$(".inforTabBox:eq(1)").removeClass("undis");
+			$(".inforTabBox:eq(2)").addClass("undis");
+			$(".tabh li").toggleClass("inforOn");
+			if(error == 0){
+				$("#msgInfo").html("参数不能为空!");
+			}else if(error == 1){
+				$("#msgInfo").html("原始密码错误!");
+			}else{
+				$("#msgInfo").html("修改成功请退出重新登录!");
+			}
+		}
+		if(tab == 'tab3'){
+			$(".inforTabBox:eq(0)").addClass("undis");
+			$(".inforTabBox:eq(1)").addClass("undis");
+			$(".inforTabBox:eq(2)").removeClass("undis");
+			$(".tabh li").toggleClass("inforOn");
+		}
+		 $("input.applyTeacher").click(function () {
+		     window.location.href = "newteacherinfo.html";
+		 });
+	});
+	function check(element){
+		var v = $(element).val();
+		if(typeof(v) == 'undefined' || v == null || v == ''){
+			$(element).parent().find(".Validform_checktip").addClass("Validform_wrong");
+			$(element).parent().find(".Validform_checktip").removeClass("undis");
+		}else if($(element).val().length < 6 || $(element).val().length > 63){
+			$(element).parent().find(".Validform_checktip").addClass("Validform_wrong");
+			$(element).parent().find(".Validform_checktip").removeClass("undis");
+			$(element).parent().find(".Validform_checktip").html("密码长度为6-63之间");
+		}else{
+			$(element).parent().find(".Validform_checktip").removeClass("Validform_wrong");
+			$(element).parent().find(".Validform_checktip").addClass("undis");
+		}
+	}
+ 	function formCheck(form){
+	 	var password = $(form).find("#password").val();
+	 	var newPassword = $(form).find("#newPassword").val();
+	 	var confirmNewPassword = $(form).find("#confirmNewPassword").val();
+	 	if(password == ''){
+		 	$("#p1").addClass("Validform_wrong");
+		 	$("#p1").removeClass("undis")
+			return false;
+		 }
+	 	if(newPassword == ''){
+	 		$("#p2").addClass("Validform_wrong");
+	 		$("#p2").removeClass("undis")
+			return false;
+		 }
+
+		if(confirmNewPassword == ''){
+			$("#p3").addClass("Validform_wrong");
+			return false;
+		}
+		if(confirmNewPassword != newPassword){
+			$("#p3").addClass("Validform_wrong");
+			$("#p3").removeClass("undis")
+			$("#p3").html("两次密码不一致");
+			return false;
+		}
+	 	return true;
+	}
+  </script>
+<script src="<%=basePath%>js/kindeditor/4.1.10/kindeditor.js"></script>
+<script type="text/javascript">
+    KindEditor.ready(function(K){
+       K.create("#introEditor",{
+            //简易版
+            items : [
+                        'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                        'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                        'insertunorderedlist', '|', 'emoticons', 'image', 'link'],
+            //字符检测
+           afterChange : function() {
+                //（字数统计包含纯文本、IMG、EMBED，不包含换行符，IMG和EMBED算一个文字。）
+                K('.word_count2').html(10000-this.count('text'));
+                $('.word_count1').html(KindEditor.instances[0].html().length);
+                this.sync();
+            }
+        });
+    });
+</script>
+</body>
+</html>
