@@ -1,1 +1,0 @@
-define("module/studentStartClass/datePlugin",[],function(require,exports){exports.addDatePlugin=function(){require.async("jQDate",function(){$(".wtime").on("click",function(){WdatePicker({dateFmt:"yyyy-MM-dd",minDate:"%y-%M-#{%d}",onpicked:function(){}})})})}});

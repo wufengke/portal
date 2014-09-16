@@ -32,7 +32,6 @@ function delConfirm(isDisabled) {
 	<s:set value="'default-tab'" name="tab2default" scope="request"/>
 </s:elseif>
 <div id="body-wrapper">
-  <jsp:include page="/menu.jsp" />
   <div id="main-content">
     <h2><s:text name="authoritymanage"/> --> <s:text name="usermanage"/></h2>
     <p id="page-intro"></p>

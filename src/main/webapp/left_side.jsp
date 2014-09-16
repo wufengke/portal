@@ -6,13 +6,17 @@
 	<div class="slideBox posr">
 		<div class="memberInfo">
 			<p class="memberImg">
-				<s:if test="#session.user.imageUrl != null">
-					<img src="${sessionScope.user.imageUrl }" alt="" class="head"/>
-               	</s:if>
-               	<s:else>
-               		<img src="<%=basePath%>online/images/login/default_avatar.png?v=v1.01" />
-               	</s:else>
-				
+				<s:if test="#session.user != null">
+					<s:if test="#session.user.imageUrl != null && #session.user.imageUrl != ''">
+						<img src="${sessionScope.user.imageUrl }" alt="" class="head"/>
+	               	</s:if>
+	               	<s:else>
+	               		<img src="<%=basePath%>images/default_avatar.png?v=v1.01" />
+	               	</s:else>
+				</s:if>
+				<s:else>
+					<img src="<%=basePath%>images/default_avatar.png?v=v1.01" />
+				</s:else>
 			</p>
 			<h2 class="cf">
 				<span class="myGrade">
@@ -40,22 +44,30 @@
 						<a href="<%=basePath %>member/my_course?id=${sessionScope.account.id}" class="mCourse">我的课程</a>
 					</li>
 					<li name="myOrderCon">
-						<a href="<%=basePath %>member/my_order_all?id=${sessionScope.account.id}" class="mOrder">我的订单</a>
+<%-- 						<a href="<%=basePath %>member/my_order_all?id=${sessionScope.account.id}" class="mOrder">我的订单</a>
+ --%>						<a href="#" class="mOrder">我的订单</a>
+					</li>
+					<li name="myInforCon">
+						<a href="<%=basePath %>member/my_infor?id=${sessionScope.account.id}" class="mInfor">基本资料</a>
 					</li>
 				</s:if>
 				<s:else>
 					<li name="myPodiumCon">
-						<a href="<%=basePath %>member/my_podium?id=${sessionScope.account.id}" class="mPodium">我的主讲</a>
+						<a href="<%=basePath %>member/my_podium?id=${sessionScope.account.id}" class="mCourse">我的课程</a>
+					</li>
+					<li name="myOrderCon">
+<%-- 						<a href="<%=basePath %>member/my_funds?id=${sessionScope.account.id}" class="mOrder">资金管理</a>
+ --%>						<a href="#" class="mOrder">资金管理</a>
+					</li>
+					<li name="myInforCon">
+						<a href="<%=basePath %>member/my_infor_teacher?id=${sessionScope.account.id}" class="mInfor">基本资料</a>
 					</li>
 				</s:else>
-				<li name="myInforCon">
-					<a href="<%=basePath %>member/my_infor?id=${sessionScope.account.id}" class="mInfor">基本资料</a>
-				</li>
+				
 			</ul>
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
 <script type="text/javascript">
 <!--
 	var url = window.location.href;

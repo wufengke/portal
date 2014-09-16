@@ -3,15 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title></title>
-<meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentMyCourse/style.css?v=v1.01" />
+ <title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body>
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout studentMyCourse" id="nahaoModule" module="studentMyCourse" data_page="studentPage">
+<div class="wrap layout studentMyCourse" id="nahaoModule">
     <div class="buyCourse buyBefore">
         <!-- 购买前 头部 -->
         <div class="buyHead">
@@ -50,22 +48,11 @@
                             <input type="hidden" name="" />更多班次敬请期待
                         </li>
                     </ul>
-                    <div class="review cf">
-                        <span class="starBg cf">
-                            <span class="hreview"></span>
-                        	<span class="hreview"></span>
-                        	<span class="hreview"></span>
-                        	<span class="hreview"></span>
-                        	<span class="hreview"></span>
-                        </span>
-                        <strong class="redText"></strong>
-                        <a href="#review">${requestScope.cd.comments}条评价</a>
-                    </div>
                     <p class="fromf cf">
                         <span class="fl oldPrice">原价<span>￥0</span></span>
                        	<input type="hidden" id="product_id" value=""/>
-                       	<s:if test="#request.buyStatus == 1">
-	                       	<a href="javascript:buy();" class="fr btn btn3" id="soon_buy">
+                       	<s:if test="#request.buyStatus == 1 && #request.lessionSchedule.size != 0">
+	                       	<a href="javascript:buy();" class="fr btn greenBtn" id="soon_buy">
 	                            <span class="fl">立即报名</span>
 	                            <span class="fr"></span>
 	                        </a>
@@ -75,7 +62,7 @@
 		                    </a>
                        	</s:if>
 						<s:else>
-							<a href="javascript:buy();" class="fr btn btn3" id="soon_buy" style="display:none;">
+							<a href="javascript:buy();" class="fr btn greenBtn" id="soon_buy" style="display:none;">
 	                            <span class="fl">立即报名</span>
 	                            <span class="fr"></span>
 	                        </a>
@@ -172,7 +159,7 @@
 	                	<li>
 	                        <div class="headBox posr">
 	                        	<s:if test="#user.imageUrl == null">
-	                        		<img src="<%=basePath%>online/images/login/default_avatar.png?v=v1.01" alt="" class="head"/>
+	                        		<img src="<%=basePath%>images/default_avatar.png?v=v1.01" alt="" class="head"/>
 	                        	</s:if>
 	                        	<s:else>
 	                        		<img src="${user.imageUrl }" alt="" class="head"/>
@@ -197,10 +184,6 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
-<!-- player播放器js开始 -->
-<script type="text/javascript" src="http://static.nahao.com/online/lib/nahaoPlayer/6.7.0/TiZiplayer.js?v=v1.01"></script>
-<!-- player播放器js结束 -->
  <jsp:include page="/right_side.jsp" />
  <script type="text/javascript">
  function getRank(index,rank){

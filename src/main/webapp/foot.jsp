@@ -3,7 +3,7 @@
 <!-- 底部开始 -->
 <div class="footer">
 	<div class="ftNav">
-		<a href="<%=basePath%>">那好首页</a>
+		<a href="<%=basePath%>index">9527首页</a>
 		<span> | </span>
 		<a href="<%=basePath%>about/aboutus" target="_blank">关于我们</a>
 		<span> | </span> 
@@ -20,19 +20,15 @@
 	</div>
 	<br>
 	<div class="ftNav">
-	友情链接：
+		友情链接：
 		<a href="http://www.91waijiao.com" target="_blank">91外教</a>
 		<span> | </span>
 		<a href="http://www.tizi.com" target="_blank">梯子网</a>
 		<span> | </span> 
 		<a href="http://www.hellochinese.com" target="_blank">hellochinese</a>
-
-	</div>
-	<div class="fm">
-		<a href="javascript:vold(0);" class="phoneHref">400-864-8686</a>
 	</div>
 	<div class="fb">
-        <span class="fbSpan">北京一朵云文化咨询有限公司</span>
+        <span class="fbSpan">北京盛世天城有限公司</span>
 		<span class="fbSpan">京ICP备12050551号</span>
 		<span>京公网安备11010802012731号</span>
 	</div>

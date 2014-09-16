@@ -4,16 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>那好投诉与建议处理-那好网</title>
-<meta name="description" content="那好在线教育平台投诉、建议及相关问题，请联系我们。我们会及时核查您有关那好投诉与建议的问题，解决您的投诉。您的参与将帮助我们改进产品与服务。那好网！（nahao.com）"/>
+ <title>9527在线课堂</title>
 <meta name="keywords" content=""/>
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/about/style.css?v=v1.01" />
 <%@ include file="/common/JsCss.jsp" %>
 </head>
-<body class="aboutPage">
+<body>
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout about" id="nahaoModule" module="about" data_page="studentPage">
+<div class="wrap layout about" >
 
 	<!--关于我们 左侧 开始-->
 	<div class="sideLeftNav fl" id="sideLeftNav">
@@ -76,7 +74,7 @@
 				</div>
 			</li>
 			<li>
-				<input type="submit" class="noShowBtn redBtn submit" value="提交" />
+				<input type="submit" class="noShowBtn greenBtn submit" value="提交" />
 			</li>
 		</ul>
 	</s:form>
@@ -84,8 +82,6 @@
     </div>
 	</div>
 <!-- 主要内容结束 -->
- <jsp:include page="/login_pop.jsp" />
- <script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
  	<script type="text/javascript">
 	 	$(function(){
 	 		var url = window.location.href;
@@ -111,4 +107,5 @@
 		}
 	 </script>
 </body>
+ <jsp:include page="/foot.jsp" />
 </html>

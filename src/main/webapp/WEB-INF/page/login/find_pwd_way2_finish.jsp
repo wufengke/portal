@@ -11,22 +11,19 @@
 <body>
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout login" id="nahaoModule" module="login" data_page="studentPage">
+<div class="wrap layout login" >
 	<div class="pwd">
-		<div class="findType">
-            <div class=" box emailBox">
-				<h2>邮箱找回密码</h2>
+		<div class="setSuccess layout">
+            <div class=" box">
+				<h2>完成修改</h2>
 				<div class="progressBar cf">
 					<span class="fl ">1. 验证邮箱</span>
-					<span class="fl ">2. 设置新密码</span>
-					<span class="fl ok current">3. 完成</span>
+					<span class="fl currentPreve">2. 设置新密码</span>
+					<span class="fl ok finish">3. 完成</span>
 				</div>
-				<p class="tips"></p>
-					<ul>
-						<li class="cf">
-							<input type="submit" class="btn redBtn submit fl" onclick="javascript:window.location.href='<%=basePath %>login'" value="去登录" />
-						</li>
-					</ul>
+				 <h3 class="fwb">恭喜，密码修改成功！</h3>
+                 <p class="tips"><span>5</span>秒后将自动返回登录，或点击登录按钮立即登录</p>
+                 <input type="submit" id="submitNewPwd" class="btn redBtn submit " onclick="javascript:window.location.href='<%=basePath %>login'" value="登录" />
 			</div>
 		</div>
 	</div>

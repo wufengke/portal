@@ -3,19 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>我的课程</title>
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentMyCourse/style.css"/>
+ <title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
 </head>
-<body class="myCoursePage"><div class="" style="display: none; position: absolute;"><div class="aui_outer"><table class="aui_border"><tbody><tr><td class="aui_nw"></td><td class="aui_n"></td><td class="aui_ne"></td></tr><tr><td class="aui_w"></td><td class="aui_c"><div class="aui_inner"><table class="aui_dialog"><tbody><tr><td colspan="2" class="aui_header"><div class="aui_titleBar"><div class="aui_title" style="cursor: move;"></div><a class="aui_close" href="javascript:void(0);">×</a></div></td></tr><tr><td class="aui_icon"><div class="aui_iconBg" style="background-image: url(http://static.nahao.com/online/images/dialog/icon/warning.png);"></div></td><td class="aui_main" style="width: 420px; height: auto;"><div class="aui_content" style="padding: 20px;"></div></td></tr><tr><td colspan="2" class="aui_footer"><div class="aui_buttons"></div></td></tr></tbody></table></div></td><td class="aui_e"></td></tr><tr><td class="aui_sw"></td><td class="aui_s"></td><td class="aui_se" style="cursor: auto;"></td></tr></tbody></table></div></div>
+<body class="myCoursePage">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
 <div class="wrap layout studentMyCourse" id="nahaoModule" module="studentMyCourse" data_page="studentPage">
 	<!-- 右侧框架开始 -->
-
-   		    <div class="wrapContent fr myOrderCon" id="wrapContent" name="myOrderCon">
-		    <!--我的订单-->
-		    <!--我的订单-->
+    <div class="wrapContent fr myOrderCon" id="wrapContent" name="myOrderCon">
+ 	<!--我的订单-->
+ 	<!--我的订单-->
 <h3 class="pageName">我的订单</h3>
 <div class="orderComBox">
 	<ul class="tabh cf">

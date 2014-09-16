@@ -5,21 +5,20 @@
 <head>
 <title>密码重置</title>
 <meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>online/css/login/style.css?v=v1.01" />
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body>
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
-<div class="wrap layout login" id="nahaoModule" module="login" data_page="studentPage">
+<div class="wrap layout login" >
 	<div class="pwd">
-		<div class="findType">
-            <div class=" box emailBox">
+		<div class="setNewpwd layout">
+            <div class=" box">
 				<h2>邮箱找回密码</h2>
 				<div class="progressBar cf">
 					<span class="fl ">1. 验证邮箱</span>
 					<span class="fl current">2. 设置新密码</span>
-					<span class="fl ok ">3. 完成</span>
+					<span class="fl ok">3. 完成</span>
 				</div>
 				<s:if test="#request.error == 1">
 					<p class="tips" style="color:red;">参数不完整无法重置密码</p>
@@ -37,23 +36,23 @@
 					<p class="tips"></p>
 				</s:else>
 				
-				<s:form action="/login/find_pwd_way2_step3" method="post" onsubmit="return formCheck(this);" cssClass="EmailFindPW">
+				<s:form action="/login/find_pwd_way2_step3" method="post" onsubmit="return formCheck(this);" cssClass="setPWForm">
 					<s:hidden name="email" value="%{email}"></s:hidden>
 					<s:hidden name="key" value="%{key}"></s:hidden>
 					<s:hidden name="time" value="%{time}"></s:hidden>
 					<s:hidden name="error" value="%{#request.error}"></s:hidden>
 					<ul>
 						<li class="cf">
-							<p class="fl">新密码</p>
+							<p class="fl"><span>*</span>新密码</p>
 							<div class="cf">
-								<s:password id="password" cssClass="fl " placeholder="请输入新密码" validName="text" name='password' onblur="check(this);" maxlength="63"/>
+								<s:password id="password" cssClass="setPassword fl " placeholder="请输入新密码" validName="text" name='password' onblur="check(this);" maxlength="63"/>
 								<span id="passwordchecktip" class="Validform_checktip fl undis"></span>
 							</div>
 						</li>
 						<li class="cf">
-							<p class="fl">新密码确认</p>
+							<p class="fl"><span>*</span>新密码确认</p>
 							<div class="cf">
-								<s:password  id="confirmPassword" cssClass="fl " placeholder="请再次输入新密码" validName="text" name='confirmPassword' onblur="check(this);" maxlength="63"/>
+								<s:password  id="confirmPassword" cssClass="fl reSetPassword" placeholder="请再次输入新密码" validName="text" name='confirmPassword' onblur="check(this);" maxlength="63"/>
 								<span id="confirmpasswordchecktip" class="Validform_checktip fl undis"></span>
 							</div>
 						</li>

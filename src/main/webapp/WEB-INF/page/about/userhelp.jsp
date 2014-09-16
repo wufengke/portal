@@ -3,13 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>那好怎么用,那好学习流程-那好网</title>
-<meta name="description" content="教你如何正确使用那好，知道那好怎么用，并详细了解那好学习流程"/>
+ <title>9527在线课堂</title>
 <meta name="keywords" content=""/>
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/about/style.css?v=v1.01" />
 <%@ include file="/common/JsCss.jsp" %>
 </head>
-<body class="aboutPage"><div class="aui_state_focus" style="position: absolute; left: -9999em; top: 170px; width: 485px; z-index: 1000;"><div class="aui_outer"><table class="aui_border"><tbody><tr><td class="aui_nw"></td><td class="aui_n"></td><td class="aui_ne"></td></tr><tr><td class="aui_w"></td><td class="aui_c"><div class="aui_inner"><table class="aui_dialog"><tbody><tr><td colspan="2" class="aui_header"><div class="aui_titleBar"><div class="aui_title" style="cursor: move;">系统提示</div><a class="aui_close" href="javascript:void(0);">×</a></div></td></tr><tr><td class="aui_icon"><div class="aui_iconBg" style="background-image: url(http://static.nahao.com/online/images/dialog/icon/warning.png);"></div></td><td class="aui_main" style="width: 420px; height: auto;"><div class="aui_content" style="padding: 20px;"><div class="aui_loading"><span>loading..</span></div></div></td></tr><tr><td colspan="2" class="aui_footer"><div class="aui_buttons"><button class="aui_state_highlight" type="button">确定</button></div></td></tr></tbody></table></div></td><td class="aui_e"></td></tr><tr><td class="aui_sw"></td><td class="aui_s"></td><td class="aui_se" style="cursor: auto;"></td></tr></tbody></table></div></div>
+<body class="aboutPage">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
 <div class="wrap layout about" id="nahaoModule" module="about" data_page="studentPage">
@@ -100,5 +98,5 @@
     </div>
 	</div>
 <!-- 主要内容结束 -->
- <jsp:include page="/login_pop.jsp" />
+ <jsp:include page="/foot.jsp" />
 </body></html>

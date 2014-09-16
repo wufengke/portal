@@ -2,129 +2,265 @@
 <%@ include file="/common/taglib.jsp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>那好在线课堂官网_网络课堂_网络课程_家教在线-那好网</title>
-<meta name="keywords" content="那好网,网络课堂,网络课程,在线课堂"/>
-<meta name="description" content="那好网荟萃全国名师，为教师提供实现自己教育梦想的在线课堂平台。致力于搭建最好的在线课堂网站，打造那好网络课堂，提供精品网络课程，为学生提供方便、高效，愉悦的网络学习体验。"/>
-<link rel="stylesheet" type="text/css" href="<%=basePath %>online/css/studentHomePage/style.css?v=v1.01" />
+<title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
+
 </head>
 <body>
 <jsp:include page="/head.jsp" />
+<script>
+    jQuery(document).ready(function ($) {
+
+        var _CaptionTransitions = [];
+        _CaptionTransitions["L"] = { $Duration: 900, x: 0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+        _CaptionTransitions["R"] = { $Duration: 900, x: -0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+        _CaptionTransitions["T"] = { $Duration: 900, y: 0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+        _CaptionTransitions["B"] = { $Duration: 900, y: -0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+        _CaptionTransitions["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 };
+        _CaptionTransitions["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } };
+        _CaptionTransitions["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5 } };
+        _CaptionTransitions["RTTL|BR"] = { $Duration: 900, x: -0.6, y: -0.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: 0.8 } };
+        _CaptionTransitions["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 };
+        _CaptionTransitions["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } };
+        _CaptionTransitions["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } };
+        var _SlideshowTransitions = [
+            { $Duration: 1000, $Zoom: 11, $Rotate: true, $SlideOut: true, $FlyDirection: 6, $Easing: { $Left: $JssorEasing$.$EaseInExpo, $Top: $JssorEasing$.$EaseInExpo, $Zoom: $JssorEasing$.$EaseInExpo, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $ScaleHorizontal: 4, $ScaleVertical: 4, $Opacity: 2, $Round: { $Rotate: 0.8 } },
+            { $Duration: 1200, $Zoom: 1, $Rotate: true, $During: { $Left: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $FlyDirection: 1, $Easing: { $Left: $JssorEasing$.$EaseSwing, $Zoom: $JssorEasing$.$EaseSwing, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseSwing }, $ScaleHorizontal: 0.6, $Opacity: 2, $Round: { $Rotate: 0.5 } },
+            { $Duration: 1200, $Zoom: 11, $Rotate: true, $FlyDirection: 8, $Easing: { $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseOutQuad, $Rotate: $JssorEasing$.$EaseInCubic }, $ScaleVertical: 4, $Opacity: 2, $Round: { $Rotate: 0.7 } }
+        ];
+
+        var options = {
+            $FillMode: 2,
+            $AutoPlay: true,
+            $AutoPlayInterval: 4000,
+            $PauseOnHover: 0,
+
+            $ArrowKeyNavigation: true,
+            $SlideDuration: 800,
+            $MinDragOffsetToSlide: 20,
+            $SlideSpacing: 0,
+            $DisplayPieces: 1,
+            $ParkingPosition: 0,
+            $UISearchMode: 1,
+            $PlayOrientation: 1,
+            $DragOrientation: 1,
+
+            $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: _SlideshowTransitions,
+                $TransitionsOrder: 1,
+                $ShowLink: true
+            },
+
+            $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlider$,
+                $CaptionTransitions: _CaptionTransitions,
+                $PlayInMode: 1,
+                $PlayOutMode: 3
+            },
+
+            $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$,
+                $ChanceToShow: 2,
+                $AutoCenter: 1,
+                $Steps: 1,
+                $Lanes: 1,
+                $SpacingX: 8,
+                $SpacingY: 8,
+                $Orientation: 1
+            },
+
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $ChanceToShow: 1,
+                $AutoCenter: 2,
+                $Steps: 1
+            }
+        };
+
+        var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+        function ScaleSlider() {
+            var bodyWidth = document.body.clientWidth;
+            if (bodyWidth)
+                jssor_slider1.$SetScaleWidth(Math.min(bodyWidth, 1920));
+            else
+                window.setTimeout(ScaleSlider, 30);
+        }
+
+        ScaleSlider();
+
+        if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
+            $(window).bind('resize', ScaleSlider);
+        }
+    });
+</script>
+<body>
+    <!--Animation -->
+    <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1920px; height: 440px; overflow: hidden;">
+        <!-- Loading Screen -->
+        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(images/loading.gif) no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;">
+            </div>
+        </div>
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1920px; height: 440px; overflow: hidden;">
+            <div>
+                <img u="image" src="images/show/1.png" ></img>
+            </div>
+            <div>
+                <img u="image" src="images/show/3.png" ></img>
+            </div>
+            <div>
+                <img u="image" src="images/show/2.png" ></img>
+            </div>
+        </div>
+        <style>
+            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+                background: url(images/b21.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+
+            .jssorb21 div {
+                background-position: -5px -5px;
+            }
+
+                .jssorb21 div:hover, .jssorb21 .av:hover {
+                    background-position: -35px -5px;
+                }
+
+            .jssorb21 .av {
+                background-position: -65px -5px;
+            }
+
+            .jssorb21 .dn, .jssorb21 .dn:hover {
+                background-position: -95px -5px;
+            }
+        </style>
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb21" style="position: absolute; bottom: 26px; left: 6px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype" style="position: absolute; width: 19px; height: 19px; text-align: center; line-height: 19px; color: White; font-size: 12px;">
+            </div>
+        </div>
+        <style>
+            .jssora21l, .jssora21r, .jssora21ldn, .jssora21rdn {
+                position: absolute;
+                cursor: pointer;
+                display: block;
+                background: url(images/a21.png) center center no-repeat;
+                overflow: hidden;
+            }
+
+            .jssora21l {
+                background-position: -3px -33px;
+            }
+
+            .jssora21r {
+                background-position: -63px -33px;
+            }
+
+            .jssora21l:hover {
+                background-position: -123px -33px;
+            }
+
+            .jssora21r:hover {
+                background-position: -183px -33px;
+            }
+
+            .jssora21ldn {
+                background-position: -243px -33px;
+            }
+
+            .jssora21rdn {
+                background-position: -303px -33px;
+            }
+        </style>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;"></span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px"></span>
+        <!-- Arrow Navigator Skin End -->
+    </div>
+    <!--end of Animation -->
+    <style type="text/css">
+        .studentMyCourse {
+          padding-top:10px;
+        }
+        .studentMyCourse .newList li {
+          margin:0 20px 20px 0;
+        }
+        </style>
 <!-- 主要内容开始 -->
-<div class="wrap studentHomePage" id="nahaoModule" module="studentHomePage" data_page="studentPage">
-	<div class="contop">
-		<!-- 首页轮播 -->
-		<div class="roll">
-			<ul class="cf rollList">
-            </ul>
-			<ol class="cf rollNav">
-            </ol>
-		</div>
-		<!-- course show -->
-		<div class="courseBox">
-			<div class="layout">
-				<ul class="cf courseList">
-					<s:iterator value="#request.courseList" var="course" status="s">
-						<li class="fl">
-							<div class="clBoxShaow iniBox">
-								<div class="courseFree"></div>
-								<img src="${course.mediumImageUrl}" alt="" />
-								<div class="iniInfor">
-									<p class="courseTitle"><s:property value="%{#course.courseTitle}"/></p>
-									<div class="cf">
-										<span class="fl courseTime"><s:property value="%{#course.courseTimeDesc}"/>-<s:property value="%{#course.courseTimeDesc}"/></span>
+ <div class="wrap layout studentMyCourse" >
+        <div class="courseConList newList">
+                <h3 class="pageName">公开课程</h3>
+                <ul class="cf">
+                    <!--  xuanzhuan-->
+                    <s:iterator value="#request.courseList" var="course" status="s">
+	                    <li class="fl">
+	                        <div class="clBoxShaow iniBox">
+	                            <div class="courseFree"></div>
+	                            <img src="${course.mediumImageUrl}" alt=""></img>
+	                            <div class="iniInfor">
+	                                <p class="courseTitle"><s:property value="%{#course.courseTitle}"/></p>
+	                                <div class="cf">
+	                                    <span class="fl courseTime"><s:property value="%{#course.courseTimeDesc}"/>-<s:property value="%{#course.courseTimeDesc}"/></span> 
 	                                    <span class="fr"><em class="redText"><s:property value="%{#course.totalCount}"/></em>人</span>
 	                                </div>
-									<div class="cf fitGrade">
-										<span class="fl"><s:property value="%{#course.courseDesc}"/></span>
-										<span class="fr"><s:property value="%{#course.lessonTimes}"/>课次</span>
-									</div>
-								</div>
-							</div>
-							<div class="clBoxShaow rotateBox posr" data-action="<%=basePath%>detail?detailId=${course.courseDetailId}" title="${course.courseTitle}">
-								<div class="teaInfor cf">
-									<s:if test="#course.userImageUrl == null">
-										<img src="<%=basePath %>online/images/login/default_avatar.png?v=v1.01" alt="头像" class="fl"/>
+	                                <div class="cf fitGrade">
+	                                    <span class="fl"><s:property value="%{#course.courseDesc}"/></span> 
+	                                    <span class="fr"><s:property value="%{#course.lessonTimes}"/>课次</span>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="clBoxShaow rotateBox posr undis" data-action="<%=basePath%>detail?detailId=${course.courseDetailId}" title="${course.courseTitle}"
+	                            title="${course.courseTitle}">
+	                            <div class="teaInfor cf">
+	                                <s:if test="#course.userImageUrl == null">
+										<img src="<%=basePath%>images/default_avatar.png?v=v1.01" alt="头像" class="fl"></img>
 									</s:if>
 									<s:else>
-										<img src="${course.userImageUrl}" alt="头像" class="fl"/>
+										<img src="${course.userImageUrl}" alt="头像" class="fl"></img>
 									</s:else>
-									<div class="fl teaInforR">
-										<h3 class="cf">
+	                                <div class="fl teaInforR">
+	                                    <h3 class="cf">
 											<em class="fl"><s:property value="%{#course.userRealName}"/></em>
 											<span class="fl"></span>
 											<span class="fl"></span>
 											<span class="fl"></span>
 										</h3>
-										<p class="detailInfor"></p>
-									</div>
-								</div>
-								<p class="brief"><s:property value="%{#course.courseBrief}"/></p>
+	                                    <p class="detailInfor"></p>
+	                                </div>
+	                            </div>
+	                            <p class="brief"><s:property value="%{#course.courseBrief}"/></p>
 								<p class="courseTitle" title="${course.courseTitle}">${course.courseTitle}</p>
-							</div>
-						</li>
-					</s:iterator>
-				</ul>
-			</div>
-		</div>
-	</div>
-    <s:iterator value="#request.rollList" var="roll" status="s">
-    	<input type="hidden" value="${roll.bigImageUrl},<%=basePath%>detail?detailId=${roll.courseDetailId},${roll.bigImageSideColor}" class="focus_photo_class" />
-    </s:iterator>
-    <input type="hidden" value="<%=basePath %>" class="qiniu" />
-    
-	<div class="conft layout">
-		<div class="advantageBox">
-			<ul class="advantage cf">
-				<li class="fl ad1">
-					<div class="adline"></div>
-					<h2>专业师资</h2>
-					<span class="line"></span>
-					<p>全部教师经过严苛选拔、学术扎实、经验丰富</p>
-				</li>
-				<li class="fl ad2">
-					<div class="adline"></div>
-					<h2>互动直播</h2>
-					<span class="line"></span>
-					<p>师生仿佛面对面，拉近沟通距离</p>
-				</li>
-				<li class="fl ad3">
-					<div class="adline"></div>
-					<h2>贴心服务</h2>
-					<span class="line"></span>
-					<p>免费试听、随时退款、省时省力</p>
-				</li>
-			</ul>
-		</div>
-		<div class="coopBox">
-			<div class="coopBoxh cf">
-				<h3 class="fl coopComW">课程、师资合作</h3>
-				<h3 class="fr coopComW">学校、机构合作</h3>
-			</div>
-			<div class="coopBoxCon">
-				<div class="cf">
-					<div class="fl coopComW">
-						<p class="dt">如果您是某个领域的教学专家</p>
-						<p class="dl">如果您有一门精彩的课程，希望让更多中小学生从中受益，<br>那好欢迎您！</p>
-					</div>
-					<div class="fr coopComW">
-						<p class="dt">如果您是学校、机构</p>
-						<p class="dl">您希望我们专门为您的学校提供定制的课程，<br>或者希望与我们开展更深入的合作！</p>
-					</div>
-				</div>
-				<p class="fp">
-					<a href="">那好期待与您的合作</a>
-					<a href="javascript:vold(0);" class="phoneHref">400-864-8686</a>
-					<a href="" class="mess">hezuo@nahao.com</a>
-				</p>
-			</div>
-		</div>
-		<!-- 师资 课程 学校 合作 结束 -->
-	</div>
-</div>
+	                        </div>
+	                    </li>
+                    </s:iterator>
+                </ul>
+            </div>
+    </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
 <jsp:include page="/right_side.jsp" />
+<script>
+    $(document).scroll(function () {
+        var top = $(document).scrollTop();
+        var obj = $(".returnTop");
+        //alert(top);
+        if (top > 50) {
+            obj.show();
+        } else {
+            obj.hide();
+        }
+    });
+    $(".returnTop").click(function () {
+        $(document).scrollTop(0);
+    });
+</script>
 </body>
 </html>

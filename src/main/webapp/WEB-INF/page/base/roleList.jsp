@@ -20,7 +20,6 @@
 	<s:set value="'default-tab'" name="tab2default" scope="request"/>
 </s:elseif>
 <div id="body-wrapper">
-  <jsp:include page="/menu.jsp" />
   <div id="main-content">
     <noscript>
     <div class="notification error png_bg">
