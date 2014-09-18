@@ -37,7 +37,7 @@
 				<ul class="myCourseList cf">
 					<!-- meiyou-->
 					<li class="fl noCourse ">   
-						<a href="<%=basePath%>index"><span>快来添加课程吧！</span></a>
+						<a href="<%=basePath%>public_online"><span>快来添加课程吧！</span></a>
 					</li>
 					<!-- kecheng yi wancheng -->
 					<s:iterator value="#request.courseList" var="c" status="s">
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 </div>
-<div class="courseConList newList">
+<div id="lastestNew" class="courseConList newList">
 	<%-- --%>
 	<h3 class="pageName">最新课程</h3>
 	<ul class="cf">
@@ -100,7 +100,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="clBoxShaow rotateBox posr" data-action="<%=basePath%>detail?detailId=${course.courseDetailId}" title="${course.courseTitle}">
+				<div class="clBoxShaow rotateBox posr undis" data-action="<%=basePath%>detail?detailId=${course.courseDetailId}" title="${course.courseTitle}">
 					<div class="teaInfor cf">
 						<s:if test="#course.userImageUrl == null">
 							<img src="<%=basePath %>images/default_avatar.png?v=v1.01" alt="头像" class="fl"/>
@@ -146,6 +146,11 @@
     if (tabIndex != null) {
         tabIndex = tabIndex - 1 > 0 ? tabIndex - 1 : 0;
         $(".tabh").children().each(function (i) {
+        	if(i==0){
+        		$("#lastestNew").hide();
+        	}else{
+        		$("#lastestNew").show();
+        	}
             if (i == tabIndex) {
                 $(this).addClass("inforOn");
             } else {
@@ -160,6 +165,7 @@
             }
         });
     }
+    
 </script>
 </body>
 </html>

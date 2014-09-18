@@ -56,17 +56,17 @@
 	                            <span class="fl">立即报名</span>
 	                            <span class="fr"></span>
 	                        </a>
-							 <a href="javascript:void(0);" class="fr btn btn3" id="have_buy" style="display:none;" >
+							 <!--<a href="javascript:void(0);" class="fr btn greenBtn" id="have_buy" style="display:none;" >
 		                         <span class="fl">已购买</span>
 		                         <span class="fr"></span>
-		                    </a>
+		                    </a>-->
                        	</s:if>
 						<s:else>
-							<a href="javascript:buy();" class="fr btn greenBtn" id="soon_buy" style="display:none;">
+							<!--<a href="javascript:buy();" class="fr btn greenBtn" id="soon_buy" style="display:none;">
 	                            <span class="fl">立即报名</span>
 	                            <span class="fr"></span>
-	                        </a>
-							 <a href="javascript:void(0);" class="fr btn btn3" id="have_buy">
+	                        </a>-->
+							 <a href="<%=basePath%>member/my_course?tab=2" class="fr btn greenBtn" id="have_buy">
 		                         <span class="fl">已购买</span>
 		                         <span class="fr"></span>
 		                    </a>
