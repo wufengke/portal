@@ -8,7 +8,13 @@ $(document).ready(function () {
                 } else {
                     $(this).removeClass("inforOn");
                 }
+              	if($("#first").hasClass("inforOn")){
+               		$(".newList").hide();
+               	}else{
+               		$(".newList").show();
+               	}
             });
+            
             $(".inforTabBox").each(function (position) {
                 if (i == position) {
                     $(this).removeClass("undis");
@@ -18,10 +24,12 @@ $(document).ready(function () {
             });
         });
     });
+    
     $("ul.tabh li").click(function () {
         $("ul.tabh li").attr("class", "");
         $(this).attr("class", "inforOn");
     });
+    
     $("#createClass").click(function () {
         $(this).parent().hide();
         $(this).parent().next().attr("class", "");

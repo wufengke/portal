@@ -16,7 +16,7 @@
  	<div class="wrapContent fr myCourseCon" id="wrapContent" name="myCourseCon">
  		<div class="inforTab">
 			<ul class="tabh cf">
-                 <li class="inforOn">私人课程</li>
+                 <li class="inforOn" id="first">私人课程</li>
                  <li>公开课程</li>
              </ul>
              <div class="inforTabBox">
@@ -134,38 +134,16 @@
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
  <script>
-    $("input[name='enterclass']").click(function () {
-        window.location.href = "http://classroom.phas.cn/demo2.jsp?action=create&meetingID=8cf855c28a134624be861bcacb4f146c&username=875211242@qq.com";
+    $(function(){
+    	if($("#first").hasClass("inforOn")){
+       		$(".newList").hide();
+       	}else{
+       		$(".newList").show();
+       	} 
+        $("input[name='enterclass']").click(function () {
+            window.location.href = "http://classroom.phas.cn/demo2.jsp?action=create&meetingID=8cf855c28a134624be861bcacb4f146c&username=875211242@qq.com";
+        });
     });
-    function getUrlParam(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-        if (r != null) return unescape(r[2]); return null; //返回参数值
-    }
-    var tabIndex = getUrlParam("tab");
-    if (tabIndex != null) {
-        tabIndex = tabIndex - 1 > 0 ? tabIndex - 1 : 0;
-        $(".tabh").children().each(function (i) {
-        	if(i==0){
-        		$("#lastestNew").hide();
-        	}else{
-        		$("#lastestNew").show();
-        	}
-            if (i == tabIndex) {
-                $(this).addClass("inforOn");
-            } else {
-                $(this).removeClass("inforOn");
-            }
-        });
-        $(".inforTabBox").each(function (i) {
-            if (i == tabIndex) {
-                $(this).removeClass("undis");
-            } else {
-                $(this).addClass("undis");
-            }
-        });
-    }
-    
 </script>
 </body>
 </html>
