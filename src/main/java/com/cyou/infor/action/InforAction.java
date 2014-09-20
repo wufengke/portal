@@ -432,10 +432,6 @@ public class InforAction extends BaseAction{
 					setTeacherBrief(users.getTeacherBrief());
 					setCity(users.getCityId());
 					setProvince(users.getProvinceId());
-					List<Province> provinceList = provinceCityService.getProvinceList();
-					List<City> cityList = provinceCityService.getCityList();
-					httpServletRequest.setAttribute("provinceList", provinceList);
-					httpServletRequest.setAttribute("cityList", cityList);
 					if(getFromSession("user") == null){
 						setIntoSession(users);
 					}
@@ -443,6 +439,10 @@ public class InforAction extends BaseAction{
 					setIntoSession(new Users());
 					setGender("1");
 				}
+				List<Province> provinceList = provinceCityService.getProvinceList();
+				List<City> cityList = provinceCityService.getCityList();
+				httpServletRequest.setAttribute("provinceList", provinceList);
+				httpServletRequest.setAttribute("cityList", cityList);
 			}else {
 				return INPUT;
 			}

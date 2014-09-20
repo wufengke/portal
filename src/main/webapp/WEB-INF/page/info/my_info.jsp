@@ -234,7 +234,7 @@
 			$(".tabh li").toggleClass("inforOn");
 		}
 		 $("input.applyTeacher").click(function () {
-		     window.location.href = "<%=basePath%>member/my_info_teacher";
+		     window.location.href = "<%=basePath%>member/my_infor_teacher";
 		 });
 	});
 	function check(element){

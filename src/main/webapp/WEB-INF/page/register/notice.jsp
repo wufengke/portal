@@ -26,5 +26,15 @@
     </div>
     <!--end of notice -->
  	<jsp:include page="/foot.jsp" />
+ 	<script type="text/javascript">
+ 	$("#submitNewPwd").click(function(){
+ 		$.post("/register/sendMail",
+ 				{},
+ 			function(data){
+ 			alert("已发送，请您查收！");
+ 		},"json");
+ 		
+ 	});
+ 	</script>
 </body>
 </html>

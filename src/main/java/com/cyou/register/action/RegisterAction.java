@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
@@ -154,6 +155,48 @@ public class RegisterAction extends BaseAction{
 			@Result(name = SUCCESS, location = "/WEB-INF/page/register/notice.jsp"),
 			@Result(name = INPUT, type="redirect",location = "/login")})
 	public String notice(){
+		return SUCCESS;
+	}
+	
+	@Action(value = "/register/sendMail", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
+	public String resetCode(){
+		String jsonResult = "{\"code\":\"cuccess\"}";
+		try {
+			Account account = (Account)getFromSession("account");
+			if(account != null){
+				//send email
+				InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("template/register.txt");
+				BufferedReader inReader = new BufferedReader(new InputStreamReader(in,"utf-8"));
+				StringBuilder sb = new StringBuilder();
+				String str = inReader.readLine();
+				while (str != null) {
+					sb.append(str);
+					str = inReader.readLine();
+				}
+				if(StringUtils.isNotBlank(sb.toString())) {
+					StringBuilder activate_url = new StringBuilder();
+					String basePath = httpServletRequest.getScheme()+"://"+httpServletRequest.getServerName();
+					activate_url.append(basePath).append("/register/activate?userId=").append(account.getUserId());
+					String content = sb.toString()
+							.replace("activate_url", activate_url)
+							.replace("webName", "9527在线课堂")
+							.replace("email", email)
+							.replace("datetime", DateUtils.format(System.currentTimeMillis(), "yyyy年MM月dd日HH:mm:ss"));
+					
+					EmailUtil.sendEmail(content, "来自9527在线课堂的邮件", email);
+				}
+			}
+			inputStream = new ByteArrayInputStream(jsonResult.getBytes("utf-8"));
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(),e);
+			try {
+				inputStream = new ByteArrayInputStream(jsonResult.getBytes("utf-8"));
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+			return SUCCESS;
+		}
 		return SUCCESS;
 	}
 	public String getPhone() {
