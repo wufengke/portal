@@ -71,6 +71,22 @@ $(document).ready(function () {
     	var classroom = "http://classroom.phas.cn/demo3.jsp?action=create&username="+ userId + "&password=111&meetingID=111";
     	window.location.href = classroom;
     });
+    
+    $("#studentEnterClass").click(function () {
+    	var userId = $("#userId").val();
+    	var code = $("#code").val();
+    	if(userId == null || userId == ''){
+    		alert("请先登录");
+    		return ;
+    	}
+    	if(code == null || code == ''){
+    		alert("请输入老师发给你您的课程密码");
+    		return ;
+    	}
+    	var classroom = "http://classroom.phas.cn/demo3.jsp?action=join&username="+ userId + "&password=111&meetingID=111&code=" + code;
+    	window.location.href = classroom;
+    });
+    
     $(".iniBox").each(function () {
         var obj = $(this);
         obj.parent().mouseover(function () {

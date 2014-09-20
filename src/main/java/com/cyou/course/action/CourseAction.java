@@ -113,6 +113,11 @@ public class CourseAction extends BaseAction{
 			if("0".equals(account.getAccountType())){
 				return "MY_COURSE";
 			}
+			PrivateCourse pc = inforService.getPrivateCourseByUserId(account.getUserId());
+			if(pc != null){
+				httpServletRequest.setAttribute("courseTitle", pc.getCourseTitle());
+				httpServletRequest.setAttribute("code", pc.getCoursePassword());
+			}
 		}else{
 			return INPUT;
 		}

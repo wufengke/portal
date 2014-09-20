@@ -22,13 +22,13 @@
              <div class="inforTabBox">
                  <div style="margin: 80px 0 0 50px;">
                      <span style="font-size: 18px;">请输入课程密码：</span>
-                     <input type="text" style="font-size: 24px; font-weight: bold; width: 153px; height: 45px;"
-                         value="" />
+                     <input type="text" id="code" style="font-size: 24px; font-weight: bold; width: 153px; height: 45px;" value="" />
                  </div>
                  <div style="margin: 20px 0 0 50px;">
+                 	<input type="hidden" value="${sessionScope.account.userId}" id="userId"></input>
                      <input type="button" name="enterclass" class="btn greenBtn" style="width: 160px;
                          height: 50px; color: white; font-size: 20px; font-family: 'Microsoft Yahei',Tahoma,Arial,sans-serif;"
-                         value="进入教室" />
+                         value="进入教室" id="studentEnterClass" />
                  </div>
           	</div>
 	        <div class="inforTabBox courseList undis">
@@ -140,9 +140,6 @@
        	}else{
        		$(".newList").show();
        	} 
-        $("input[name='enterclass']").click(function () {
-            window.location.href = "http://classroom.phas.cn/demo2.jsp?action=create&meetingID=8cf855c28a134624be861bcacb4f146c&username=875211242@qq.com";
-        });
     });
 </script>
 </body>

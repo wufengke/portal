@@ -22,26 +22,36 @@
                 </ul>
                 <div class="inforTabBox undis">
                     <div style="margin: 80px 0 0 50px;">
-                        <input type="text" class="ft18" style="width: 350px; height: 45px;"
-                            placeholder="请输入课程名称" />
+                        <input id="courseTitle" name="courseTitle" type="text" class="ft18" style="width: 350px; height: 45px;"
+                            value="${requestScope.courseTitle}" placeholder="请输入课程名称" />
                     </div>
-                    <div class="" style="margin: 20px 0 0 50px;">
-                        <input id="createClass" type="button" class="btn greenBtn" value="创建私人课程" />
-                        <span style="font-size: 18px;">（同一时间段仅能创建一个私人课程）</span>
-                    </div>
-                    <div class="undis" style="margin: 30px 0 0 50px;">
-                        <div>
-                            <span style="font-size: 18px;">私人课程邀请码：</span>
-                            <input type="text" readonly="true" style="font-size: 24px; font-weight: bold; width: 140px; height: 45px;" value="" />
-                            <span class="link_blue"><a href="javascript:;">重新生成</a></span>
-                        </div>
-                        <div style="margin: 30px 0 0 0px">
-                            <input id="enterClass" type="button" class="btn greenBtn" value="进入课程" />
-                        </div>
-                        <div style="margin: 30px 0 0 0px">
-                            <input id="sendCode" type="button" class="btn blueBtn" value="发送邀请码到我的手机" />
-                        </div>
-                    </div>
+                     <s:if test="#request.courseTitle != null">
+                    </s:if>
+                    <s:else>
+	                    <div class="" style="margin: 20px 0 0 50px;">
+	                        <input id="createClass" type="button" class="btn greenBtn" value="创建私人课程" />
+	                        <span style="font-size: 18px;">（同一时间段仅能创建一个私人课程）</span>
+	                    </div>
+                    </s:else>
+                    <s:if test="#request.courseTitle != null">
+                    	<div class="" style="margin: 30px 0 0 50px;">
+                    </s:if>
+                    <s:else>
+                    	<div class="undis" style="margin: 30px 0 0 50px;">
+                    </s:else>
+                       <div>
+                           <span style="font-size: 18px;">私人课程邀请码：</span>
+                           <input id="code" name="code" type="text" readonly="true" style="font-size: 24px; font-weight: bold; width: 140px; height: 45px;" value="${requestScope.code}" />
+                           <span class="link_blue"><a href="javascript:void(0);" id="resetCode">重新生成</a></span>
+                       </div>
+                       <div style="margin: 30px 0 0 0px">
+                       	<input type="hidden" value="${sessionScope.account.userId}" id="userId"></input>
+                           <input id="enterClass" type="button" class="btn greenBtn" value="进入课程" />
+                       </div>
+                       <div style="margin: 30px 0 0 0px">
+                           <input id="sendCode" type="button" class="btn blueBtn" value="发送邀请码到我的手机" />
+                       </div>
+                   </div>
                 </div>
                  <div class="inforTabBox">
                     <!--邮箱版-->
