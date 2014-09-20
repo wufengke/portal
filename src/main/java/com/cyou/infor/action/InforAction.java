@@ -25,6 +25,7 @@ import com.cyou.base.service.ProvinceCityService;
 import com.cyou.base.util.SMSUtil;
 import com.cyou.common.util.UUIDUtil;
 import com.cyou.core.action.BaseAction;
+import com.cyou.core.util.RandomNumUtil;
 import com.cyou.core.util.StrMD5;
 import com.cyou.course.bean.PrivateCourse;
 import com.cyou.infor.bean.ApplyTeach;
@@ -972,7 +973,7 @@ public class InforAction extends BaseAction{
 					pc.setCreateTime(d);
 					pc.setUpdateTime(d);
 					pc.setStatus(1);
-					code = UUIDUtil.generateVerifyCode();
+					code = RandomNumUtil.generateString(10);
 					pc.setCoursePassword(code);
 					boolean b = inforService.savePrivateCourse(pc);
 					if(b){
@@ -998,10 +999,10 @@ public class InforAction extends BaseAction{
 	@Action(value = "/resetCode", results = {@Result(name = SUCCESS, type="stream", params={"inputName", "inputStream"})})
 	public String resetCode(){
 		try {
-			String jsonResult = "{\"code\":codePlaceHolder}";
+			String jsonResult = "{\"code\":\"codePlaceHolder\"}";
 			Account account = (Account)getFromSession("account");
 			if(account != null){
-				String code = UUIDUtil.generateVerifyCode();
+				String code = RandomNumUtil.generateString(10);
 				PrivateCourse pc = inforService.getPrivateCourseByUserId(account.getUserId());
 				if(pc != null){
 					pc.setCoursePassword(code);

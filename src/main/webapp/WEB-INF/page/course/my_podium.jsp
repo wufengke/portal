@@ -39,7 +39,7 @@
                     </s:else>
                         <div>
                             <span style="font-size: 18px;">私人课程邀请码：</span>
-                            <input id="code" name="code" type="text" readonly="true" style="font-size: 24px; font-weight: bold; width: 140px; height: 45px;" value="${requestScope.code}" />
+                            <input id="code" name="code" type="text" readonly="true" style="font-size: 24px; font-weight: bold; width: 180px; height: 45px;" value="${requestScope.code}" />
                             <span class="link_blue"><a href="javascript:void(0);" id="resetCode">重新生成</a></span>
                         </div>
                         <div style="margin: 30px 0 0 0px">
@@ -89,5 +89,26 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
+  <script type="text/javascript">
+	(function($){
+  		$.getUrlParam = function(name){
+  			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+  			var r = window.location.search.substr(1).match(reg);	
+  			if (r!=null) return unescape(r[2]); return null;
+  		}
+  	  })(jQuery);
+    $(function(){
+    	var error = $.getUrlParam('error');
+    	if(error == 1){
+    		alert("教室暂时不可用，请稍后再试!");
+    		return ;
+    	}
+    	if(error == 2){
+    		alert("没有此课程请联系客服,确认");
+    		return ;
+    	}
+    
+    });
+</script>
 </body>
 </html>

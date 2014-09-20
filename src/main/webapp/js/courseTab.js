@@ -34,7 +34,11 @@ $(document).ready(function () {
         $(this).parent().hide();
         $(this).parent().next().attr("class", "");
         $("#courseTitle").attr("readonly","true");
-        alert($("#courseTitle").val());
+        var courseTitle = $("#courseTitle").val();
+        if(courseTitle == null || courseTitle == ''){
+        	alert("请输入课程标题(100文字以内)");
+        	return ;
+        }
         $.post("/member/createPrivateClass.action",
         		{"courseTitle":$("#courseTitle").val()},
         function(data){
@@ -61,7 +65,7 @@ $(document).ready(function () {
     	$.post("/member/resetCode.action",
     			{},
 		function(data){
-			if(data.code != 0 && data.code != 1 ){
+			if(data.code != '0' && data.code != '1' ){
 				$("#code").val(data.code);
 			}
 		},"json");
@@ -115,7 +119,7 @@ $(document).ready(function () {
         var dataurl = $(this).attr("data-action");
         window.location.href = dataurl;
     });
-    //ҳ����֤
+    
     function ValidateForm()
     {
         //$("[validname=]")

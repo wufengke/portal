@@ -133,13 +133,31 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <script>
+ <script type="text/javascript">
+	(function($){
+  		$.getUrlParam = function(name){
+  			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+  			var r = window.location.search.substr(1).match(reg);	
+  			if (r!=null) return unescape(r[2]); return null;
+  		}
+  	  })(jQuery);
     $(function(){
     	if($("#first").hasClass("inforOn")){
        		$(".newList").hide();
        	}else{
        		$(".newList").show();
        	} 
+    	var error = $.getUrlParam('error');
+    	
+    	if(error == 1){
+    		alert("教室暂时不可用，请稍后再试!");
+    		return ;
+    	}
+    	if(error == 2){
+    		alert("课程密码错误请确认!");
+    		return ;
+    	}
+    
     });
 </script>
 </body>
