@@ -195,7 +195,7 @@ public class LoginAction extends BaseAction{
 						.append(email).append("&key=")
 						.append(key).append("&time=").append(now);  
 				String content = sb.toString().replace("reset_url", resetUrl);
-				EmailUtil.sendEmail(content, "来自xx网的密码重置邮件", email);
+				EmailUtil.sendEmail(content, "来自9527在线课堂的密码重置邮件", email);
 			}
 			
 			
