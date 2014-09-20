@@ -60,8 +60,8 @@ $(document).ready(function () {
     });
     $("#enterClass").click(function () {
     	var userId = $("#userId").val();
-    	var classroom = "http://classroom.phan.cn/demo3.jsp?action=create&username="+ userId + "&password=111&meetingID=111";
-    	window.location.href = classroom
+    	var classroom = "http://classroom.phas.cn/demo3.jsp?action=create&username="+ userId + "&password=111&meetingID=111";
+    	window.location.href = classroom;
     });
     $(".iniBox").each(function () {
         var obj = $(this);
