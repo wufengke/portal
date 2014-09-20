@@ -82,7 +82,7 @@ public class IndexAction extends BaseAction{
 			}
 			if(StringUtils.isBlank(endDate)){
 				long l = System.currentTimeMillis();
-				l = l + 3600*1000*24*30;
+				 l += 3600*1000*24*90l;
 				condition.setEndTime(DateUtils.format(l, "yyyy-MM-dd"));
 			}else{
 				condition.setEndTime(endDate);
