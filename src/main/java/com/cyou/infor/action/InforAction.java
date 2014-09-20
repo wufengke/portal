@@ -86,6 +86,8 @@ public class InforAction extends BaseAction{
 	 
 	private String resume;
 	
+	private String imageUrl;
+	
 	private String tab = "";
 	
 	private String orderId;
@@ -316,6 +318,7 @@ public class InforAction extends BaseAction{
 					setSchoolName(users.getSchoolName());
 					setGrade(users.getClasses());
 					setSchoolName(users.getSchoolName());
+					setImageUrl(users.getImageUrl());
 					setIntoSession(users);
 				}else{
 					setIntoSession(new Users());
@@ -1337,6 +1340,14 @@ public class InforAction extends BaseAction{
 
 	public void setInputStream(InputStream inputStream) {
 		this.inputStream = inputStream;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 }

@@ -24,4 +24,6 @@
 	<!-- Struts Annotation -->
     <constant name="actionPackages" value="com.cyou"/>
     
+    <constant name="struts.multipart.saveDir" value="D:\"/>
+    <constant name="struts.multipart.maxSize" value="1024000"/>
 </struts>

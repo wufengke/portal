@@ -358,25 +358,20 @@
 	</s:else>
 		<!--添加头像开始-->
         <div class="box modifyPic TiZiAvatar">
-            <dl class="atareditor cf">
-                <dt id="upload" class="current ml10"><a href="javascript:void(0);" class="localUpload"><em></em><span>本地照片</span></a></dt>
-                <dt id="webcam" class=""><a href="javascript:void(0);" class="videoUpload"><em></em><span>拍照上传</span></a></dt>
-                <dd class="cf">
-                    <p>仅支持GIF  JPG  PNG 图片文件，请注意头像清晰度</p>
-                    <div id="avatar">
-                        <div id="TiZiAvatar"></div>
-                    </div>
-                    <ul id="editorPanelButtons" class="cf undis">
-                        <li class="fr">
-                            <a href="javascript:void(0)" class="noShowBtn redBtn button_upload">上传</a>
-                            <a href="javascript:void(0)" class="noShowBtn redBtn button_cancel">取消</a>
-                        </li>
-                    </ul>
-                    <p id="webcamPanelButton" class="cf undis">
-                        <a href="javascript:void(0)" class="noShowBtn redBtn button_shutter">拍照</a>
-                    </p>
-                </dd>
-            </dl>
+           <s:form action ="teacherImageUpload" namespace="/member" method="post" enctype ="multipart/form-data">
+           	<div>
+           		<h4>请选择要上传的头像,仅支持image/bmp,image/png,image/gif,image/jpeg类型的图片,大小在200kb以内</h4>
+           		<span  class="Validform_checktip fl Validform_wrong" id="imageUpload"></span>
+			</div>
+           	<div>
+           		<img src="http://www.phas.cn${imageUrl}" alt="头像" />
+           	</div>
+          	 <div>
+          	 	<s:file name ="myFile" label ="中图（172）"/> 
+          	 </div>
+           		<s:submit name="" value="确定上传"></s:submit>
+           		  
+           </s:form>
         </div>
         
         <!--添加头像结束-->
@@ -417,6 +412,12 @@
 			$(".inforTabBox:eq(1)").addClass("undis");
 			$(".inforTabBox:eq(2)").removeClass("undis");
 			$(".tabh li").toggleClass("inforOn");
+			if(error == 1){
+				$("#imageUpload").html("请选择您要上传的图像");
+			}
+			if(error == 2){
+				$("#imageUpload").html("请先完善您的个人资料页信息");
+			}
 		}
 		 $("input.applyTeacher").click(function () {
 		     window.location.href = "newteacherinfo.html";
