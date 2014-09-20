@@ -166,7 +166,11 @@
 				var startDate = $("#sel_startDate").val();
 	     		var endDate = $("#sel_endDate").val();
 	     		window.location.href = "<%=basePath%>public_online?courseType=" + courseType + "&priceType=" + priceType+ "&startDate=" + startDate + "&endDate=" + endDate;
-			});   		
+			});
+			if($.getUrlParam('courseType')==null)
+			{
+			   $("search_level1 li:first-child").trigger("click");
+			}
      	});
  		function addDate(dd,dadd){
 	 		var a = new Date(dd)
