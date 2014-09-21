@@ -359,6 +359,7 @@
 		<!--添加头像开始-->
         <div class="box modifyPic TiZiAvatar">
            <s:form action ="teacherImageUpload" namespace="/member" method="post" enctype ="multipart/form-data">
+           	<span><s:fielderror/></span>
            	<div>
            		<h4>请选择要上传的头像,仅支持image/bmp,image/png,image/gif,image/jpeg类型的图片,大小在200kb以内</h4>
            		<span  class="Validform_checktip fl Validform_wrong" id="imageUpload"></span>
@@ -498,11 +499,41 @@
     	});
     	$("#verifyButton").click(function(){
     		var phone = $("#phone").val();
+    		if(phone == null || phone == ''){
+    			alert("请输入正确的手机号");
+    			return ;
+    		}
     		$.post("/member/sendVerifyCode.action",{"phone":phone},
     		function(data){
+    			sendMessage();
     		},"json");
     	});
     });
+    
+    /*-------------------------------------------*/
+    var InterValObj; //timer变量，控制时间
+	var count = 120; //间隔函数，1秒执行
+	var curCount;//当前剩余秒数
+	function sendMessage() {
+        curCount = count;
+        //设置button效果，开始计时
+            $("#verifyButton").attr("disabled", "true");
+            $("#verifyButton").val("请在(" + curCount + ")秒后重新发送");
+            InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+    }
+    //timer处理函数
+	function SetRemainTime() {
+        if (curCount == 0) {                
+            window.clearInterval(InterValObj);//停止计时器
+            $("#verifyButton").removeAttr("disabled");//启用按钮
+            $("#verifyButton").val("重新发送验证码");
+            code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效    
+        }
+        else {
+            curCount--;
+            $("#verifyButton").val("请在(" + curCount + ")秒内重新发送");
+        }
+    }
 </script>
 </body>
 </html>

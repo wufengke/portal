@@ -938,6 +938,7 @@ public class InforAction extends BaseAction{
 				verifyCode = UUIDUtil.generateVerifyCode();
 				if(StringUtils.isNotBlank(verifyCode)){
 					String result = SMSUtil.sendSMS(verifyCode, phone);
+					System.out.print("SMS result:" + result);
 					if(result.contains("success")){
 						httpSession.setAttribute("verifyCode", verifyCode);
 					}

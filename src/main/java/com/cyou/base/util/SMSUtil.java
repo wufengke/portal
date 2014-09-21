@@ -88,13 +88,13 @@ public class SMSUtil {
 			StringBuffer sb = new StringBuffer("http://m.5c.com.cn/api/send/?");
 			
 			// APIKEY
-			sb.append("apikey=419ef3e06ebf9b4aa977e59ca3b3ef37");
+			sb.append("apikey=").append(PropertyUtil.getProperty("apikey"));
 
 			//用户名
-			sb.append("&username=tiancheng");
+			sb.append("&username=").append(PropertyUtil.getProperty("username"));
 
 			// 向StringBuffer追加密码
-			sb.append("&password=tiancheng123");
+			sb.append("&password=").append(PropertyUtil.getProperty("password"));
 
 			// 向StringBuffer追加手机号码
 			sb.append("&mobile=").append(phone);

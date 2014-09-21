@@ -174,6 +174,7 @@
 		<!--添加头像开始-->
         <div class="box modifyPic TiZiAvatar">
            <s:form action ="imageUpload" namespace="/member" method="post" enctype ="multipart/form-data">
+           	<span><s:fielderror/></span>
            	<div>
            		<h4>请选择要上传的头像,仅支持image/bmp,image/png,image/gif,image/jpeg类型的图片,大小在200kb以内</h4>
            		<span  class="Validform_checktip fl Validform_wrong" id="imageUpload"></span>

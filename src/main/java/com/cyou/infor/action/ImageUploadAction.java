@@ -30,8 +30,9 @@ import com.cyou.register.service.UsersService;
 
 @Controller
 @Namespace(value = "/member")
-@InterceptorRefs(value = { @InterceptorRef(value="fileUpload",
-params={"maximumSize","1024000","allowedTypes","image/bmp,image/png,image/gif,image/jpeg"}),
+@InterceptorRefs(value = { 
+@InterceptorRef(value="fileUploadStack",
+params={"maximumSize","512000","allowedTypes","image/png,image/gif,image/jpeg"}),
 @InterceptorRef(value="defaultStack")})
 public class ImageUploadAction extends BaseAction {
 	private static final Logger logger = Logger.getLogger(ImageUploadAction.class);
