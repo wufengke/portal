@@ -6,14 +6,17 @@
  <title>9527在线课堂</title>
 <meta name="description" content="9527在线课堂登录界面" />
 <%@ include file="/common/JsCss.jsp" %>
+<script src="<%=basePath%>js/common.js"></script>
 </head>
 <body class="loginContainer">
 <jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
+<div class="loginBg">
+</div>
 <div class="wrap layout login">
 	<div class="loginWrap cf">
-		<div class="fl loginBgIco"></div>
 		<div class="loginBox fr">
+		    <div class="ft18 loginTitle">登&nbsp;&nbsp;录</div>
 			<s:form action="login/submit" cssClass="loginForm" method="post" onsubmit="return check(this);">
 				<br/>
 				<p id="msgInfo" class="msgInfo" style="color:red;"></p>
@@ -55,6 +58,10 @@
 	 			$("#msgInfo").html("");
 	 	 	}
 	 		getRememberInfo();
+	 	    adJustContent();
+	 	    $(window).resize(function () {
+	 	        adJustContent();
+	 	    });
 	 	});
 		function check(form){
 			var username = $("#username").val();
@@ -73,6 +80,16 @@
 			}
 			return true;
 		}
+		
+	    function adJustContent() {
+	        var win = $(window);
+	        var width = win.width();
+	        var height = win.height();
+	        var hh = $(".lhb_header").height();
+	        var fh = $(".footer").height();
+	        var loginH = height - hh - fh-40;
+	        $(".loginBg").height(loginH);
+	    }
 	 	
  	</script>
  	

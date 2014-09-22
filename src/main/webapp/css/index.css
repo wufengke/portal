@@ -1,4 +1,4 @@
-/* Í·²¿ÑùÊ½ */
+ï»¿/* å¤´éƒ¨æ ·å¼ */
 .lhb_header {
     height: 66px;
     border-bottom: 4px solid #000;
@@ -33,7 +33,7 @@
     vertical-align: middle;
 }
 
-/*µÇÂ¼ÑùÊ½*/
+/*ç™»å½•æ ·å¼*/
 .loginContainer {
     background-color: #eee;
 }
@@ -44,31 +44,41 @@
 
 .loginContainer .login {
     padding-bottom: 35px;
+    position: absolute;
+    top: 50px;
+}
+.loginBg {
+   background:url(../images/login/loginBg.jpg) no-repeat center center;
 }
 
 .login .loginWrap {
     margin: 0 auto;
     margin-top: 0px;
-    border-top: 3px solid #5297d7;
-    box-shadow: 2px 2px 6px rgba(6,7,7,.35),-2px 0 2px rgba(6,7,7,.35);
-    background: #fff;
     padding: 0 0 0 48px;
-    width: 776px;
-}
-
-.login .loginBgIco {
-    width: 322px;
-    height: 231px;
-    background: url(../images/loginadIco.png) no-repeat;
-    margin-top: 62px;
+    width: 576px;
 }
 
 .login .loginWrap .loginBox {
     border: 0;
     box-shadow: none;
     width: 345px;
-    padding: 46px 28px 12px 25px;
+    padding: 16px 28px 0px 35px;
+    background-image: url(../images/login/bg.png);
+    box-shadow: 2px 2px 6px rgba(6,7,7,.35),-2px 0 2px rgba(6,7,7,.35);
+    color:white;
 }
+    .login .loginWrap .loginBox .loginTitle {
+       text-align:center;
+       font-weight:bold;
+       font-size:25px;
+
+    }
+    .login .loginWrap .loginBox .title {
+      color:white;
+      font-size:18px;
+      float:left;
+      margin-right:10px;
+    }
 
 .login .loginWrap .msgInfo {
     height: 20px;
@@ -90,11 +100,12 @@
         font-size: 16px;
         height: 50px;
         line-height: 50px;
-        padding: 0 15px 0 55px;
+        padding: 0 15px 0 15px;
         display: block;
         border: 0;
-        width: 275px;
+        width: 255px;
         background: #f1f1f1;
+        border: 1px solid #6dcde6;
     }
 
 .loginInputBg {
@@ -313,7 +324,7 @@
             background-image: url(../images/hreturnTop.jpg);
             background-position: center 18px;
         }
-/*¸öÈËÖĞĞÄ*/
+/*ä¸ªäººä¸­å¿ƒ*/
 .studentMyCourse {
     padding: 35px 0 44px;
 }
@@ -540,7 +551,7 @@ a.jqTransformChecked {
 .studentMyCourse .inforTabBox form input.radio {
     width: auto;
 }
-/*¿Î³ÌÁĞ±í*/
+/*è¯¾ç¨‹åˆ—è¡¨*/
 .studentMyCourse .zb_top_tab {
     background: #fff;
     height: 37px;
@@ -620,7 +631,7 @@ a.jqTransformChecked {
     margin-left: 10px;
     background: #f0f0f0;
 }
-/*¿Î³ÌÏêÇé²¿·Ö*/
+/*è¯¾ç¨‹è¯¦æƒ…éƒ¨åˆ†*/
 .studentMyCourse .buyCourse {
     font-size: 14px;
     color: #333;
@@ -712,7 +723,7 @@ a.jqTransformChecked {
             text-decoration: line-through;
         }
 
-#soon_buy {
+#soon_buy,#have_buy {
     font-weight: normal;
     width: 100px;
     margin: 0;
@@ -849,7 +860,7 @@ a.jqTransformChecked {
     text-indent: 2em;
     margin-top: 16px;
 }
-/*Í·ÏñÉÏ´«²¿·Ö*/
+/*å¤´åƒä¸Šä¼ éƒ¨åˆ†*/
 .picup span.upcontainer {
     overflow: hidden;
     position: relative;
@@ -914,7 +925,7 @@ a.jqTransformChecked {
         width: 109px;
         cursor: pointer;
     }
-/*¶©µ¥*/
+/*è®¢å•*/
 .studentMyCourse .myOrderCon {
     font-size: 16px;
 }
@@ -1040,7 +1051,7 @@ a.jqTransformChecked {
 .studentMyCourse .tabBox tr a.blueText {
     font-size: 14px;
 }
-/*¶©µ¥ĞÅÏ¢*/
+/*è®¢å•ä¿¡æ¯*/
 .studentCourse .infoCheck {
     margin-bottom: 20px;
 }
@@ -1263,7 +1274,7 @@ a.jqTransformChecked {
         .studentCourse .toPay .orderForm p.last {
             font-size: 16px;
         }
-/*¶©µ¥ÏêÇé*/
+/*è®¢å•è¯¦æƒ…*/
 .studentMyCourse .myOrderCon .detailBox {
     border-width: 1px;
     border-style: solid;
@@ -1322,7 +1333,7 @@ a.jqTransformChecked {
 .studentMyCourse .orderDetail .tCon td, .studentMyCourse .tabBox tbody tr {
     border-bottom: 1px solid #d7d7d7;
 }
-/*¿Î³ÌÁĞ±í²¿·Ö*/
+/*è¯¾ç¨‹åˆ—è¡¨éƒ¨åˆ†*/
 .studentMyCourse .courseConList {
     margin-right: -35px;
 }
@@ -1440,7 +1451,7 @@ a.jqTransformChecked {
     line-height: 20px;
     margin-bottom: 10px;
 }
-/*ÁĞ±í¿Î³ÌÑùÊ½*/
+/*åˆ—è¡¨è¯¾ç¨‹æ ·å¼*/
 .studentMyCourse .newList {
     margin-top: 20px;
 }
@@ -1543,7 +1554,7 @@ a.jqTransformChecked {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-/*aboutÑùÊ½*/
+/*aboutæ ·å¼*/
 .about {
     padding: 35px 0;
 }
@@ -1584,21 +1595,7 @@ a.jqTransformChecked {
         border-top: 0;
         box-shadow: 0 -1px 1px #b9c7d7 inset;
     }
-	.about .aboutusBox {
-		padding: 18px 34px 38px 14px;
-		font-size: 12px;
-	}
-	.about .userhelpBox {
-	padding: 14px 20px 32px 12px;
-	font-size: 12px;
-	}
-	.about .contactusBox {
-		padding: 55px 0 77px 50px;
-	}
-	.aboutPage .serviceBox {
-	padding: 16px 36px 26px 18px;
-	font-size: 12px;
-	}
+
     .about .addUsBox {
         padding: 14px 18px 50px 12px;
         font-size: 12px;
@@ -1657,7 +1654,7 @@ a.jqTransformChecked {
             font-weight: bold;
             font-size: 20px;
         }
-/*×¢²á*/
+/*æ³¨å†Œ*/
 .layout {
     padding: 35px 0;
 }
@@ -1749,7 +1746,7 @@ a.jqTransformChecked {
     .login .regLeft img {
         margin: 50px 0px 20px 50px;
     }
-/*µ×²¿ÑùÊ½*/
+/*åº•éƒ¨æ ·å¼*/
 .footer {
     background: #252525;
     text-align: center;
