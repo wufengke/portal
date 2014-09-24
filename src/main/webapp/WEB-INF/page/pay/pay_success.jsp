@@ -6,7 +6,7 @@
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body style="background-color: white;">
-<jsp:include page="/head.jsp" />
+<jsp:include page="/head2.jsp" />
 <!-- 主要内容开始 -->
 <div class="wrap layout studentCourse" >
 	<div class="toPay">
