@@ -8,7 +8,7 @@
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body>
-<jsp:include page="/head.jsp" />
+<jsp:include page="/head2.jsp" />
     <!--notice-->
   <div class="wrap layout login">
         <div class="pwd">
