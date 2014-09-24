@@ -10,7 +10,40 @@
 </head>
 <body>
 <!-- 头部开始 -->
-<jsp:include page="/head2.jsp" />
+<div class="header">
+	<div class="headLogin">
+		<div class="layout headInfor">
+			<div class="fr headLoginBox">
+				<!--登录之前 开始-->
+                                <div class="loginBefor ">
+					<a href="javascript:void(0)" class="blueText commonLoginBtn">登录</a>
+					<span>|</span>
+					<a href="<%=basePath%>register" class="blueText">注册</a>
+				</div>
+				<!--登录之前 结束-->
+                				<!--登录之后 结束-->
+			</div>
+					</div>
+	</div>
+	<div class="headNav">
+		<div class="layout">
+			<!--那好 logo-->
+			<h1 class="fl"><a href="<%=basePath%>"></a></h1>
+			<!--那好 nav-->
+			<ul class="fl">
+				<li class="fl studentHomePage"><a href="<%=basePath%>">首页</a></li>
+				<li class="fl studentMyCourse"><a href="<%=basePath%>member/my_course">我的课程</a></li>
+				<li class="fl studentMyOrder"><a href="<%=basePath%>member/my_order/all">我的订单</a></li>
+				<!-- <li class="fl studentStudy"><a href="http://diaocha.tizi.com/survey/41" target="_blank">我要学习</a></li> -->
+			</ul>
+			<div class="fr headR">
+				<a href="javascript:vold(0);" class="phoneHref">400-864-8686</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <!-- 头部结束 -->
 <!-- 主要内容开始 -->
 <div class="wrap  login" id="nahaoModule" module="login" data_page="studentPage">

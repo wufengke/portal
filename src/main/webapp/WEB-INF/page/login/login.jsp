@@ -9,7 +9,7 @@
 <script src="<%=basePath%>js/common.js"></script>
 </head>
 <body class="loginContainer">
-<jsp:include page="/head2.jsp" />
+<jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
 <div class="loginBg">
 </div>

@@ -8,7 +8,7 @@
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body>
-<jsp:include page="/head2.jsp" />
+<jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
 <div class="wrap layout login" id="nahaoModule" module="login" data_page="studentPage">
 	<div class="pwd">

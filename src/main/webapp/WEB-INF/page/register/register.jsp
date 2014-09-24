@@ -8,7 +8,7 @@
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body>
-<jsp:include page="/head2.jsp" />
+<jsp:include page="/head.jsp" />
     <!--login-->
     <div class="wrap layout login" >
         <div class="regWrap cf">

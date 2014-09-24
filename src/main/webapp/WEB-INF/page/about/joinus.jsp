@@ -9,7 +9,7 @@
 <%@ include file="/common/JsCss.jsp" %>
 </head>
 <body class="aboutPage">
-<jsp:include page="/head2.jsp" />
+<jsp:include page="/head.jsp" />
 <!-- 主要内容开始 -->
 <div class="wrap layout about" id="nahaoModule" module="about" data_page="studentPage">
 
