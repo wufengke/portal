@@ -19,7 +19,7 @@
 		    <div class="ft18 loginTitle">登&nbsp;&nbsp;录</div>
 			<s:form action="login/submit" cssClass="loginForm" method="post" onsubmit="return check(this);">
 				<br/>
-				<p id="msgInfo" class="msgInfo" style="color:red;"></p>
+				<p id="msgInfo" class="msgInfo" style="color:white;"></p>
 				<ul>
 					<li class="posr">
 						<s:textfield id="username" name="username" value="%{#session.un}" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
@@ -51,9 +51,15 @@
   	<script type="text/javascript" src="<%=basePath %>js/cookie.js"></script>
  	<script type="text/javascript">
 	 	$(function(){
-	 		var url = window.location.href;
-	 		if(url.indexOf("error") != -1){
-	 			$("#msgInfo").html("用户名或者密码错误！");
+	 		//var url = window.location.href;
+	 		var error =$.getUrlParam("error");
+	 		if(error!=null)
+	 	    {
+	 		   if(error==1){
+	 			  $("#msgInfo").html("用户名或者密码错误！");
+	 		   }else if(error==2){
+	 			  $("#msgInfo").html("用户已被禁用！");
+	 		   }	
 	 		}else{
 	 			$("#msgInfo").html("");
 	 	 	}

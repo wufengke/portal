@@ -19,7 +19,7 @@
 				</s:else>
 			</p>
 			<h2 class="cf">
-				<span class="myGrade">
+				<span class="myGrade" style="display:inline-block;overflow:hidden;max-height:50px;">
 					<s:if test="#session.account.accountType != 1">
 						<s:property value="%{#session.user.classes}" />
 					</s:if>
@@ -27,7 +27,7 @@
 						讲师
 					</s:else>
 				</span>
-				<span>
+				<span style="max-width:130px;max-height:50px;display:inline-block;overflow:hidden;text-overflow:ellipsis">
 					<s:if test="#session.account.nickName != null">
 						<s:property value="%{#session.account.nickName}"/>
 					</s:if>

@@ -66,7 +66,8 @@ public class LoginAction extends BaseAction{
 	
 	@Action(value = "/login/submit", results = { 
 			@Result(name = SUCCESS, type="redirect", location = "/member/my_course"),
-			@Result(name = INPUT, type="redirect",location = "/login?error=1")})
+			@Result(name = INPUT, type="redirect",location = "/login?error=1"),
+			@Result(name = "FORBIDDEN", type="redirect",location = "/login?error=2")})
 	public String loginSubmit(){
 		try {
 			Account account = usersService.getAccount(username,new StrMD5(password).getResult());
@@ -74,6 +75,10 @@ public class LoginAction extends BaseAction{
 			if(account == null){
 				httpSession.setAttribute("un", username);
 				return INPUT;
+			}
+
+			if(account.isDisabled()){
+				return "FORBIDDEN";
 			}
 			httpSession.removeAttribute("un");
 			Users user = usersService.getUsersByUserId(account.getUserId());

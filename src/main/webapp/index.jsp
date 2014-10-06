@@ -4,7 +4,7 @@
 <head>
 <title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
-
+<script type="text/javascript" src="/js/jssor.slider.mini.js"></script>
 </head>
 <body>
 <!-- start of header -->
@@ -156,15 +156,11 @@
         </div>
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1920px; height: 440px; overflow: hidden;">
-            <div>
-                <img u="image" src="images/show/1.png" ></img>
-            </div>
-            <div>
-                <img u="image" src="images/show/3.png" ></img>
-            </div>
-            <div>
-                <img u="image" src="images/show/2.png" ></img>
-            </div>
+             <s:iterator value="#request.indexPicList" var="indexPic" status="s">
+	            <div>
+	                <img u="image" src="${indexPic.path}" ></img>
+	            </div>
+            </s:iterator>
         </div>
         <style>
             .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {

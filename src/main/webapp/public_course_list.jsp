@@ -4,8 +4,8 @@
 <head>
 <title>9527在线课堂</title>
 <%@ include file="/common/JsCss.jsp" %>
- <link href="/js/My97DatePicker/4.8/skin/WdatePicker.css" rel="stylesheet" type="text/css"></link>
- <script type="text/javascript" src="/js/My97DatePicker/4.8/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/js/jquery-ui-1.11.1/jquery-ui.min.css" />
+<script type="text/javascript" src="/js/jquery-ui-1.11.1/jquery-ui.min.js"></script>
 <style type="text/css">
 .studentMyCourse {
     padding-top: 10px;
@@ -101,11 +101,11 @@
                 <em class="zb_tab_tit">直播时间：</em>
                 <em class="zb_tab_tit">开始时间</em>
                 <div class="text_input_box">
-                    <input class="datepicker2 datepicker_ipt hasDatepicker" onclick="WdatePicker()" style="width: 90px;" name="startDate" id="sel_startDate" type="text" value="2014-09-12"></input>
+                    <input class="datepicker2 datepicker_ipt" style="width: 90px;" name="startDate" id="sel_startDate" type="text" value="2014-09-12"></input>
                 </div>
                 <em class="zb_tab_tit">结束时间</em>
                 <div class="text_input_box">
-                    <input class="datepicker2 datepicker_ipt hasDatepicker" onclick="WdatePicker()" style="width: 90px; z-index: 9999;" name="endDate" id="sel_endDate" type="text" value="2014-12-13"></input>
+                    <input class="datepicker2 datepicker_ipt" style="width: 90px; z-index: 9999;" name="endDate" id="sel_endDate" type="text" value="2014-12-13"></input>
                 </div>
             </div>
         </div>
@@ -176,24 +176,40 @@
     <!--end of my info -->
      <jsp:include page="/foot.jsp" />
  	<script type="text/javascript">
-      (function($){
-  		$.getUrlParam = function(name){
-  			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-  			var r = window.location.search.substr(1).match(reg);	
-  			if (r!=null) return unescape(r[2]); return null;
-  		}
-  	  })(jQuery);
      	$(function(){
      		initDate();
      		setParams();
+     		$( "#sel_startDate" ).datepicker({
+    			defaultDate: "+1w",
+    			changeMonth: true,
+    			numberOfMonths: 2,
+    			dateFormat: 'yy-mm-dd',
+    			onSelect:function()
+    			{
+    				onSelectChange();
+    			},
+    			onClose: function( selectedDate ) {
+    				$( "#sel_endDate" ).datepicker( "option", "minDate", selectedDate );
+    			}
+    		});
+    		$( "#sel_endDate" ).datepicker({
+    			defaultDate: "+1w",
+    			changeMonth: true,
+    			numberOfMonths: 2,
+    			dateFormat: 'yy-mm-dd',
+    			onSelect:function()
+    			{
+    				onSelectChange();
+    			},
+    			onClose: function( selectedDate ) {
+    				$( "#sel_startDate" ).datepicker( "option", "maxDate", selectedDate );
+    			}
+    		});
 			$("#search_level1 li").click(function(){
 				$(this).addClass("on");
 				$("#search_level1 li").not(this).removeClass("on");
-				var courseType = $("#search_level1 .on").attr("mid");
-				var priceType = $("#fix").attr("mid");
-				var startDate = $("#sel_startDate").val();
-	     		var endDate = $("#sel_endDate").val();
-	     		window.location.href = "<%=basePath%>public_online?courseType=" + courseType + "&priceType=" + priceType+ "&startDate=" + startDate + "&endDate=" + endDate;
+				
+				onSelectChange();
 			});     		
 			$("#search_jg a").click(function(){
 				$(this).removeClass("zb_unbg");
@@ -201,24 +217,19 @@
 				$("#search_jg a").not(this).addClass("zb_unbg");
 				$("#search_jg a").not(this).removeAttr("id");
 				
-				var courseType = $("#search_level1 .on").attr("mid");
-				var priceType = $("#fix").attr("mid");
-				var startDate = $("#sel_startDate").val();
-	     		var endDate = $("#sel_endDate").val();
-	     		window.location.href = "<%=basePath%>public_online?courseType=" + courseType + "&priceType=" + priceType+ "&startDate=" + startDate + "&endDate=" + endDate;
+				onSelectChange();
 			});     		
-			$("#sel_endDate").on("change",function(){
-				var courseType = $("#search_level1 .on").attr("mid");
-				var priceType = $("#fix").attr("mid");
-				var startDate = $("#sel_startDate").val();
-	     		var endDate = $("#sel_endDate").val();
-	     		window.location.href = "<%=basePath%>public_online?courseType=" + courseType + "&priceType=" + priceType+ "&startDate=" + startDate + "&endDate=" + endDate;
-			});
-			if($.getUrlParam('courseType')==null)
-			{
-			   $("search_level1 li:first-child").trigger("click");
-			}
      	});
+     	
+     	function onSelectChange()
+     	{
+     		var courseType = $("#search_level1 .on").attr("mid");
+			var priceType = $("#fix").attr("mid");
+			var startDate = $("#sel_startDate").val();
+     		var endDate = $("#sel_endDate").val();
+     		window.location.href = "<%=basePath%>public_online?courseType=" + courseType + "&priceType=" + priceType+ "&startDate=" + startDate + "&endDate=" + endDate;
+     	}
+     	
  		function addDate(dd,dadd){
 	 		var a = new Date(dd)
 	 		a = a.valueOf()
@@ -226,7 +237,7 @@
 	 		a = new Date(a)
 	 		return a;
  		}
- 		function initDate(){
+ 	   function initDate(){
  			var now = new Date();
      		var years = now.getFullYear();
      		var months = now.getMonth()+1;
@@ -239,7 +250,7 @@
      		var endDate = years+"-"+ months + "-" + days;
      		$("#sel_startDate").val(startDate);
      		$("#sel_endDate").val(endDate);
- 		}
+ 		} 
  		function setParams(){
  			var courseType = $.getUrlParam('courseType');
  			if(courseType != null){
@@ -263,10 +274,10 @@
  					}
  				});
  			}
-     		var startDate = $.getUrlParam('startDate');
+     		
+     	    var startDate = $.getUrlParam('startDate');
      		if(startDate != null){
      			$("#sel_startDate").val(startDate);
-	     		
      		}
      		var endDate = $.getUrlParam('endDate');
      		if(endDate != null){

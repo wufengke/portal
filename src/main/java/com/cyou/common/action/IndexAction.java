@@ -2,13 +2,16 @@ package com.cyou.common.action;
 
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.jms.Session;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -19,6 +22,8 @@ import org.springframework.stereotype.Controller;
 import com.cyou.base.bean.Account;
 import com.cyou.base.bean.Users;
 import com.cyou.common.util.DateUtils;
+import com.cyou.config.bean.IndexPic;
+import com.cyou.config.service.ConfigService;
 import com.cyou.core.action.BaseAction;
 import com.cyou.course.bean.Course;
 import com.cyou.course.bean.CourseDetail;
@@ -43,6 +48,8 @@ public class IndexAction extends BaseAction{
 	private CourseService courseService;
 	@Resource
 	private UsersService usersService;
+	@Resource
+	private ConfigService configService;
 	
 	private String courseType; 
 	
@@ -59,6 +66,9 @@ public class IndexAction extends BaseAction{
 			//List<Course> rollList = courseService.getRollCourseList();
 			httpServletRequest.setAttribute("courseList", courseList);
 			//httpServletRequest.setAttribute("rollList", rollList);
+			List<IndexPic> indexPicList=configService.GetUseableIndexPic();
+			httpServletRequest.setAttribute("indexPicList", indexPicList);
+			System.out.println("piclistSize:"+indexPicList.size());
 		} catch (Exception e) {
 			logger.error(e.getMessage(),e);
 			return INPUT;

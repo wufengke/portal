@@ -1,4 +1,4 @@
-ï»¿/* å¤´éƒ¨æ ·å¼ */
+/* Í·²¿ÑùÊ½ */
 .lhb_header {
     height: 66px;
     border-bottom: 4px solid #000;
@@ -33,7 +33,7 @@
     vertical-align: middle;
 }
 
-/*ç™»å½•æ ·å¼*/
+/*µÇÂ¼ÑùÊ½*/
 .loginContainer {
     background-color: #eee;
 }
@@ -324,7 +324,7 @@
             background-image: url(../images/hreturnTop.jpg);
             background-position: center 18px;
         }
-/*ä¸ªäººä¸­å¿ƒ*/
+/*¸öÈËÖĞĞÄ*/
 .studentMyCourse {
     padding: 35px 0 44px;
 }
@@ -551,7 +551,7 @@ a.jqTransformChecked {
 .studentMyCourse .inforTabBox form input.radio {
     width: auto;
 }
-/*è¯¾ç¨‹åˆ—è¡¨*/
+/*¿Î³ÌÁĞ±í*/
 .studentMyCourse .zb_top_tab {
     background: #fff;
     height: 37px;
@@ -631,7 +631,7 @@ a.jqTransformChecked {
     margin-left: 10px;
     background: #f0f0f0;
 }
-/*è¯¾ç¨‹è¯¦æƒ…éƒ¨åˆ†*/
+/*¿Î³ÌÏêÇé²¿·Ö*/
 .studentMyCourse .buyCourse {
     font-size: 14px;
     color: #333;
@@ -860,7 +860,7 @@ a.jqTransformChecked {
     text-indent: 2em;
     margin-top: 16px;
 }
-/*å¤´åƒä¸Šä¼ éƒ¨åˆ†*/
+/*Í·ÏñÉÏ´«²¿·Ö*/
 .picup span.upcontainer {
     overflow: hidden;
     position: relative;
@@ -925,7 +925,7 @@ a.jqTransformChecked {
         width: 109px;
         cursor: pointer;
     }
-/*è®¢å•*/
+/*¶©µ¥*/
 .studentMyCourse .myOrderCon {
     font-size: 16px;
 }
@@ -1051,7 +1051,7 @@ a.jqTransformChecked {
 .studentMyCourse .tabBox tr a.blueText {
     font-size: 14px;
 }
-/*è®¢å•ä¿¡æ¯*/
+/*¶©µ¥ĞÅÏ¢*/
 .studentCourse .infoCheck {
     margin-bottom: 20px;
 }
@@ -1274,7 +1274,7 @@ a.jqTransformChecked {
         .studentCourse .toPay .orderForm p.last {
             font-size: 16px;
         }
-/*è®¢å•è¯¦æƒ…*/
+/*¶©µ¥ÏêÇé*/
 .studentMyCourse .myOrderCon .detailBox {
     border-width: 1px;
     border-style: solid;
@@ -1333,7 +1333,7 @@ a.jqTransformChecked {
 .studentMyCourse .orderDetail .tCon td, .studentMyCourse .tabBox tbody tr {
     border-bottom: 1px solid #d7d7d7;
 }
-/*è¯¾ç¨‹åˆ—è¡¨éƒ¨åˆ†*/
+/*¿Î³ÌÁĞ±í²¿·Ö*/
 .studentMyCourse .courseConList {
     margin-right: -35px;
 }
@@ -1451,7 +1451,7 @@ a.jqTransformChecked {
     line-height: 20px;
     margin-bottom: 10px;
 }
-/*åˆ—è¡¨è¯¾ç¨‹æ ·å¼*/
+/*ÁĞ±í¿Î³ÌÑùÊ½*/
 .studentMyCourse .newList {
     margin-top: 20px;
 }
@@ -1554,7 +1554,7 @@ a.jqTransformChecked {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-/*aboutæ ·å¼*/
+/*aboutÑùÊ½*/
 .about {
     padding: 35px 0;
 }
@@ -1654,7 +1654,7 @@ a.jqTransformChecked {
             font-weight: bold;
             font-size: 20px;
         }
-/*æ³¨å†Œ*/
+/*×¢²á*/
 .layout {
     padding: 35px 0;
 }
@@ -1746,7 +1746,7 @@ a.jqTransformChecked {
     .login .regLeft img {
         margin: 50px 0px 20px 50px;
     }
-/*åº•éƒ¨æ ·å¼*/
+/*µ×²¿ÑùÊ½*/
 .footer {
     background: #252525;
     text-align: center;

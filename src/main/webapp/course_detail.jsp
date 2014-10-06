@@ -16,7 +16,6 @@
             <div class="buyHeadt">
                 <h2 title="${requestScope.c.courseTitle}">${requestScope.c.courseTitle}</h2>
                 <p title="${requestScope.c.courseBrief}">${requestScope.c.courseBrief}</p>
-
             </div>
             <div class="buyHeadf cf">
       			<div class="posr fl">
@@ -56,17 +55,9 @@
 	                            <span class="fl">立即报名</span>
 	                            <span class="fr"></span>
 	                        </a>
-							 <!--<a href="javascript:void(0);" class="fr btn greenBtn" id="have_buy" style="display:none;" >
-		                         <span class="fl">已购买</span>
-		                         <span class="fr"></span>
-		                    </a>-->
                        	</s:if>
 						<s:else>
-							<!--<a href="javascript:buy();" class="fr btn greenBtn" id="soon_buy" style="display:none;">
-	                            <span class="fl">立即报名</span>
-	                            <span class="fr"></span>
-	                        </a>-->
-							 <a href="<%=basePath%>member/my_course?tab=2" class="fr btn greenBtn" id="have_buy">
+							 <a style="width:80px;" href="<%=basePath%>member/my_order_pay" class="fr btn greenBtn" id="have_buy">
 		                         <span class="fl">已购买</span>
 		                         <span class="fr"></span>
 		                    </a>
@@ -76,23 +67,6 @@
                         </strong>
                     </p>
                 </div>
-                <!-- 
-                <div class="fr endTime">
-                    <div class="timeTitle">报名截止剩余时间</div>
-                    <div class="countdown"></div>
-                    <p class="cdp">仅剩 <span class="redText">  77 名额 </span>即售罄</p>
-                    <p class="prompt ensure">第二节课前可退全部学费</p>
-                    <p class="prompt retreat">未上课次可随时退款</p>
-                    <div class="bdsharebuttonbox share">
-                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-                        <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                        <a href="#" class="bds_more" data-cmd="more"></a>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
         <div class="cf">
@@ -127,30 +101,6 @@
                        ${requestScope.cd.courseDetailSummary }
                     </div>  
                 </div>
-                <!-- 课程评价
-                <div class="creview cBox">                    
-                    <a name="review"></a>
-                    <ul>
-                     </ul>
-                    <div class="fclick">
-                                            <div class="cf">
-                            <span class="fr allReview">所有评论（共2条）</span>
-                        </div>
-                                          
-                            <input type="hidden" id="product_id_xia" value="131"/>
-                            <a href="javascript:void(0);" class="btn redBtn applyBtn cf" id="soon_buy_xia">
-                            <span class="fl">
-                                ¥<strong>0</strong>
-                            </span>
-                            <span class="fr">
-                                <span>购买课程</span>
-                                <em>未上课次随时退款</em>
-                            </span>
-                        	</a>
-                            							
-                    </div>
-                </div>
-                -->
             </div>
             <!-- 购买前 右侧 -->
             <div class="buyRight fr">

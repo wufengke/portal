@@ -180,7 +180,10 @@
            		<span  class="Validform_checktip fl Validform_wrong" id="imageUpload"></span>
 			</div>
            	<div>
-           		<img src="http://www.phas.cn${imageUrl}" alt="头像" />
+           	   <s:if test="#imageUrl==null || #imageUrl==''">
+           	      <img src="<%=basePath %>images/touxiang.png" alt="头像" />
+           	   </s:if>
+           		<img src="<%=basePath %>${imageUrl}" alt="头像" />
            	</div>
           	 <div>
           	 	<s:file name ="myFile" label ="中图（172）"/> 
