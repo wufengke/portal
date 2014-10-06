@@ -78,6 +78,7 @@
 				<value>com.cyou.pay.bean.UserOrder</value>
 				<value>com.cyou.login.bean.PasswordResetRecord</value>
 				<value>com.cyou.about.bean.Feedback</value>
+				<value>com.cyou.config.bean.IndexPic</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
