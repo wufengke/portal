@@ -164,7 +164,7 @@
                      <div class="cf">
                          <div class="fl">
                              <input type="text" class="cInput phone_number" style="width: 150px;" value="" name="phoneVerifyCode" id="phoneVerifyCode" validname="text"/>
-                             <input type="button" id="verifyButton" class="btn greenBtn" style="margin: 0 0 0 10px; font-weight: normal; font-size: 14px; height: 32px; line-height: 32px;" value="获取手机验证码" />
+                             <input type="button" id="verifyButton" class="btn greenBtn" style="margin: 0 0 0 10px;width:160px; font-weight: normal; font-size: 14px; height: 32px; line-height: 32px;" value="获取手机验证码" />
                              <span class="Validform_checktip Validform_wrong">
                              		<s:fielderror name="phone_verifyCode_rror1" fieldName="phone_verifyCode_rror1"></s:fielderror>
                              </span>

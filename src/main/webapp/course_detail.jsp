@@ -50,7 +50,7 @@
                     <p class="fromf cf">
                         <span class="fl oldPrice">原价<span>￥0</span></span>
                        	<input type="hidden" id="product_id" value=""/>
-                       	<s:if test="#request.buyStatus == 1 && #request.lessionSchedule.size != 0">
+                       	<s:if test="#request.buyStatus == 1">
 	                       	<a href="javascript:buy();" class="fr btn greenBtn" id="soon_buy">
 	                            <span class="fl">立即报名</span>
 	                            <span class="fr"></span>

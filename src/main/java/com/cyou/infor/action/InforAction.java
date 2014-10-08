@@ -407,11 +407,14 @@ public class InforAction extends BaseAction{
 		try {
 			Account account = (Account) getFromSession("account");
 			if(account != null){
-				//是学生并且申请开课了跳回去
-				if("0".equals(account.getAccountType()) && "1".equals(account.getApplyStatus())){
+				//apply teacher
+				Users users = usersService.getUsersByUserId(account.getUserId());
+				//not a teacher and apply state is 1 and pass state is 0
+				if("0".equals(account.getAccountType()) && "1".equals(account.getApplyStatus())
+						&&"0".equals(users.getStatus())){
 					return "MY_INFOR";
 				}
-				Users users = usersService.getUsersByUserId(account.getUserId());
+
 				if(users != null){
 					setRealName(users.getRealName());
 					setGender(users.getSex());
@@ -546,7 +549,7 @@ public class InforAction extends BaseAction{
 					user.setIdCardNo(idCardNo);
 					user.setTeacherBrief(teacherBrief);
 					user.setUpdateTime(new Date());
-					user.setStatus(user.getStatus());
+					user.setStatus("0");
 					
 					if(usersService.updateUsers(user)){
 						setIntoSession(user);

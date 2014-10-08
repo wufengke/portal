@@ -49,7 +49,7 @@
 					<span class="hasVer">（已激活）</span>
 				</s:if>
 			</p>
-			<s:if test="#session.account.applyStatus == 0">
+			<s:if test="#session.account.applyStatus == 0 || #session.user.status=='-1'">
 				<input type="button" class="redBtn applyTeacher" style="cursor:pointer;" value="我是老师,我要开课！" />
 			</s:if>
 			<ul>
@@ -89,12 +89,47 @@
 				</li>
 				<li>
 					<p class="optional noFillin">性别</p>
-					<div class="cf">
-						<div class="fl">
-							<s:radio name="gender" validName="radio"  ignore="ignore" cssClass="radio"  list="#{'1':'男','0':'女'}" listKey="key" listValue="value" value="gender"/>
-                        </div>
-						<span class="Validform_checktip fl"></span>
-					</div>
+                     <div class="cf">
+                         <div class="fl">
+                         <s:if test='#request.gender == "0"'>
+                         	<span class="jqTransformRadioWrapper">
+                             	<a href="javascript:;" class="jqTransformRadio " rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender1" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender1" class="radio" style="cursor: pointer;">男</label>
+                              <span class="jqTransformRadioWrapper">
+                             	 <a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender0"  checked="checked" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                         </s:if>
+                         <s:elseif test='#request.gender == "1"'>
+                         	<span class="jqTransformRadioWrapper">
+                             	<a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender1" checked="checked" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender1" class="radio" style="cursor: pointer;">男</label>
+                              <span class="jqTransformRadioWrapper">
+                             	 <a href="javascript:;" class="jqTransformRadio" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender0" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                         </s:elseif>
+                         <s:else>
+                        	 <span class="jqTransformRadioWrapper">
+                             	<a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender1" checked="checked" value="1" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender1" class="radio" style="cursor: pointer;">男</label>
+                              <span class="jqTransformRadioWrapper">
+                             	 <a href="javascript:;" class="jqTransformRadio" rel="gender"></a>
+                                 <input type="radio" name="gender" id="save_infor_gender0" value="0" class="radio jqTransformHidden" validname="radio" ignore="ignore" />
+                              </span>
+                              <label for="save_infor_gender0" class="radio" style="cursor: pointer;">女</label>
+                         </s:else>
+                             <span class="cf"></span>
+                         </div>
+                     </div>
 				</li>
 				<li>
 					<p class="optional noFillin">手机号</p>
