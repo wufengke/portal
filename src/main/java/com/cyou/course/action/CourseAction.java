@@ -127,7 +127,7 @@ public class CourseAction extends BaseAction{
 	@Resource
 	private ApplyTeachService applyTeachService;
 	@Action(value = "/my_podium_newclass_add", results = { 
-			@Result(name = SUCCESS, type="redirect",location = "/member/my_podium_newclass"),
+			@Result(name = SUCCESS, type="redirect",location = "/member/my_podium_newclass?info=s"),
 			@Result(name = LOGIN, type="redirect",location = "/login"),
 			@Result(name = INPUT, location = "/WEB-INF/page/course/my_podium_newclass.jsp")})
 	public String myPodiumNewClassAdd(){
@@ -150,6 +150,7 @@ public class CourseAction extends BaseAction{
 			at.setSchoolId(0);
 			at.setStage("no");
 			at.setTeachYears(0);
+			at.setStatus(0);
 			Date d = new Date();
 			at.setCreateTime(d);
 			at.setUpdateTime(d);

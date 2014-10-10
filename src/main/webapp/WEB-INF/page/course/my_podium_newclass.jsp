@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/common/JsCss.jsp" %>
  <script type="text/javascript" src="/js/My97DatePicker/4.8/WdatePicker.js"></script>
+ <script type="text/javascript" src="/js/common.js"></script>
 </head>
 <body class="myCoursePage">
 <jsp:include page="/head.jsp" />
@@ -181,6 +182,10 @@
             }
         });
     });
+	if($.getUrlParam("info")=="s")
+	{
+	  alert("已提交公开课程申请，请等待管理人员审核");
+	}
 </script>
 </body>
 </html>

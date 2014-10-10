@@ -356,25 +356,30 @@
 	<s:else>
 		<div class="inforTabBox atareditorBox undis">
 	</s:else>
-		<!--添加头像开始-->
+        <!--添加头像开始-->
         <div class="box modifyPic TiZiAvatar">
            <s:form action ="teacherImageUpload" namespace="/member" method="post" enctype ="multipart/form-data">
            	<span><s:fielderror/></span>
            	<div>
-           		<h4>请选择要上传的头像,仅支持image/bmp,image/png,image/gif,image/jpeg类型的图片,大小在200kb以内</h4>
+           		<p class="formName">上传头像</p>
            		<span  class="Validform_checktip fl Validform_wrong" id="imageUpload"></span>
 			</div>
            	<div>
-           		<img src="http://www.phas.cn${imageUrl}" alt="头像" />
+           	   <s:if test="#imageUrl==null || #imageUrl==''">
+           	      <img src="<%=basePath %>images/touxiang.png" alt="头像" />
+           	   </s:if>
+           		<img src="<%=basePath %>${imageUrl}" alt="头像" />
            	</div>
           	 <div>
           	 	<s:file name ="myFile" label ="中图（172）"/> 
           	 </div>
-           		<s:submit name="" value="确定上传"></s:submit>
-           		  
+           		<s:submit name="" class="btn greenBtn" value="确定上传"></s:submit>
+           	 <div style="line-height:30px;padding:20px 0;">
+           	 <h4>仅支持image/bmp,image/png,image/gif,image/jpeg类型的图片,大小在200kb以内</h4>
+           	 </div>	  
            </s:form>
         </div>
-        
+
         <!--添加头像结束-->
 	</div>
 </div>
