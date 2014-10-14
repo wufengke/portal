@@ -67,7 +67,6 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
 <jsp:include page="/right_side.jsp" />
 </body>
 </html>

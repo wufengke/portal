@@ -1,32 +1,44 @@
 /* 头部样式 */
 .lhb_header {
-    height: 66px;
+	width: 100%;
+    height: 6em;
     border-bottom: 4px solid #000;
     background: #252525;
     position: relative;
     z-index: 1000;
+    overflow: hidden;
 }
 
 .lhb_logo {
-    margin-top: 18px;
+	width: 20%;
+    margin-top: 15px;
+    float: left;
 }
-
+.lhb_mn{
+	width: 55%;
+	float: left;
+}
 .lhb_mn li {
     float: left;
-    height: 66px;
+    width:4em;
+    height: 4em;
     margin-left: 60px;
+    text-align: center;
 }
 
     .lhb_mn li a {
         display: inline-block;
-        height: 66px;
-        line-height: 66px;
+        height: 3.8em;
+        line-height: 3.8em;
     }
 
         .lhb_mn li a:hover, .lhb_mn li a.sel {
             border-bottom: 4px solid #3b82c4;
         }
-
+.lhb_login{
+	float: left;
+	margin-left: 6%;
+}
 .lhb_login a {
     display: inline-block;
     line-height: 30px;
@@ -44,41 +56,31 @@
 
 .loginContainer .login {
     padding-bottom: 35px;
-    position: absolute;
-    top: 50px;
-}
-.loginBg {
-   background:url(../images/login/loginBg.jpg) no-repeat center center;
 }
 
 .login .loginWrap {
     margin: 0 auto;
     margin-top: 0px;
+    border-top: 3px solid #5297d7;
+    box-shadow: 2px 2px 6px rgba(6,7,7,.35),-2px 0 2px rgba(6,7,7,.35);
+    background: #fff;
     padding: 0 0 0 48px;
-    width: 576px;
+    width: 776px;
+}
+
+.login .loginBgIco {
+    width: 322px;
+    height: 231px;
+    background: url(../images/loginadIco.png) no-repeat;
+    margin-top: 62px;
 }
 
 .login .loginWrap .loginBox {
     border: 0;
     box-shadow: none;
     width: 345px;
-    padding: 16px 28px 0px 35px;
-    background-image: url(../images/login/bg.png);
-    box-shadow: 2px 2px 6px rgba(6,7,7,.35),-2px 0 2px rgba(6,7,7,.35);
-    color:white;
+    padding: 46px 28px 12px 25px;
 }
-    .login .loginWrap .loginBox .loginTitle {
-       text-align:center;
-       font-weight:bold;
-       font-size:25px;
-
-    }
-    .login .loginWrap .loginBox .title {
-      color:white;
-      font-size:18px;
-      float:left;
-      margin-right:10px;
-    }
 
 .login .loginWrap .msgInfo {
     height: 20px;
@@ -100,12 +102,11 @@
         font-size: 16px;
         height: 50px;
         line-height: 50px;
-        padding: 0 15px 0 15px;
+        padding: 0 15px 0 55px;
         display: block;
         border: 0;
-        width: 255px;
+        width: 275px;
         background: #f1f1f1;
-        border: 1px solid #6dcde6;
     }
 
 .loginInputBg {
@@ -148,9 +149,9 @@
 }
 
 .login .pwd .findType, .login .pwd .setSuccess, .login .pwd .setNewpwd {
-    padding-top: 70px;
+    padding-top: 79px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
 }
 
 .login .pwd .box {
@@ -158,6 +159,7 @@
     margin: 0 auto;
     background-color: #fff;
     width: 763px;
+    height: 300px;
 }
 
     .login .pwd .box h2 {
@@ -300,10 +302,9 @@
     .floatBox .ansQue {
         background-image: url(../images/ansQue.jpg);
     }
-
-        .floatBox .ansQue:hover {
-            background-image: url(../images/hansQue.jpg);
-        }
+    .floatBox .ansQue:hover {
+        background-image: url(../images/hansQue.jpg);
+    }
 
     .floatBox .feedback {
         background-image: url(../images/feedback.jpg);
@@ -320,10 +321,10 @@
         background-position: center 18px;
     }
 
-        .floatBox .returnTop:hover {
-            background-image: url(../images/hreturnTop.jpg);
-            background-position: center 18px;
-        }
+    .floatBox .returnTop:hover {
+        background-image: url(../images/hreturnTop.jpg);
+        background-position: center 18px;
+    }
 /*个人中心*/
 .studentMyCourse {
     padding: 35px 0 44px;
@@ -1415,7 +1416,7 @@ a.jqTransformChecked {
     font-size: 20px;
 }
 
-.studentMyCourse #sendCode, .studentMyCourse #enterClass {
+.studentMyCourse #sendCode,.studentMyCourse #enterClass {
     width: 250px;
     height: 50px;
     font-size: 20px;
@@ -1748,12 +1749,14 @@ a.jqTransformChecked {
     }
 /*底部样式*/
 .footer {
+	width: 100%;
     background: #252525;
     text-align: center;
     font-size: 12px;
     color: #fff;
     padding: 20px 0 16px;
     font-family: 'Microsoft YaHei';
+    /*position: fixed;*/
 }
 
     .footer .ftNav span {
@@ -1773,3 +1776,98 @@ a.jqTransformChecked {
     .footer .fbSpan {
         margin-right: 3px;
     }
+
+
+#wraper{
+	width: 100%;
+	height: 59em;
+	display: -webkit-box;
+	background: url(../images/login/loginBg.jpg) no-repeat center 0;
+}
+.dl_w{
+	width: 980px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top: 120px;
+}
+.dl{
+	width:480px;
+	height: 25em;
+	background-color: rgba(0, 0, 0, 0.4);
+	-webkit-border-radius:3px;
+	filter:alpha(opacity=50);
+	z-index: 1000;
+	position: relative;
+}
+.dl h3{
+	font-size: 28px;
+	color: #fff;
+	opacity: 2;
+	text-align: center;
+	padding-top: 15px;
+}
+.dl form{
+	color: #fff;
+	font-size: 17px;
+	margin-left: 25px;
+}
+.mi{
+	float: left;
+}
+.dl .zh{
+	width: 300px;
+	height: 30px;
+	padding-left: 10px;
+	margin-top: 20px;
+	font-size: 14px;
+}
+.dl form a{
+	font-size: 12px;
+	color: #fff;
+	margin-top: -2px;
+	float: right;
+	margin-left: 5px;
+	text-decoration: underline;
+}
+
+.dl button a{
+	font-size:16px;
+	color:#fff;
+	margin-top:0px;
+	float:none;
+	margin-left:0px;
+	text-decoration:none;
+}
+
+.dl form span{
+	margin-top: 20px;
+}
+#jz{
+	float: left;
+	margin-left: 65px;
+}
+#wj{
+	float: right;
+	margin-right: 100px;
+}
+.dl_zc{
+	margin-top: 30px;
+	margin-left: -20px;
+}
+.dl .button{
+	width: 120px;
+	height: 35px;
+	margin-top: 40px;
+	border: none;
+	margin-left: 80px;
+	color: #fff;
+	font-size: 16px;
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow:0px 1px 2px #000 inset;
+}
+#dl_dl{
+	background: #3A7FBF;
+}
+#zc{
+	background: #83BAE9;
+}

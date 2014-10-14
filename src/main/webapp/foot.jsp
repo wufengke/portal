@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp" %>
 <!-- 底部开始 -->
-<div class="footer">
+<div class="footer" style="background: -webkit-linear-gradient(top, #252525, #666);height: 7.6em;">
 	<div class="ftNav">
 		<a href="<%=basePath%>index">9527首页</a>
 		<span> | </span>

@@ -268,7 +268,6 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
 <script src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
 <script src="<%=basePath %>online/lib/kindeditor/4.1.10/kindeditor.js"></script>
 <script type="text/javascript">

@@ -67,7 +67,6 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
  	<script type="text/javascript" src="<%=basePath %>online/lib/jquery/1.8.2/jquery.js"></script>
  	<script type="text/javascript">
  	 	(function($){

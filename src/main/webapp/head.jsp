@@ -5,7 +5,7 @@
         <div class="w980 fc">
             <div class="lhb_logo fl">
                 <a href="/">
-                    <img src="<%=basePath %>images/logo.png" width="200" height="40" alt="酷学网" /></a>
+                    <img src="<%=basePath %>images/logo.png" width="200" height="40" alt="9527在线课堂" /></a>
             </div>
             <ul class="lhb_mn ft18 link_white tdno fl">
                 <li class="fl"><a href="<%=basePath%>index">首页</a></li>

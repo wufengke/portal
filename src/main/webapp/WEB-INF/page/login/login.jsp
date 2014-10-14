@@ -11,37 +11,22 @@
 <body class="loginContainer">
 <jsp:include page="/head2.jsp" />
 <!-- 主要内容开始 -->
-<div class="loginBg">
-</div>
-<div class="wrap layout login">
-	<div class="loginWrap cf">
-		<div class="loginBox fr">
-		    <div class="ft18 loginTitle">登&nbsp;&nbsp;录</div>
+<div id="wraper">
+	<div class="dl_w">
+		<div class="dl">
+		    <h3 class="ft18 loginTitle">登&nbsp;&nbsp;&nbsp;录</h3>
 			<s:form action="login/submit" cssClass="loginForm" method="post" onsubmit="return check(this);">
-				<br/>
-				<p id="msgInfo" class="msgInfo" style="color:white;"></p>
-				<ul>
-					<li class="posr">
-						<s:textfield id="username" name="username" value="%{#session.un}" cssClass="userName yh" autocomplete="off" placeholder="手机号/邮箱" />
-						<div class="unBg loginInputBg"></div>
-					</li>
-					<li class="posr">
-						<s:password id="password" name="password" value="" autocomplete="off" cssClass="pwd yh" placeholder="密码"/>
-						<div class="pwdBg loginInputBg"></div>
-					</li>
-                    <input type="hidden" name="redirect_url" value="<%=basePath%>register" ></input>
-					<li class="cf autoLi posr">
-						<input type="checkbox" checked name="rembme" id="autoLogin" class="fl autoLogin"/>
-						<label for="autoLogin" class="fl">记住用户名</label>
-						<a href="<%=basePath%>login/find_pwd_way2_step1" class="fr">忘记密码？</a>
-					</li>
-					<li>
-						<input type="submit" class="greenBtn yh btn submit" value="登录"/>
-					</li>
-					<li class="link_white">
-						<a href="<%=basePath%>register" class=" btn blueBtn">快速注册</a>
-					</li>
-				</ul>
+				帐&nbsp;&nbsp;号：<s:textfield id="username" name="username" value="%{#session.un}" cssClass="userName yh zh" autocomplete="off" placeholder="请输入您的帐号...." />
+				<br />
+				密&nbsp;&nbsp;码：<s:password id="password" name="password" value="" autocomplete="off" cssClass="pwd yh zh" placeholder="请输入您的密码..."/>
+				<span id="jz"><input type="checkbox" checked name="rembme" id="autoLogin" class="fl autoLogin mi"/>
+				<a href="javascript:;">记住密码</a>
+				</span>
+				<span id="wj"><a href="<%=basePath%>login/find_pwd_way2_step1" >忘记密码？</a></span>
+				<div class="dl_zc">
+        		   <input type="submit" id="dl_dl" class="button" value="登&nbsp;&nbsp;录"/>
+        		   <button id="zc" class="button"><a href="<%=basePath%>register" style="color: #fff;">注&nbsp;&nbsp;册</a></button>
+        	    </div>
 			</s:form>
 		</div>
 	</div>
@@ -56,13 +41,11 @@
 	 		if(error!=null)
 	 	    {
 	 		   if(error==1){
-	 			  $("#msgInfo").html("用户名或者密码错误！");
+	 			  alert("用户名或者密码错误！");
 	 		   }else if(error==2){
-	 			  $("#msgInfo").html("用户已被禁用！");
+	 			  alert("用户已被禁用！");
 	 		   }	
-	 		}else{
-	 			$("#msgInfo").html("");
-	 	 	}
+	 		}
 	 		getRememberInfo();
 	 	    adJustContent();
 	 	    $(window).resize(function () {

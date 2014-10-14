@@ -215,7 +215,6 @@
 </div>
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
- <jsp:include page="/login_pop.jsp" />
 <div id="resetSchoolPop" class="pop_box undis">
     <div id="teacherSetSchool">
         <div class="pop_main resetSchoolPopCon_beta">
