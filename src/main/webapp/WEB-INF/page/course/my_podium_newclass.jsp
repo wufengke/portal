@@ -56,7 +56,7 @@
                 </div>
                  <div class="inforTabBox">
                     <!--邮箱版-->
-                    <s:form action="my_podium_newclass_add" method="post" class="emailForm posr" namespace="/member" >
+                    <s:form action="my_podium_newclass_add" method="get" class="emailForm posr" namespace="/member" >
                         <p class="formName">
                         	    请填写课程信息<span class="ft14">(以下信息会严格保密,请放心填写)</span>
                         </p>
@@ -66,11 +66,11 @@
                                 <div class="cf">
                                     <div class="fl">
                                         <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio jqTransformChecked" rel="students"></a>
-                                            <input type="radio" name="teachType" id="Radio1" checked="checked" value="一对一" class="radio jqTransformHidden" validname="radio" ignore="ignore"></span><label for="save_infor_gender1" class="radio" style="cursor: pointer;">一对一</label>
+                                            <input type="radio" name="teachType" id="Radio1" checked="checked" value="一对一" class="radio jqTransformHidden" validname="radio" ignore="ignore"/></span><label for="save_infor_gender1" class="radio" style="cursor: pointer;">一对一</label>
                                         <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="students"></a>
-                                            <input type="radio" name="teachType" id="Radio2" value="15人以内" class="radio jqTransformHidden" validname="radio" ignore="ignore"></span><label for="save_infor_gender0" class="radio" style="cursor: pointer;">15人以内</label>
+                                            <input type="radio" name="teachType" id="Radio2" value="15人以内" class="radio jqTransformHidden" validname="radio" ignore="ignore" /></span><label for="save_infor_gender0" class="radio" style="cursor: pointer;">15人以内</label>
                                         <span class="jqTransformRadioWrapper"><a href="javascript:;" class="jqTransformRadio" rel="students"></a>
-                                            <input type="radio" name="teachType" id="Radio3" value="15人-50人" class="radio jqTransformHidden" validname="radio" ignore="ignore"></span><label for="save_infor_gender0" class="radio" style="cursor: pointer;">15人-50人</label>
+                                            <input type="radio" name="teachType" id="Radio3" value="15人-50人" class="radio jqTransformHidden" validname="radio" ignore="ignore" /></span><label for="save_infor_gender0" class="radio" style="cursor: pointer;">15人-50人</label>
                                         <span class="cf"></span>
                                     </div>
                                 </div>

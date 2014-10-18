@@ -357,7 +357,7 @@
 		<div class="inforTabBox atareditorBox undis">
 	</s:else>
         <!--添加头像开始-->
-        <div class="box modifyPic TiZiAvatar">
+        <div class="box modifyPic TiZiAvatar" style="text-align: center;">
            <s:form action ="teacherImageUpload" namespace="/member" method="post" enctype ="multipart/form-data">
            	<span><s:fielderror/></span>
            	<div>
@@ -365,10 +365,12 @@
            		<span  class="Validform_checktip fl Validform_wrong" id="imageUpload"></span>
 			</div>
            	<div>
-           	   <s:if test="#imageUrl==null || #imageUrl==''">
+           	   <s:if test="imageUrl==null || imageUrl==''">
            	      <img src="<%=basePath %>images/touxiang.png" alt="头像" />
            	   </s:if>
-           		<img src="<%=basePath %>${imageUrl}" alt="头像" />
+           	    <s:else>
+           	     <img src="<%=basePath %>${imageUrl}" alt="头像" />
+           	   </s:else>
            	</div>
           	 <div>
           	 	<s:file name ="myFile" label ="中图（172）"/> 
