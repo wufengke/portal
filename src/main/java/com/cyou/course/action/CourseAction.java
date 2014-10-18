@@ -15,6 +15,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
 import com.cyou.base.bean.Account;
+import com.cyou.base.bean.Users;
 import com.cyou.common.util.DateUtils;
 import com.cyou.core.action.BaseAction;
 import com.cyou.course.bean.Course;
@@ -133,7 +134,7 @@ public class CourseAction extends BaseAction{
 	public String myPodiumNewClassAdd(){
 		
 		Account account = (Account) getFromSession("account");
-		
+		Users user = (Users) getFromSession("user");
 		if(account != null){
 			ApplyTeach at = new ApplyTeach();
 			at.setUserId(account.getAccountId());
@@ -144,13 +145,17 @@ public class CourseAction extends BaseAction{
 			at.setEndTime(endTime);
 			at.setCourseName(courseName);
 			at.setCourseBrief(courseBrief);
-			at.setRealName("no");
+			at.setRealName(user.getRealName());
 			at.setAge(0);
-			at.setGender("0");
-			at.setSchoolId(0);
-			at.setStage("no");
-			at.setTeachYears(0);
+			at.setGender(user.getSex());
+			at.setSchoolId(user.getSchoolId());
+			at.setStage(user.getStage());
+			at.setTeachYears(user.getTeachYear());
 			at.setStatus(0);
+			at.setTeacherTitle(user.getTeacherTitle());
+			at.setPhone(user.getPhone());
+			at.setEmail(account.getUsername());
+			at.setQq(user.getQq());
 			Date d = new Date();
 			at.setCreateTime(d);
 			at.setUpdateTime(d);

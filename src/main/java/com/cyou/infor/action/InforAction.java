@@ -438,6 +438,7 @@ public class InforAction extends BaseAction{
 					setTeacherBrief(users.getTeacherBrief());
 					setCity(users.getCityId());
 					setProvince(users.getProvinceId());
+					setImageUrl(users.getImageUrl());
 					if(getFromSession("user") == null){
 						setIntoSession(users);
 					}
