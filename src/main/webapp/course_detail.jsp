@@ -112,7 +112,7 @@
 	                        		<img src="<%=basePath%>images/default_avatar.png?v=v1.01" alt="" class="head"/>
 	                        	</s:if>
 	                        	<s:else>
-	                        		<img src="www.phas.cn${user.imageUrl }" alt="头像" class="head"/>
+	                        		<img src="http://class.agaokao.com${user.imageUrl }" alt="头像" class="head"/>
 	                        	</s:else>
 	                            <div class="headR">
 	                                <div class="teaDetail">

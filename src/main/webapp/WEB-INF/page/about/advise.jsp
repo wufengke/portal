@@ -87,7 +87,7 @@
 	 		var url = window.location.href;
 	 		if(url.indexOf("error") != -1){
 	 			if(confirm("您的建议已经提交，点击【确定】跳转到首页")){
-					window.location.href="wwww.phas.cn/index";
+					window.location.href="http://class.agaokao.com/index";
 		 		}
 	 		}
 	 	});

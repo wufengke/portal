@@ -76,7 +76,7 @@
 											</p>
 										</div>
 									</div>
-									<a href="http://classroom.demo.cn/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
+									<a href="http://meeting.agaokao.com/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
 								</li>
 							</s:iterator>
 						</ul>

@@ -269,7 +269,7 @@
 										<img src="<%=basePath%>images/default_avatar.png?v=v1.01" alt="头像" class="fl"></img>
 									</s:if>
 									<s:else>
-										<img src="http://www.phas.cn${course.userImageUrl}" alt="头像" class="fl"></img>
+										<img src="http://class.agaokao.com${course.userImageUrl}" alt="头像" class="fl"></img>
 									</s:else>
 	                                <div class="fl teaInforR">
 	                                    <h3 class="cf">

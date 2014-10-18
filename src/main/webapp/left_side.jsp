@@ -8,7 +8,7 @@
 			<p class="memberImg">
 				<s:if test="#session.user != null">
 					<s:if test="#session.user.imageUrl != null && #session.user.imageUrl != ''">
-						<img src="http://www.phas.cn${sessionScope.user.imageUrl }" alt="头像" class="head"/>
+						<img src="http://class.agaokao.com${sessionScope.user.imageUrl }" alt="头像" class="head"/>
 	               	</s:if>
 	               	<s:else>
 	               		<img src="<%=basePath%>images/default_avatar.png?v=v1.01" />
