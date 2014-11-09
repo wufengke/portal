@@ -43,6 +43,7 @@
     display: inline-block;
     line-height: 30px;
     vertical-align: middle;
+    overflow:hidden;
     max-width:100px;
     text-overflow:ellipsis;
 }
