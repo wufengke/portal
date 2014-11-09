@@ -242,13 +242,6 @@
 <!-- 主要内容结束 -->
  <jsp:include page="/foot.jsp" />
  <script type="text/javascript">
- 	(function($){
-		$.getUrlParam = function(name){
-			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);	
-			if (r!=null) return unescape(r[2]); return null;
-		}
-	})(jQuery);
  	$(function(){
 		var tab = $.getUrlParam('tab');
 		var error = $.getUrlParam('error');
@@ -272,8 +265,7 @@
 			$(".tabh li").toggleClass("inforOn");
 			if(error == 1){
 				$("#imageUpload").html("请选择您要上传的图像");
-			}
-			if(error == 2){
+			}else if(error == 2){
 				$("#imageUpload").html("请先完善您的个人资料页信息");
 			}
 		}

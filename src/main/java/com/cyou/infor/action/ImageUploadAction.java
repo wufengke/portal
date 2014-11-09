@@ -49,7 +49,6 @@ public class ImageUploadAction extends BaseAction {
 			@Result(name =SUCCESS, type="redirect",location = "/member/my_infor?tab=3"),
 			@Result(name =INPUT, type="redirect",location = "/member/my_infor?error=1&tab=3"),
 			@Result(name ="COMPLETE", type="redirect",location = "/member/my_infor?error=2&tab=3"),
-			@Result(name ="NOUSER", type="redirect",location = "/member/my_infor?error=3&tab=3"),
 			@Result(name =LOGIN,type="redirect", location = "/login"),
 			})
 	public String imageUpload() {
@@ -60,7 +59,7 @@ public class ImageUploadAction extends BaseAction {
 				if(user != null){
 					if(!user.getUserId().equals(null)&&!user.getUserId().equals(""))
 					{
-						return "NOUSER";
+						return "COMPLETE";
 					}
 					if (myFile == null || myFile.size() <= 0 )  {
 						if(StringUtils.isNotBlank(user.getImageUrl())){
