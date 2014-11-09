@@ -44,7 +44,7 @@
 						<li class="fl hasCourse  posr">
 							<div class="courseFree"></div>
 							<h3 title="${c.courseTitle }">${c.courseTitle }</h3>
-							<a href="" ><img src="${c.mediumImageUrl }" alt="" title="${c.courseTitle }" class="cover" /></a>
+							<a href="javascript:;" ><img src="${c.mediumImageUrl }" alt="" title="${c.courseTitle }" class="cover" /></a>
 							<div class="progress">
 								<span class="bar" style="width:100%"></span>
 							</div>
@@ -67,10 +67,10 @@
 								</s:else>
 							</div>
 							<s:if test="#c.isOver == 1">
-								<a href="#" class="btn blueBtn"  target="_self">已经结束</a>				
+								<a href="javascript:;" class="btn blueBtn"  target="_self">已经结束</a>				
 							</s:if>
 							<s:else>
-								<a href="http://meeting.agaokao.com/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
+								<a href="http://classroom.agaokao.com/demo2.jsp?action=create&meetingID=${c.courseId}&username=${sessionScope.account.username}" class="btn blueBtn"  target="_blank">进入课程</a>				
 							</s:else>
 						</li>
 					</s:iterator>

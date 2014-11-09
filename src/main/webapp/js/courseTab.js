@@ -72,7 +72,7 @@ $(document).ready(function () {
     });
     $("#enterClass").click(function () {
     	var userId = $("#userId").val();
-    	var classroom = "http://meeting.agaokao.com/demo3.jsp?action=create&username="+ userId + "&password=111&meetingID=111";
+    	var classroom = "http://classroom.agaokao.com/demo3.jsp?action=create&username="+ userId + "&password=111&meetingID=111";
     	window.location.href = classroom;
     });
     
@@ -87,7 +87,7 @@ $(document).ready(function () {
     		alert("请输入老师发给你您的课程密码");
     		return ;
     	}
-    	var classroom = "http://meeting.agaokao.com/demo3.jsp?action=join&username="+ userId + "&password=111&meetingID=111&code=" + code;
+    	var classroom = "http://classroom.agaokao.com/demo3.jsp?action=join&username="+ userId + "&password=111&meetingID=111&code=" + code;
     	window.location.href = classroom;
     });
     

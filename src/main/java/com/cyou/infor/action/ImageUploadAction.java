@@ -46,7 +46,7 @@ public class ImageUploadAction extends BaseAction {
     private UsersService usersService;
     
 	@Action(value = "/imageUpload", results = { 
-			@Result(name =SUCCESS, type="redirect",location = "/member/my_infor"),
+			@Result(name =SUCCESS, type="redirect",location = "/member/my_infor?tab=3"),
 			@Result(name =INPUT, type="redirect",location = "/member/my_infor?error=1&tab=3"),
 			@Result(name ="COMPLETE", type="redirect",location = "/member/my_infor?error=2&tab=3"),
 			@Result(name =LOGIN,type="redirect", location = "/login"),
@@ -66,9 +66,9 @@ public class ImageUploadAction extends BaseAction {
 					}
 			        for (int i = 0; i < myFile.size(); i++) {  
 			            imageFileName.add(new Date().getTime()+ getExtention(this.getMyFileFileName().get(i))) ;  
-			            File dir = new File(PropertyUtil.getProperty("imagesLocation")+ account.getUserId() +"/" + i);
+			            File dir = new File(PropertyUtil.getProperty("imagesLocation")+"/"+ account.getUserId() +"/" + i);
 			            dir.mkdirs();
-			            File imageFile = new File(PropertyUtil.getProperty("imagesLocation")+ account.getUserId() + "/" + i +"/" + imageFileName.get(i));   
+			            File imageFile = new File(PropertyUtil.getProperty("imagesLocation")+"/"+ account.getUserId() + "/" + i +"/" + imageFileName.get(i));   
 			            copy(myFile.get(i), imageFile); 
 			        }  
 			        for (int i = 0; i < imageFileName.size(); i++) {
@@ -90,7 +90,7 @@ public class ImageUploadAction extends BaseAction {
 		return SUCCESS;
 	}
 	@Action(value = "/teacherImageUpload", results = { 
-			@Result(name =SUCCESS, type="redirect",location = "/member/my_infor_teacher"),
+			@Result(name =SUCCESS, type="redirect",location = "/member/my_infor_teacher?tab=3"),
 			@Result(name =INPUT, type="redirect",location = "/member/my_infor_teacher?error=1&tab=3"),
 			@Result(name ="COMPLETE", type="redirect",location = "/member/my_infor_teacher?error=2&tab=3"),
 			@Result(name =LOGIN,type="redirect", location = "/login"),
@@ -110,9 +110,9 @@ public class ImageUploadAction extends BaseAction {
 					}
 					for (int i = 0; i < myFile.size(); i++) {  
 						imageFileName.add(new Date().getTime()+ getExtention(this.getMyFileFileName().get(i))) ;  
-						File dir = new File(PropertyUtil.getProperty("imagesLocation")+ account.getUserId() +"/" + i);
+						File dir = new File(PropertyUtil.getProperty("imagesLocation")+"/"+ account.getUserId() +"/" + i);
 						dir.mkdirs();
-						File imageFile = new File(PropertyUtil.getProperty("imagesLocation")+ account.getUserId() + "/" + i +"/" + imageFileName.get(i));   
+						File imageFile = new File(PropertyUtil.getProperty("imagesLocation")+"/"+ account.getUserId() + "/" + i +"/" + imageFileName.get(i));   
 						copy(myFile.get(i), imageFile); 
 					}  
 					for (int i = 0; i < imageFileName.size(); i++) {
